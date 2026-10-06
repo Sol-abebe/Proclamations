@@ -1,0 +1,1040 @@
+ <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proclamation No. 1362/2024 - Health Service Administration and Regulation Proclamation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ethiopia: {
+                            green: '#009B4D',
+                            yellow: '#FFD100',
+                            red: '#EF212D',
+                            blue: '#1E3A8A',
+                            gold: '#D97706',
+                            dark: '#0F172A',
+                            panel: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Ethiopic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Ethiopic support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .highlight-search {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 0.1em 0.3em;
+            border-radius: 0.2em;
+            font-weight: 600;
+        }
+        .dark .highlight-search {
+            background-color: #854d0e;
+            color: #fef08a;
+        }
+        /* Custom scrollbar for sidebar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.5);
+            border-radius: 3px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        /* Print styles */
+        @media print {
+            header, sidebar, footer, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt;
+            }
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            .article-card {
+                break-inside: avoid;
+                border: 1px solid #e5e7eb !important;
+                box-shadow: none !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+
+    <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-200 dark:border-slate-800 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 gap-4">
+                
+                <!-- Left Section: Logo & Title -->
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-8 bg-gradient-to-b from-green-500 via-yellow-400 to-red-500 rounded-full"></div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider font-semibold text-emerald-600 dark:text-emerald-400 block">Federal Negarit Gazette</span>
+                            <h1 class="text-base sm:text-lg font-bold leading-tight text-slate-900 dark:text-white">Proclamation No. 1362/2024</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Section: Search Bar -->
+                <div class="flex-1 max-w-xl mx-2 hidden md:block relative">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="desktop-search" placeholder="Search articles, keywords, Amharic or English terms..." 
+                            class="w-full pl-10 pr-10 py-2 bg-slate-100 dark:bg-slate-800 border border-transparent focus:border-emerald-500 dark:focus:border-emerald-400 rounded-xl text-sm transition-all focus:outline-none dark:text-white">
+                        <button id="clear-search-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Section: Interactive Controls -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Language Selector -->
+                    <div class="bg-slate-100 dark:bg-slate-800 p-1 rounded-xl flex items-center border border-slate-200 dark:border-slate-700 text-xs font-medium">
+                        <button id="lang-all" onclick="setLanguage('all')" class="px-2.5 py-1 rounded-lg transition-all bg-white dark:bg-slate-700 shadow-sm text-emerald-600 dark:text-emerald-400 font-bold">Both</button>
+                        <button id="lang-amh" onclick="setLanguage('amh')" class="px-2.5 py-1 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">አማ</button>
+                        <button id="lang-eng" onclick="setLanguage('eng')" class="px-2.5 py-1 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">EN</button>
+                    </div>
+
+                    <!-- Font Size Adjuster -->
+                    <div class="hidden sm:flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 items-center">
+                        <button onclick="adjustFontSize(-1)" title="Decrease Font Size" class="px-2 py-0.5 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">A-</button>
+                        <button onclick="adjustFontSize(0)" title="Reset Font Size" class="px-2 py-0.5 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">A</button>
+                        <button onclick="adjustFontSize(1)" title="Increase Font Size" class="px-2 py-0.5 text-xs font-bold rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">A+</button>
+                    </div>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                    </button>
+
+                    <!-- Print Button -->
+                    <button onclick="window.print()" title="Print Proclamation" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all hidden sm:block">
+                        <i class="fa-solid fa-print"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="pb-3 md:hidden">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="mobile-search" placeholder="Search keywords..." 
+                        class="w-full pl-10 pr-10 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 rounded-xl text-sm dark:text-white">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex gap-6 py-6">
+        
+        <!-- Sidebar Navigation (TOC) -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transform -translate-x-full lg:translate-x-0 lg:static lg:w-80 lg:z-auto transition-transform duration-300 ease-in-out flex flex-col shadow-2xl lg:shadow-none no-print">
+            
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between lg:hidden">
+                <h2 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-list-ul text-emerald-600"></i> Table of Contents
+                </h2>
+                <button id="close-sidebar-btn" class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-4 border-b border-slate-200 dark:border-slate-800 hidden lg:block">
+                <h2 class="font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                    <i class="fa-solid fa-book-bookmark text-emerald-600"></i> Proclamation Contents
+                </h2>
+            </div>
+
+            <!-- Search Stats -->
+            <div id="search-stats" class="hidden px-4 py-2 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-medium border-b border-amber-200 dark:border-amber-800">
+                Found <span id="match-count" class="font-bold">0</span> matching articles
+            </div>
+
+            <!-- TOC List -->
+            <nav class="flex-1 overflow-y-auto p-3 space-y-1" id="toc-container">
+                <a href="#preamble" class="toc-item flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <i class="fa-solid fa-file-contract text-slate-400 w-4"></i> Preamble & Metadata
+                </a>
+                
+                <div class="pt-2">
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 pb-1">Parts Navigation</div>
+                    
+                    <a href="#part-1" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 1</span>
+                        <span>General Provisions (Arts 1-3)</span>
+                    </a>
+
+                    <a href="#part-2" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 2</span>
+                        <span>Rights & Obligations (Arts 4-5)</span>
+                    </a>
+
+                    <a href="#part-3" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 3</span>
+                        <span>Health Service Provision (Arts 6-18)</span>
+                    </a>
+
+                    <a href="#part-4" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 4</span>
+                        <span>Specialized Medical Services (Arts 19-30)</span>
+                    </a>
+
+                    <a href="#part-5" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 5</span>
+                        <span>Human Resource Development (Arts 31-33)</span>
+                    </a>
+
+                    <a href="#part-6" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 6</span>
+                        <span>Professionals & Facilities Regulation (Arts 34-42)</span>
+                    </a>
+
+                    <a href="#part-7" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 7</span>
+                        <span>Health Research Ethics (Arts 43-45)</span>
+                    </a>
+
+                    <a href="#part-8" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 8</span>
+                        <span>Health Information System (Arts 46-48)</span>
+                    </a>
+
+                    <a href="#part-9" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 9</span>
+                        <span>Health Finance & PPP (Arts 49-50)</span>
+                    </a>
+
+                    <a href="#part-10" class="toc-item group flex flex-col px-3 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-xs">PART 10</span>
+                        <span>Powers & Responsibilities (Arts 51+)</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Overlay backdrop for mobile TOC sidebar -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+        <!-- Main Content Document Display -->
+        <main class="flex-1 min-w-0" id="content-container">
+            
+            <div id="preamble" class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-8 transition-all">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-6 mb-6 text-center">
+                    <span class="inline-block px-3 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-semibold text-xs rounded-full mb-3">
+                        Federal Negarit Gazette • 31st Year No. 45
+                    </span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-2">
+                        PROCLAMATION NO. 1362/2024
+                    </h1>
+                    <h2 class="text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-1">
+                        HEALTH SERVICE ADMINISTRATION AND REGULATION PROCLAMATION
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        Done at Addis Ababa, this 20th day of May, 2025
+                    </p>
+                </div>
+
+                <!-- Dual Preamble Text -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm leading-relaxed">
+                    <div class="lang-amh space-y-3 font-serif border-l-2 border-emerald-500 pl-4 bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-r-lg">
+                        <p class="font-bold text-slate-900 dark:text-slate-100">የጤና አገልግሎት አስተዳደርና ቁጥጥር አዋጅ</p>
+                        <p class="text-slate-700 dark:text-slate-300">
+                            የሕዝቡን የጤና ደህንነት ለመጠበቅና ጥራቱን የጠበቀ የጤና አገልግሎት በተደራሽነትና በፍትሃዊነት ማቅረብ አስፈላጊ በመሆኑ፤
+                            የጤና ባለሙያዎችንና የጤና ተቋማትን ብቃትና ሥነ-ምግባር በበላይነት መቆጣጠር እንዲሁም የጤና አገልግሎት አሰጣጥ ሥርዓትን ማጠናከር በማስፈለጉ የተደነገገ አዋጅ።
+                        </p>
+                    </div>
+                    <div class="lang-eng space-y-3 border-l-2 border-blue-500 pl-4 bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-r-lg">
+                        <p class="font-bold text-slate-900 dark:text-slate-100">Preamble Statement</p>
+                        <p class="text-slate-700 dark:text-slate-300">
+                            WHEREAS, it is necessary to protect public health safety and ensure the accessible, equitable, and quality provision of health services across the Federal Democratic Republic of Ethiopia;
+                            NOW, THEREFORE, in accordance with the Constitution, this Proclamation is hereby enacted to govern Health Service Administration and Regulation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Articles Wrapper -->
+            <div id="articles-wrapper" class="space-y-8">
+
+                <section id="part-1" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART ONE: GENERAL PROVISIONS (ክፍል አንድ፡ ጠቅላላ ድንጋጌዎች)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 1 - 3</span>
+                    </div>
+
+                    <!-- Article 1 -->
+                    <article id="art-1" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 1: Short Title / አንቀጽ 1፡ አጭር ርዕስ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-1')" class="text-slate-400 hover:text-emerald-600 p-1 rounded transition-colors" title="Copy Link">
+                                    <i class="fa-solid fa-link text-xs"></i>
+                                </button>
+                                <button onclick="copyArticleText('art-1')" class="text-slate-400 hover:text-emerald-600 p-1 rounded transition-colors" title="Copy Article Text">
+                                    <i class="fa-regular fa-copy text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                ይህ አዋጅ "የጤና አገልግሎት አስተዳደርና ቁጥጥር አዋጅ ቁጥር 1362/2016" ተብሎ ሊጠቀስ ይችላል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                This Proclamation may be cited as the "Health Service Administration and Regulation Proclamation No. 1362/2024".
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article id="art-2" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 2: Definitions (1-44) / አንቀጽ 2፡ ትርጓሜ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-2')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-2')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4 italic">Contains 44 comprehensive regulatory definitions for health administration in Ethiopia.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif space-y-3 text-slate-700 dark:text-slate-300">
+                                <p><strong>1/ "የጤና ተቋም"</strong> ማለት ማንኛውም የጤና ማስተዋወቅ፣ የመከላከል፣ የማከም፣ የህክምና ማገገሚያ ወይም የፓሊያቲቭ አገልግሎት የሚሰጥ የመንግስት ወይም የግል ተቋም ነው፤</p>
+                                <p><strong>2/ "የጤና ባለሙያ"</strong> ማለት በተፈቀደለት ሙያ የጤና አገልግሎት ለመስጠት ከተወጣጣ አካል የሙያ ፈቃድ የተሰጠው ሰው ነው፤</p>
+                                <p><strong>3/ "አስቸኳይ የህክምና እርዳታ"</strong> ማለት ህይወትን ወይም አካልን ለማዳን ወዲያውኑ የሚሰጥ የህክምና ህክምና አገልግሎት ነው፤</p>
+                                <p><strong>4/ "የአካል እና የህዋስ ልገሳ"</strong> ማለት ለህክምና፣ ለምርምር ወይም ለትምህርት የሚደረግ የሰዉ አካል ክፍል ወይም ህዋስ ልገሳ ነው።</p>
+                            </div>
+                            <div class="lang-eng space-y-3 text-slate-700 dark:text-slate-300">
+                                <p><strong>1/ "Health Institution"</strong> means any public or private facility providing health promotion, disease prevention, curative, rehabilitative, or palliative health services;</p>
+                                <p><strong>2/ "Health Professional"</strong> means any person licensed by the competent regulatory authority to practice medicine or health services;</p>
+                                <p><strong>3/ "Emergency Medical Service"</strong> means immediate medical intervention required to save a person's life or prevent severe physical damage;</p>
+                                <p><strong>4/ "Organ and Tissue Donation"</strong> means the voluntary donation of human organs, tissues, or cells for therapeutic, scientific, or educational purposes.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article id="art-3" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 3: Scope of Application / አንቀጽ 3፡ የተፈጻሚነት ወሰን
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-3')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-3')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                ይህ አዋጅ በኢትዮጵያ ግዛት ውስጥ በሚገኙ በማንኛውም የጤና ተቋማት፣ የጤና ባለሙያዎች፣ የጤና አገልግሎት አቅራቢዎች እና የጤና ተዛማጅ ተቋማት ላይ ተፈጻሚ ይሆናል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                This Proclamation shall apply to all health institutions, health professionals, healthcare providers, and health-related facilities operating within the territorial jurisdiction of Ethiopia.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-2" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART TWO: RIGHTS & OBLIGATIONS (ክፍል ሁለት፡ መብትና ግዴታዎች)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 4 - 5</span>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <article id="art-4" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 4: Patient Rights & Obligations / አንቀጽ 4፡ የሕመምተኞች መብትና ግዴታ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-4')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-4')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif space-y-2 text-slate-700 dark:text-slate-300">
+                                <p><strong>1/ የመብት ድንጋጌዎች፡</strong> ማንኛውም ታካሚ ያለ ምንም ልዩነት ሰብአዊ ክብር ያለው፣ ሚስጥራዊነቱ የተጠበቀ እና ሙሉ መረጃን መሰረት ያደረገ ህክምና የማግኘት መብት አለው።</p>
+                                <p><strong>2/ የግዴታ ድንጋጌዎች፡</strong> ታካሚው ስለጤና ሁኔታው ትክክለኛ መረጃ ለጤና ባለሙያ የመስጠትና የተቋሙን ህጎች የማክበር ግዴታ አለበት።</p>
+                            </div>
+                            <div class="lang-eng space-y-2 text-slate-700 dark:text-slate-300">
+                                <p><strong>1/ Patient Rights:</strong> Every patient has the right to receive respectful, dignified, and confidential healthcare without discrimination, and to give informed consent.</p>
+                                <p><strong>2/ Patient Duties:</strong> Patients must provide accurate medical history to healthcare providers and abide by facility regulations and rules.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article id="art-5" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 5: Duties of Health Institutions / አንቀጽ 5፡ የጤና ተቋማት ግዴታዎች
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-5')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-5')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የጤና ተቋማት የጥራት ደረጃዎችን ማሟላት፣ የአደጋ ጊዜ የህክምና አገልግሎቶችን መስጠት እና የሕመምተኞችን ደህንነት የመጠበቅ ህጋዊ ግዴታ አለባቸው።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Health institutions shall comply with national standards, guarantee emergency medical services regardless of immediate payment ability, and implement patient safety protocols.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-3" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART THREE: HEALTH SERVICE PROVISION (ክፍል ሦስት፡ የጤና አገልግሎት አሰጣጥ)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 6 - 18</span>
+                    </div>
+
+                    <!-- Article 10: Emergency Medical Service -->
+                    <article id="art-10" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 10: Emergency Medical Service / አንቀጽ 10፡ አስቸኳይ የህክምና አገልግሎት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-10')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-10')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif space-y-2 text-slate-700 dark:text-slate-300">
+                                <p>1/ ማንኛውም የጤና ተቋም አስቸኳይ የህክምና አገልግሎት ለሚፈልግ ሰው ያለ ቅድመ ክፍያ ክፍያ አጣዳፊ ህክምና የማቅረብ ግዴታ አለበት።</p>
+                                <p>2/ ህይወቱን ለማዳን የሚያስፈልገውን የመጀመሪያ ህክምና ሳይሰጥ ታካሚን ማዛወር ወይም ማባረር የተከለከለ ነው።</p>
+                            </div>
+                            <div class="lang-eng space-y-2 text-slate-700 dark:text-slate-300">
+                                <p>1/ Every health institution shall provide emergency medical treatment to any person requiring emergency care without demanding advance financial payment.</p>
+                                <p>2/ No emergency patient shall be transferred or discharged prior to stabilization and initial life-saving treatment.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 11: Referral System -->
+                    <article id="art-11" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 11: Referral Network / አንቀጽ 11፡ የሪፈራል ሥርዓት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-11')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-11')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የጤና አገልግሎት ሪፈራል ሥርዓት ደረጃቸውን በጠበቁ የሪፈራል ፎርሞች እና የኮሙኒኬሽን መመሪያዎች መሰረት መከናወን አለበት።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Patient referral procedures shall follow standardized protocols, complete medical documentation, and coordinated inter-facility communication.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Articles Summary for Part 3 -->
+                    <div class="p-4 bg-slate-100 dark:bg-slate-800/50 rounded-xl text-xs text-slate-600 dark:text-slate-400">
+                        <strong class="text-slate-900 dark:text-slate-200">Additional Provisions in Part 3 (Arts. 6-18):</strong>
+                        Includes Principles of Care (Art 6), Immunization & Public Health (Art 7), Pre-Health Care Services (Art 8), Informed Consent Protocols (Art 9), Rehabilitation (Art 12), Hospice/Palliative Care (Art 13), Ventilator Termination Rules (Art 14), Forensic & Toxicology Examination (Art 15), Management of Deceased Persons (Art 16), Anatomic Pathology/Educational Cadavers (Art 17), and Complementary/Traditional Medicine Regulation (Art 18).
+                    </div>
+                </section>
+
+                <section id="part-4" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART FOUR: SPECIALIZED SERVICES & TRANSPLANTATION (ክፍል አራት)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 19 - 30</span>
+                    </div>
+
+                    <!-- Article 19: Mental Health -->
+                    <article id="art-19" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 19: Mental Health Services / አንቀጽ 19፡ የአእምሮ ጤና አገልግሎት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-19')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-19')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የአእምሮ ሕመምተኞች ሰብአዊ መብታቸውና ክብራቸው በተጠበቀ መልኩ ተገቢውን የህክምና እና የክትትል አገልግሎት የማግኘት መብት አላቸው።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Mental health services shall be delivered with full respect for human dignity, prohibiting inhuman treatment or unauthorized involuntary isolation.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 22: Organ, Tissue and Cell Transplantation -->
+                    <article id="art-22" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 22: Organ & Cell Transplantation / አንቀጽ 22፡ የአካልና የህዋስ ንቅለ ተከላ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-22')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-22')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif space-y-2 text-slate-700 dark:text-slate-300">
+                                <p>1/ የሰው አካል፣ ህዋስ ወይም ደም ልገሳ እና ንቅለ ተከላ የሚከናወነው በተፈቀደላቸው ልዩ የጤና ተቋማት ብቻ ነው።</p>
+                                <p>2/ ማንኛውንም የሰው አካል ወይም ህዋስ መሸጥ ወይም ለንግድ ጥቅም ማዋል በጥብቅ የተከለከለ ነው።</p>
+                            </div>
+                            <div class="lang-eng space-y-2 text-slate-700 dark:text-slate-300">
+                                <p>1/ Organ, tissue, and cellular harvesting and transplantation shall strictly take place in designated specialized health facilities.</p>
+                                <p>2/ Commercial trade, financial exploitation, or trafficking of human organs or tissues is strictly prohibited by law.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 30: Assisted Reproductive Technology -->
+                    <article id="art-30" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 30: Assisted Reproduction & Embryos / አንቀጽ 30፡ የቴክኖሎጂ አጋዥ የመራቦት አገልግሎት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-30')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-30')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                በቴክኖሎጂ የተደገፈ የልጅ መውለድ ህክምና እና የፅንስ (embryo) አያያዝና ማስወገድ በሚወጡ ልዩ ባዮኤቲክስ መመሪያዎች መሰረት ይፈጸማል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Assisted Reproductive Technologies (ART) and embryo storage or disposal protocols shall comply with prescribed regulatory guidelines and bioethical standards.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-5" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART FIVE: HUMAN RESOURCES DEVELOPMENT (ክፍል አምስት)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 31 - 33</span>
+                    </div>
+
+                    <!-- Article 33: CPD -->
+                    <article id="art-33" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 33: Continuous Professional Development (CPD) / አንቀጽ 33፡ ዘዋሪ ሙያዊ ማሻሻያ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-33')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-33')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                ማንኛውም የጤና ባለሙያ የሙያ ፈቃዱን ለማደስ ቀጣይነት ያለው የሙያ ማሻሻያ (CPD) ስልጠናዎችን የመውሰድ ግዴታ አለበት።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Every licensed health professional is required to undergo Continuous Professional Development (CPD) as a mandatory prerequisite for professional license renewal.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-6" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART SIX: REGULATION & ETHICS (ክፍል ስድስት፡ ቁጥጥርና ሥነ-ምግባር)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 34 - 42</span>
+                    </div>
+
+                    <!-- Article 34: Competency -->
+                    <article id="art-34" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 34: Professional Competency & Licensing / አንቀጽ 34፡ የሙያ ብቃትና ፈቃድ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-34')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-34')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                ያለ ተገቢው የብቃት ማረጋገጫ እና የሙያ ፈቃድ ማንኛውንም የጤና አገልግሎት መስጠት የተከለከለ ነው።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Practicing or delivering healthcare services without a valid certificate of competence and professional license issued by the regulatory authority is strictly prohibited.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 36: Professional Ethics -->
+                    <article id="art-36" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 36: Professional Ethics Committee / አንቀጽ 36፡ የሙያ ሥነ-ምግባር ኮሚቴ
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-36')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-36')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የጤና ባለሙያዎችን የሥነ-ምግባር ጉድለት እና የህክምና ስህተት መርምሮ ውሳኔ የሚሰጥ ገለልተኛ የሥነ-ምግባር ጉባኤ ወይም ኮሚቴ ይቋቋማል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                An Ethics Committee shall be established to investigate professional negligence, medical malpractice, and disciplinary violations by healthcare providers.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-7" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART SEVEN: HEALTH RESEARCH ETHICS (ክፍል ሰባት)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 43 - 45</span>
+                    </div>
+
+                    <article id="art-43" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 43: Clinical Trials & Health Research / አንቀጽ 43፡ የጤና ምርምር
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-43')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-43')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                በሰው ላይ የሚደረግ የህክምና ምርምር አገራዊ የስነ-ምግባር ፈቃድ ማግኘት እና ከተሳታፊዎች በነፃነት የተሰጠ ስምምነት ማግኘት አለበት።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Health research involving human subjects requires prior clearance from an accredited institutional review board and informed written consent from participants.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-8" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART EIGHT: HEALTH INFORMATION SYSTEM (ክፍል ስምንት)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 46 - 48</span>
+                    </div>
+
+                    <article id="art-46" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 46: National Digital Health System / አንቀጽ 46፡ የጤና መረጃ ሥርዓት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-46')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-46')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                ሁሉም የጤና ተቋማት የጤና መረጃዎችን በብሔራዊ ዲጂታል የጤና መረጃ ሥርዓት መሰረት የመመዝገብ እና የማስተላለፍ ግዴታ አለባቸው።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                All health facilities shall adopt standardized national health information frameworks and securely transmit health statistics and epidemiological data.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-9" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART NINE: HEALTH FINANCE & PPP (ክፍል ዘጠኝ)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 49 - 50</span>
+                    </div>
+
+                    <article id="art-50" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 50: Public-Private Partnerships (PPP) / አንቀጽ 50፡ የመንግስት እና የግል አጋርነት
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-50')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-50')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የጤና አገልግሎት ተዳራሽነትንና ጥራትን ለማሳደግ በመንግስትና በግል ዘርፍ መካከል በሚደረግ አጋርነት የጤና መሠረተ ልማቶችን ማስፋፋት ይበረታታል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                Public-Private Partnerships (PPP) in healthcare delivery and infrastructure investment are promoted to scale up quality specialized services nationwide.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="part-10" class="part-section">
+                    <div class="sticky top-16 z-30 bg-slate-100 dark:bg-slate-900/90 backdrop-blur py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                        <h2 class="font-bold text-emerald-800 dark:text-emerald-400 text-sm sm:text-base uppercase tracking-wider">
+                            <i class="fa-solid fa-layer-group mr-2"></i>PART TEN: POWERS & RESPONSIBILITIES (ክፍል አሥር)
+                        </h2>
+                        <span class="text-xs text-slate-500 font-mono">Arts. 51+</span>
+                    </div>
+
+                    <article id="art-51" class="article-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700/60 mb-4 transition-all">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/50 pb-3 mb-4">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Article 51: Powers & Duties of the Ministry / አንቀጽ 51፡ የጤና ሚኒስቴር ሥልጣንና ተግባር
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <button onclick="copyArticlePermalink('art-51')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-solid fa-link text-xs"></i></button>
+                                <button onclick="copyArticleText('art-51')" class="text-slate-400 hover:text-emerald-600 p-1 rounded"><i class="fa-regular fa-copy text-xs"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="lang-amh font-serif text-slate-700 dark:text-slate-300">
+                                የጤና ሚኒስቴር የጤና መመሪያዎችን ያወጣል፣ አገራዊ የጤና ፖሊሲዎችን ያስፈጽማል፣ እና የጤና ተቋማትን እና ባለሙያዎችን አጠቃላይ ቁጥጥር ይቆጣጠራል።
+                            </div>
+                            <div class="lang-eng text-slate-700 dark:text-slate-300">
+                                The Ministry of Health shall issue regulations, enforce public health directives, oversee regulatory bodies, and establish national healthcare quality control mechanisms.
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 no-print">
+        <i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i>
+        <span id="toast-message" class="text-sm font-medium">Notification message</span>
+    </div>
+
+    <script>
+        // State Management
+        let currentFontSizeLevel = 0;
+        const fontClasses = ['text-xs', 'text-sm', 'text-base', 'text-lg'];
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Initialize saved theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Font Size Adjuster
+        function adjustFontSize(delta) {
+            const articles = document.querySelectorAll('.article-card .grid');
+            if (delta === 0) {
+                currentFontSizeLevel = 0;
+            } else {
+                currentFontSizeLevel = Math.max(-1, Math.min(2, currentFontSizeLevel + delta));
+            }
+
+            articles.forEach(el => {
+                el.classList.remove('text-xs', 'text-sm', 'text-base', 'text-lg');
+                if (currentFontSizeLevel === -1) el.classList.add('text-xs');
+                else if (currentFontSizeLevel === 0) el.classList.add('text-sm');
+                else if (currentFontSizeLevel === 1) el.classList.add('text-base');
+                else if (currentFontSizeLevel === 2) el.classList.add('text-lg');
+            });
+            showToast(`Font size adjusted`);
+        }
+
+        // Language Filter
+        function setLanguage(lang) {
+            const amhElems = document.querySelectorAll('.lang-amh');
+            const engElems = document.querySelectorAll('.lang-eng');
+            
+            // Buttons UI reset
+            document.querySelectorAll('#lang-all, #lang-amh, #lang-eng').forEach(btn => {
+                btn.className = 'px-2.5 py-1 rounded-lg transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+            });
+
+            const activeBtn = document.getElementById(`lang-${lang}`);
+            if (activeBtn) {
+                activeBtn.className = 'px-2.5 py-1 rounded-lg transition-all bg-white dark:bg-slate-700 shadow-sm text-emerald-600 dark:text-emerald-400 font-bold';
+            }
+
+            if (lang === 'all') {
+                amhElems.forEach(el => el.classList.remove('hidden'));
+                engElems.forEach(el => el.classList.remove('hidden'));
+            } else if (lang === 'amh') {
+                amhElems.forEach(el => el.classList.remove('hidden'));
+                engElems.forEach(el => el.classList.add('hidden'));
+            } else if (lang === 'eng') {
+                amhElems.forEach(el => el.classList.add('hidden'));
+                engElems.forEach(el => el.classList.remove('hidden'));
+            }
+        }
+
+        // Live Search & Highlighting Engine
+        const desktopSearch = document.getElementById('desktop-search');
+        const mobileSearch = document.getElementById('mobile-search');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        const searchStats = document.getElementById('search-stats');
+        const matchCountEl = document.getElementById('match-count');
+
+        function handleSearch(query) {
+            query = query.trim().toLowerCase();
+            const articles = document.querySelectorAll('.article-card');
+            let matches = 0;
+
+            if (query === '') {
+                clearSearchBtn.classList.add('hidden');
+                searchStats.classList.add('hidden');
+                articles.forEach(art => {
+                    art.classList.remove('hidden');
+                    removeHighlights(art);
+                });
+                return;
+            }
+
+            clearSearchBtn.classList.remove('hidden');
+
+            articles.forEach(art => {
+                removeHighlights(art);
+                const text = art.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    art.classList.remove('hidden');
+                    highlightText(art, query);
+                    matches++;
+                } else {
+                    art.classList.add('hidden');
+                }
+            });
+
+            searchStats.classList.remove('hidden');
+            matchCountEl.textContent = matches;
+        }
+
+        function highlightText(node, query) {
+            const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null, false);
+            const nodesToReplace = [];
+
+            while (walker.nextNode()) {
+                const textNode = walker.currentNode;
+                if (textNode.parentNode.classList.contains('highlight-search')) continue;
+                
+                const idx = textNode.nodeValue.toLowerCase().indexOf(query);
+                if (idx !== -1) {
+                    nodesToReplace.push({ textNode, idx });
+                }
+            }
+
+            nodesToReplace.forEach(({ textNode, idx }) => {
+                const parent = textNode.parentNode;
+                const val = textNode.nodeValue;
+                const matched = val.substring(idx, idx + query.length);
+                const before = document.createTextNode(val.substring(0, idx));
+                const after = document.createTextNode(val.substring(idx + query.length));
+
+                const span = document.createElement('span');
+                span.className = 'highlight-search';
+                span.appendChild(document.createTextNode(matched));
+
+                parent.insertBefore(before, textNode);
+                parent.insertBefore(span, textNode);
+                parent.insertBefore(after, textNode);
+                parent.removeChild(textNode);
+            });
+        }
+
+        function removeHighlights(node) {
+            const highlights = node.querySelectorAll('.highlight-search');
+            highlights.forEach(span => {
+                const parent = span.parentNode;
+                parent.replaceChild(document.createTextNode(span.textContent), span);
+                parent.normalize();
+            });
+        }
+
+        desktopSearch.addEventListener('input', (e) => {
+            mobileSearch.value = e.target.value;
+            handleSearch(e.target.value);
+        });
+
+        mobileSearch.addEventListener('input', (e) => {
+            desktopSearch.value = e.target.value;
+            handleSearch(e.target.value);
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            desktopSearch.value = '';
+            mobileSearch.value = '';
+            handleSearch('');
+        });
+
+        // Copy Article Permalink
+        function copyArticlePermalink(artId) {
+            const url = `${window.location.origin}${window.location.pathname}#${artId}`;
+            copyToClipboard(url, 'Permalink copied to clipboard!');
+        }
+
+        // Copy Article Text
+        function copyArticleText(artId) {
+            const article = document.getElementById(artId);
+            if (!article) return;
+            const text = article.innerText;
+            copyToClipboard(text, 'Article text copied!');
+        }
+
+        // Safe Clipboard Fallback
+        function copyToClipboard(text, successMsg) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showToast(successMsg));
+            } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(successMsg);
+                } catch (err) {
+                    showToast('Failed to copy');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Toast Notification System
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Mobile Sidebar Drawer
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleSidebar);
+        closeSidebarBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Close mobile menu on TOC item click
+        document.querySelectorAll('.toc-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Scroll active TOC highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.part-section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.toc-item').forEach(item => {
+                item.classList.remove('bg-emerald-50', 'dark:bg-emerald-950/40', 'text-emerald-600', 'dark:text-emerald-400');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('bg-emerald-50', 'dark:bg-emerald-950/40', 'text-emerald-600', 'dark:text-emerald-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
