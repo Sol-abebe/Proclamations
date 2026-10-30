@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Proclamation No. 1362/2024 | የጤና አገልግሎት አስተዳደር እና ቁጥጥር አዋጅ</title>
+  <title>Proclamation No. 1362/2025 | የጤና አገልግሎት አስተዳደር እና ቁጥጥር አዋጅ</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +31,7 @@
       --emerald-glow: rgba(16, 185, 129, 0.25);
       --gold-accent: #f59e0b;
       --rose-accent: #f43f5e;
+      --indigo-accent: #6366f1;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
@@ -66,8 +66,8 @@
       animation: floatGlow 14s ease-in-out infinite alternate;
     }
     .orb-1 { top: -150px; left: -150px; width: 550px; height: 550px; background: var(--brand-blue); }
-    .orb-2 { top: 35%; right: -180px; width: 600px; height: 600px; background: var(--emerald-accent); }
-    .orb-3 { bottom: -150px; left: 25%; width: 500px; height: 500px; background: #6366f1; }
+    .orb-2 { top: 35%; right: -180px; width: 600px; height: 600px; background: var(--indigo-accent); }
+    .orb-3 { bottom: -150px; left: 25%; width: 500px; height: 500px; background: var(--emerald-accent); }
 
     @keyframes floatGlow {
       0% { transform: scale(1) translate(0, 0); opacity: 0.18; }
@@ -87,10 +87,10 @@
 
     .card-3d {
       transform-style: preserve-3d;
-      perspective: 1000px;
+      perspective: 1200px;
     }
     .card-3d:hover {
-      transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
+      transform: translateY(-4px) rotateX(0.5deg) rotateY(-0.5deg);
       border-color: var(--border-accent);
       box-shadow: 0 22px 45px -12px var(--brand-glow), inset 0 1px 2px rgba(255, 255, 255, 0.28);
     }
@@ -137,7 +137,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 22px var(--brand-glow);
+      box-shadow: 0 0 22px var(--emerald-glow);
     }
     .logo-badge-inner {
       width: 100%;
@@ -147,10 +147,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--brand-sky);
+      color: var(--emerald-accent);
     }
 
-    /* TOUCH TARGETS & BUTTONS */
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -192,9 +192,35 @@
       gap: 3px;
     }
 
+    /* METRICS DASHBOARD */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .metric-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
     /* HERO & SEARCH BAR */
     .hero {
-      padding: 2rem 0 1.5rem 0;
+      padding: 2rem 0 1.25rem 0;
       position: relative;
       z-index: 10;
     }
@@ -212,9 +238,9 @@
       gap: 0.5rem;
       padding: 0.4rem 0.95rem;
       border-radius: 9999px;
-      background: rgba(2, 132, 199, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      color: var(--brand-sky);
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: var(--emerald-accent);
       font-size: 0.78rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -222,7 +248,7 @@
       margin-bottom: 0.85rem;
     }
     .hero-title {
-      font-size: clamp(1.75rem, 4.2vw, 2.75rem);
+      font-size: clamp(1.6rem, 3.8vw, 2.5rem);
       font-weight: 900;
       line-height: 1.25;
       letter-spacing: -0.02em;
@@ -309,7 +335,7 @@
       user-select: none;
     }
     .pill:active { transform: scale(0.96); }
-    .pill:hover, .pill-active {
+    .pill:hover, .pill.active {
       background: rgba(56, 189, 248, 0.22);
       color: var(--brand-sky);
       border-color: var(--brand-sky);
@@ -322,192 +348,126 @@
       z-index: 10;
       flex-grow: 1;
     }
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-    @media (min-width: 992px) {
-      .content-grid { grid-template-columns: 300px 1fr; }
-    }
 
-    /* SIDEBAR TOC */
-    .sidebar {
-      position: sticky;
-      top: 92px;
+    /* 3D FLIP CARD CONTAINER */
+    .flashcard-deck-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      z-index: 20;
-    }
-    @media (max-width: 991px) {
-      .sidebar {
-        position: static;
-        margin-bottom: 0.5rem;
-      }
-      .toc-list {
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 0.5rem;
-        gap: 0.5rem !important;
-        max-height: none !important;
-      }
-      .toc-item {
-        scroll-snap-align: start;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
     }
 
-    .toc-title {
+    .perspective-container {
+      perspective: 1400px;
+      width: 100%;
+      max-width: 840px;
+      min-height: 500px;
+      position: relative;
+    }
+
+    .card-3d-flip {
+      width: 100%;
+      min-height: 500px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+    .card-3d-flip.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 24px;
+      padding: 2.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-face.back {
+      transform: rotateY(180deg);
+      border-color: var(--emerald-accent);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(6, 78, 59, 0.85));
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-badge {
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--emerald-accent);
       font-size: 0.78rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
-    .toc-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      max-height: calc(100vh - 210px);
+
+    .card-content-area {
+      padding: 1.25rem 0;
+      flex-grow: 1;
       overflow-y: auto;
-      padding-right: 0.25rem;
-    }
-    .toc-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 42px;
-      padding: 0.6rem 0.85rem;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-    .toc-item:hover, .toc-item.active {
-      background: rgba(22, 34, 54, 0.9);
-      color: var(--brand-sky);
-      border-color: rgba(56, 189, 248, 0.35);
     }
 
-    /* PARTS & ARTICLES */
-    .part-section {
-      margin-bottom: 2.25rem;
-      scroll-margin-top: 96px;
-    }
-    .part-header {
-      padding: 1.25rem 1.45rem;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(90deg, rgba(2, 132, 199, 0.25), rgba(11, 20, 36, 0.85));
-      border-left: 4px solid var(--brand-blue);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .part-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #ffffff;
-    }
-    .article-card {
-      margin-bottom: 1.25rem;
-      padding: 1.45rem;
-      position: relative;
-    }
-    .article-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-bottom: 0.85rem;
-      margin-bottom: 0.95rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .article-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.3rem 0.75rem;
-      border-radius: 8px;
-      background: rgba(2, 132, 199, 0.25);
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      color: var(--brand-sky);
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-    .article-heading {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #ffffff;
-    }
-    .article-body {
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
-
-    /* DUAL SPLIT VIEW */
     .split-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.35rem;
+      gap: 1.25rem;
     }
     @media (min-width: 768px) {
       .split-grid.dual-mode { grid-template-columns: 1fr 1fr; }
       .split-col-am { border-right: 1px solid var(--border-color); padding-right: 1.15rem; }
     }
 
-    /* PENALTY MATRIX TABLE */
-    .table-container {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 1.15rem;
-      border-radius: 14px;
+    /* CARD CONTROLS & NAV */
+    .deck-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    /* GRID VIEW CONTAINER */
+    .cards-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-card-item {
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      background: rgba(8, 15, 28, 0.85);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 0.875rem;
-    }
-    th {
-      background: rgba(20, 33, 56, 0.95);
-      color: var(--brand-sky);
-      padding: 0.95rem 1.1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border-color);
-    }
-    td {
-      padding: 0.95rem 1.1rem;
-      border-bottom: 1px solid var(--border-color);
-      color: #cbd5e1;
-      vertical-align: top;
-    }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: rgba(30, 45, 70, 0.55); }
-    .penalty-highlight {
-      color: var(--gold-accent);
-      font-weight: 700;
+    .grid-card-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--emerald-accent);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
     mark.search-match {
@@ -577,17 +537,17 @@
       align-items: center;
       gap: 1rem;
       padding: 1.25rem 1.6rem;
-      background: linear-gradient(135deg, rgba(11, 20, 36, 0.96), rgba(2, 132, 199, 0.28));
-      border: 1px solid var(--border-accent);
+      background: linear-gradient(135deg, rgba(11, 20, 36, 0.96), rgba(16, 185, 129, 0.28));
+      border: 1px solid rgba(16, 185, 129, 0.45);
       border-radius: 22px;
-      box-shadow: 0 12px 35px -5px var(--brand-glow);
+      box-shadow: 0 12px 35px -5px var(--emerald-glow);
     }
     .doctor-avatar {
       width: 54px;
       height: 54px;
       min-width: 54px;
       border-radius: 18px;
-      background: linear-gradient(135deg, var(--brand-blue), var(--emerald-accent));
+      background: linear-gradient(135deg, var(--emerald-accent), var(--brand-blue));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -636,18 +596,24 @@
         <a href="#" class="brand-logo" onclick="resetView(); return false;">
           <div class="logo-badge">
             <div class="logo-badge-inner">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
           </div>
           <div>
-            <div style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--brand-sky); text-transform: uppercase;">FDRE Negarit Gazette No. 45</div>
-            <div style="font-size: 1rem; font-weight: 800; color: #ffffff; line-height: 1.1;">Proc. No. 1362/2024</div>
+            <div style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--emerald-accent); text-transform: uppercase;">Health Service Administration & Regulation</div>
+            <div style="font-size: 1rem; font-weight: 800; color: #ffffff; line-height: 1.1;">Proc. No. 1362/2025</div>
           </div>
         </a>
 
-        <!-- Controls: Language, Font, Bookmarks -->
+        <!-- Controls: Language, Font, View Mode, Bookmarks -->
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           
+          <!-- View Mode Toggle (3D Deck vs Grid) -->
+          <button id="view-mode-btn" class="btn" onclick="toggleViewMode()" style="background: rgba(16, 185, 129, 0.18); border-color: rgba(16, 185, 129, 0.4); color: var(--emerald-accent);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            <span>Grid View</span>
+          </button>
+
           <!-- Language Selector -->
           <div class="btn-group">
             <button id="btn-lang-am" class="btn btn-active" onclick="setLanguage('am')">አማርኛ</button>
@@ -683,43 +649,44 @@
           <div>
             <div class="hero-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              FDRE Negarit Gazette • Proclamation 1362/2024
+              Health Administration Law
             </div>
 
             <h1 class="hero-title">
-              የጤና አገልግሎት አስተዳደር እና ቁጥጥር አዋጅ
+              የጤና አገልግሎት አስተዳደር እና ቁጥጥር አዋጅ ቁጥር 1362/2017
             </h1>
             <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 780px;">
-              Health Service Administration and Regulation Proclamation No. 1362/2024. Exhaustive complete legal text covering all 59 Articles across 12 Parts in Amharic & English.
+              Health Service Administration and Regulation Proclamation No. 1362/2025. Interactive 3D Flashcard Suite covering facility standards, practitioner licensure, active euthanasia bans (Art. 13(3)) vs ventilator withdrawal (Art. 14), patient rights, emergency obligations, organ transplants, and regulatory fines.
             </p>
 
             <!-- Search Field with Clear Button -->
             <div class="search-wrapper">
               <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="text" id="main-search-input" class="search-input" placeholder="Search across all 59 articles (e.g., 'ንቅለ-ተከላ', 'Consent', 'Transplant', 'ቅጣት')..." oninput="executeSearch(this.value)">
+              <input type="text" id="main-search-input" class="search-input" placeholder="Search flashcards (e.g., 'euthanasia', 'brain death', 'ድገተኛ ህክምና', 'licensure', 'transplant')..." oninput="executeSearch(this.value)">
               <button id="search-clear-btn" class="search-clear-btn" onclick="clearSearch()" title="Clear Search">✕</button>
             </div>
 
             <!-- Quick Filter Pills -->
-            <div class="filter-pills">
+            <div class="filter-pills" id="filter-pills-container">
               <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 700; align-self: center;">Filters:</span>
-              <button class="pill" onclick="quickFilter('ትርጓሜ')">Definitions (ትርጓሜ)</button>
-              <button class="pill" onclick="quickFilter('Patient')">Patient Rights</button>
-              <button class="pill" onclick="quickFilter('ንቅለ-ተከላ')">Organ Transplant</button>
-              <button class="pill" onclick="quickFilter('Reproductive')">ART Services</button>
-              <button class="pill" onclick="quickFilter('ቅጣት')">Penalties (ቅጣት)</button>
-              <button class="pill" onclick="quickFilter('ሥልጣን')">Ministry Powers</button>
+              <button class="pill active" onclick="filterCategory('ALL')">All Sections</button>
+              <button class="pill" onclick="filterCategory('S1')">General & Scope</button>
+              <button class="pill" onclick="filterCategory('S2')">Facility Standards</button>
+              <button class="pill" onclick="filterCategory('S3')">Ethics & End-of-Life</button>
+              <button class="pill" onclick="filterCategory('S4')">Patient Rights & Emergencies</button>
+              <button class="pill" onclick="filterCategory('S5')">Transplants & Bioethics</button>
+              <button class="pill" onclick="filterCategory('S6')">Regulation & Penalties</button>
             </div>
 
           </div>
 
-          <!-- Emblem Box -->
+          <!-- Quick Stats Box -->
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-left: 1px solid var(--border-color); padding-left: 1.25rem;">
-            <div style="width: 76px; height: 76px; border-radius: 22px; background: rgba(2, 132, 199, 0.18); border: 1px solid var(--brand-sky); display: flex; align-items: center; justify-content: center; color: var(--brand-sky); margin-bottom: 0.85rem; box-shadow: 0 0 25px var(--brand-glow);">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
+            <div style="width: 76px; height: 76px; border-radius: 22px; background: rgba(16, 185, 129, 0.18); border: 1px solid var(--emerald-accent); display: flex; align-items: center; justify-content: center; color: var(--emerald-accent); margin-bottom: 0.85rem; box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
             </div>
-            <div style="font-size: 1.1rem; font-weight: 900; color: #ffffff;">Proclamation 1362</div>
-            <div style="font-size: 0.78rem; color: var(--emerald-accent); font-weight: 700; margin-top: 0.2rem;">Complete Statutory Text</div>
+            <div style="font-size: 1.1rem; font-weight: 900; color: #ffffff;" id="total-cards-indicator">18 Flashcards</div>
+            <div style="font-size: 0.78rem; color: var(--emerald-accent); font-weight: 700; margin-top: 0.2rem;">Complete Legal Coverage</div>
           </div>
 
         </div>
@@ -730,27 +697,118 @@
   <!-- MAIN CONTENT CONTAINER -->
   <main class="app-main">
     <div class="max-container">
-      <div class="content-grid">
-        
-        <!-- SIDEBAR TOC -->
-        <aside class="sidebar">
-          <div class="glass-panel" style="padding: 1.15rem;">
-            <div class="toc-title">
-              <span>Table of Contents</span>
-              <span style="color: var(--brand-sky);">59 Articles</span>
-            </div>
-            <nav id="toc-container" class="toc-list">
-              <!-- Dynamically populated -->
-            </nav>
-          </div>
-        </aside>
 
-        <!-- PROCLAMATION VIEWER -->
-        <div id="proclamation-viewer">
-          <!-- Dynamically populated with exhaustive unabridged content -->
+      <!-- Metrics Dashboard -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--brand-sky);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+          </div>
+          <div>
+            <div id="stat-mastered" style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">0</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Mastered Clauses</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--gold-accent);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div id="stat-review" style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">0</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Marked for Review</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--emerald-accent);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div id="stat-progress" style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">0%</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Mastery Progress</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW MODE 1: 3D FLASHCARD DECK -->
+      <div id="deck-view-container" class="flashcard-deck-wrapper">
+        <div class="perspective-container">
+          <div id="card-3d-element" class="card-3d-flip" onclick="flipActiveCard()">
+            
+            <!-- FRONT FACE -->
+            <div class="card-face glass-panel">
+              <div class="card-top-row">
+                <span id="front-section-badge" class="section-badge">Section 1</span>
+                <span id="front-articles-badge" style="font-size: 0.82rem; font-weight: 700; color: var(--text-dim);">Art. 1 – 4</span>
+              </div>
+              <div class="card-content-area">
+                <div class="split-grid" id="front-split-grid">
+                  <div class="split-col amharic-col" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 id="front-title-am" style="font-size: 1.35rem; font-weight: 800; color: var(--emerald-accent); margin-bottom: 0.75rem;">---</h2>
+                    <p id="front-preview-am" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">---</p>
+                  </div>
+                  <div class="split-col english-col" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 id="front-title-en" style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">---</h2>
+                    <p id="front-preview-en" style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.7;">---</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 700;">Click card to flip for detailed provisions</span>
+                <span style="font-size: 0.82rem; color: var(--emerald-accent); font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+                  <span>Flip Card</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- BACK FACE -->
+            <div class="card-face back">
+              <div class="card-top-row">
+                <span class="section-badge" style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: var(--brand-sky);">Legal Provisions</span>
+                <button class="btn" onclick="event.stopPropagation(); flipActiveCard();" style="min-height: 36px; padding: 0 0.75rem; font-size: 0.78rem;">Back to Front</button>
+              </div>
+              <div class="card-content-area" style="overflow-y: auto;">
+                <ul id="back-details-list" style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+                  <!-- Injected via JS -->
+                </ul>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem;" onclick="event.stopPropagation()">
+                <button class="btn" onclick="markCardStatus('review')" style="color: var(--gold-accent); border-color: rgba(245, 158, 11, 0.4);">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <span>Mark for Review</span>
+                </button>
+                <button class="btn" onclick="markCardStatus('mastered')" style="background: var(--emerald-accent); color: #000; border: none; font-weight: 800;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Mastered</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
+        <!-- DECK NAVIGATION BAR -->
+        <div class="deck-nav-bar">
+          <button class="btn" onclick="navigateCard(-1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+            <span>Previous</span>
+          </button>
+          <span id="deck-counter-indicator" style="font-size: 0.9rem; font-weight: 800; color: var(--text-muted); padding: 0 1rem;">Card 1 of 18</span>
+          <button class="btn" onclick="navigateCard(1)">
+            <span>Next</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button class="btn" onclick="shuffleDeck()" title="Shuffle Deck" style="padding: 0 0.85rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.2-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.4c1.3 0 2.5.6 3.3 1.7l6.2 8.6c.7 1.1 2 1.7 3.3 1.7H22"/><path d="m18 14 4 4-4 4"/></svg>
+          </button>
+        </div>
       </div>
+
+      <!-- VIEW MODE 2: GRID VIEW -->
+      <div id="grid-view-container" class="cards-grid-container" style="display: none;">
+        <!-- Injected via JS -->
+      </div>
+
     </div>
   </main>
 
@@ -758,7 +816,7 @@
   <div id="bookmarks-modal" class="modal-overlay">
     <div class="modal-box glass-panel">
       <div class="modal-header">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Saved Bookmarks</h3>
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Saved Flashcard Bookmarks</h3>
         <button class="btn" onclick="toggleBookmarksModal()">Close</button>
       </div>
       <div id="bookmarks-modal-list" style="overflow-y: auto; padding: 1rem 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.75rem;">
@@ -770,17 +828,17 @@
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="toast">Action completed</div>
 
-  <!-- FOOTER WITH DEDICATION BADGE -->
+  <!-- FOOTER WITH DEDICATION BADGE FOR DR. SOLOMON ABEBE -->
   <footer>
     <div class="max-container">
       <div class="footer-grid">
         
         <div>
           <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">
-            Federal Democratic Republic of Ethiopia
+            Health Service Administration and Regulation Proclamation No. 1362/2025
           </div>
           <div style="font-size: 0.85rem; color: var(--text-dim); max-width: 550px;">
-            Health Service Administration and Regulation Proclamation No. 1362/2024. Official gazette decree published on May 20, 2025 by President Taye Atske Selassie.
+            Governing healthcare facility standards, professional ethics, bioethical boundaries, patient emergency care, organ transplantation, and health regulatory oversight.
           </div>
         </div>
 
@@ -790,9 +848,9 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
           </div>
           <div>
-            <div style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-sky);">The App Developed By</div>
-            <div style="font-size: 1.1rem; font-weight: 900; color: #ffffff;">Dr. Solomon Abebe</div>
-            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Senior Expert Medical Practitioner & Public Health Specialist</div>
+            <div style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--emerald-accent);">The App Developed By</div>
+            <div style="font-size: 1.1rem; font-weight: 900; color: #ffffff;">Dr. Solomon Abebe (MD, MPH/RH)</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Health Law Proclamation No. 1362 Visualizer</div>
           </div>
         </div>
 
@@ -802,1300 +860,522 @@
 
   <!-- DATA & APP SCRIPT -->
   <script>
-    let currentLang = 'am'; // 'am', 'en', 'split'
+    let currentLang = 'am'; 
     let currentFontSize = 15;
     let activeSearchQuery = '';
-    let savedBookmarks = JSON.parse(localStorage.getItem('proc_1362_bm') || '[]');
+    let currentCategoryFilter = 'ALL';
+    let isGridView = false;
+    let currentCardIndex = 0;
+    let isCardFlipped = false;
+    let userProgress = JSON.parse(localStorage.getItem('proc_1362_prog') || '{}');
 
-    // EXHAUSTIVE UNABRIDGED PROCLAMATION DATA STRUCTURE - ALL 59 ARTICLES
-    const proclamationData = [
+    // EXHAUSTIVE 18 SECTIONS FLASHCARD DATASET FOR PROCLAMATION NO. 1362/2025
+    const flashcardsData = [
       {
-        id: "part-1",
-        num: "1",
-        titleAm: "ክፍል አንድ - ጠቅላላ ድንጋጌዎች",
-        titleEn: "PART ONE - GENERAL PROVISIONS",
-        articles: [
-          {
-            artNum: "1",
-            titleAm: "አጭር ርዕስ",
-            titleEn: "Short Title",
-            textAm: "ይህ አዋጅ \"የጤና አገልግሎት አስተዳደር እና ቁጥጥር አዋጅ ቁጥር 1362/2017\" ተብሎ ሊጠቀስ ይችላል፡፡",
-            textEn: "This Proclamation may be cited as \"Health Service Administration and Regulation Proclamation No. 1362/2024\"."
-          },
-          {
-            artNum: "2",
-            titleAm: "ትርጓሜ",
-            titleEn: "Definitions",
-            textAm: "የቃሉ አገባብ ሌላ ትርጉም የሚያሰጠው ካልሆነ በስተቀር በዚህ አዋጅ ውስጥ፡-\n" +
-                   "1/ \"ጤና\" ማለት የበሽታ ወይም የአካል ጉዳት አለመኖርን ጨምሮ የተሟላ የአካል፣ የአዕምሮ እና የማህበራዊ ደህንነት ሁኔታ ነው፤\n" +
-                   "2/ \"የጤና አገልግሎት\" ማለት የበሽታ መከላከል፣ ማከም፣ የማገገምና መልሶ ማቋቋም፣ የጤና ማበልጸግ ወይም የሆስፒስ እንክብካቤ አገልግሎት ነው፤\n" +
-                   "3/ \"የጤና ተቋም\" ማለት የጤና አገልግሎት እንዲሰጥ በሚኒስቴሩ ወይም አግባብ ባለው አካል የተመዘገበ እና የብቃት ማረጋገጫ ምስክር ወረቀት የተሰጠው ማንኛውም ተቋም ሲሆን የተደጋጋፊ ወይም አማራጭ የህክምና እና የባህል ህክምና አገልግሎት የሚሰጥ ተቋምን ይጨምራል፤\n" +
-                   "4/ \"የጤና ነክ ተቋም\" ማለት ማንኛውም የሕብረተሰብ መገልገያ ተቋም ሆኖ የትምህርት ተቋም፣ ማረሚያ ቤት፣ የስደተኞች ካምፕ፣ የመኝታ አገልግሎት ሰጪ ተቋም፣ ኤርፖርት፣ የእምነት ቦታ፣ የህፃናት ማቆያ፣ የአረጋዉያን መንከባከቢያ ማዕከል፣ የገበያ ቦታ፣ የስፖርት ቦታ፣ የመታሻ ቦታ፣ የፍል ውሃ አገልግሎት ማዕከል፣ የውበት ሳሎን እና ሌሎች መሰል ተቋማትን ይጨምራል፤\n" +
-                   "5/ \"የአዕምሮ ጤና\" ማለት ሰዎች የሕይወት ውጣ ውረዶችን እንዲቋቋሙ፣ ችሎታቸውን እንዲገነዘቡ፣ በአግባቡ እንዲማሩና እንዲሰሩ፣ እና ለማህበረሰባቸው አስተዋፅኦ እንዲያበረክቱ የሚያስችል የአዕምሮ ደህንነት ሁኔታ ነው፤\n" +
-                   "6/ \"የምግብ እና መጠጥ አገልግሎት ሰጪ ተቋም\" ማለት የምግብ ወይም መጠጥ አገልግሎት ወይም ሁለቱንም የሚሰጥ በሚኒስቴሩ ወይም አግባብ ባለው አካል የተመዘገበ እና የብቃት ማረጋገጫ ምስክር ወረቀት የተሰጠው ማንኛውም ተቋም ነው፤\n" +
-                   "7/ \"የአካባቢ ጤና አጠባበቅ\" ማለት ከሰው አካል ውጭ ያሉ አካላዊ፣ ኬሚካላዊ ወይም ባዮሎጂካዊ ሁኔታዎችን እንዲሁም በሕይወት ወይም በባህሪ ላይ ተጽዕኖ ያላቸውን ሁሉንም ተዛማጅ የጤና ችግሮችን በመከላከል ጤናን የሚደግፉ ከባቢያዊ ሁኔታዎችን መፍጠር ነው፤\n" +
-                   "8/ \"ቆሻሻ\" ማለት ከኢንዱስትሪዎች፣ ከእርሻ ቦታዎች፣ ከትምህርት ቤቶች፣ ከመኖሪያ ቤቶች፣ ከንግድ ስፍራዎች፣ ከጤና ምርምር ተቋማት፣ ከመጸዳጃ ቤት ወይም ከሌሎች መሰል ተቋማት በፈሳሽ፣ ጋዝ ወይም ደረቅ መልክ የሚወጣና በሰው ወይም በእንስሳት ጤና ላይ ጉዳት የሚያደርስ ንጥረ ነገር ነው፤\n" +
-                   "9/ \"የጤና ባለሙያ\" ማለት እውቅና ከተሰጠው የትምህርት ተቋም በጤና የትምህርት ዘርፍ የሰለጠነ እና የጤና አገልግሎት ለመስጠት በሚኒስቴሩ ወይም አግባብ ባለው አካል የተመዘገበና የሙያ ፈቃድ የተሰጠው ሰው ነዉ፤\n" +
-                   "10/ \"የሙያ ፈቃድ\" ማለት የጤና አገልግሎት ወይም የተደጋጋፊ ወይም አማራጭ የሕክምና አገልግሎት ወይም የባህል ህክምና አገልግሎት ለሚሰጥ ባለሙያ የሚሰጥ የምስክር ወረቀት ነው፤\n" +
-                   "11/ \"የብቃት ማረጋገጫ ምስክር ወረቀት\" ማለት አግባብ ያለው አካል የሚያወጣውን ደረጃ ወይም መስፈርት ላሟላ የጤና ተቋም፣ ጤና ነክ ተቋም፣ የምግብና መጠጥ አገልግሎት ሰጪ ተቋም፣ ማማከር አገልግሎት ለሚሰጥ ተቋም ወይም በሪፈራል ሥርዓት ተገልጋይን ወደ ውጪ ለሚልክ ወኪል የሚሰጥ የምስክር ወረቀት ነው፤\n" +
-                   "12/ \"የጤናው ዘርፍ የመንግስት ሠራተኛ\" ማለት በጤናው ዘርፍ ውስጥ በጤና ባለሙያነት ወይም በድጋፍ ሰጭነት በመንግስት ተቀጥሮ የሚሰራ ማንኛውም ሰራተኛ ነው፤\n" +
-                   "13/ \"የተገልጋይ ፈቃድ\" ማለት በሌላ ሕግ የተደነገገው እንደተጠበቀ ሆኖ የጤና ወይም አገልግሎት ለማግኘት ተገልጋዩ ወይም የተገልጋዩ የቅርብ ዘመድ ለጤና ተቋሙ ወይም ለጤና ባለሙያው በጽሁፍ፣ በቃል ወይም በምልክት የሚሰጠው ስምምነት ነው፤\n" +
-                   "14/ \"የድንገተኛ ሕክምና አገልግሎት\" ማለት ለተገልጋይ የሚሰጥ የሕይወት አድን የህክምና አገልግሎት ነው፤\n" +
-                   "15/ \"ሆስፒስ\" ማለት በማይድን በሽታ የሚሰቃዩ እና የሕይወታቸውን ፍጻሜ የሚጠባበቁ ሰዎች የህመም ስቃይ ለመቀነስ የሚሰጥ የጤና አገልግሎት ነው፤\n" +
-                   "16/ \"ሞት\" ማለት የልብ እና የመተንፈሻ አካላት የአሰራር ሥርዓት መመለስ በማይችልበት ደረጃ ሥራቸውን ሲያቆሙ ወይም የአንጎል ሞት ሲከሰት ነው፤\n" +
-                   "17/ \"የአንጎል ሞት\" ማለት የአንጎል ክፍሎች ሙሉ በሙሉ መመለስ በማይችሉበት ደረጃ ስራቸውን ሲያቆሙ እና ይህም በሚመለከተው ባለሙያ ሲረጋገጥ ነው፤\n" +
-                   "18/ \"የፎረንሲክ ምርመራ\" ማለት የወንጀል ድርጊትን ለማጣራት፣ ለህክምና ምርመራ ወይም ለምርምር ዓላማ የሚከናወን አገልግሎት ነው፤\n" +
-                   "19/ \"ተደጋጋፊ ወይም አማራጭ ሕክምና\" ማለት ከዘመናዊ የጤና አገልግሎት ጋር በዘመናዊ መንገድ በተደጋጋፊነት ወይም በአማራጭነት እንዲሰጥ አግባብ ባለው አካል የተፈቀደ የጤና አገልግሎት ሲሆን የባህል ህክምናን አይጨምርም፤\n" +
-                   "20/ \"ባህላዊ ሕክምና\" ማለት በልምድ የተገኘ እና በህብረተሰቡ ተቀባይነት ያገኘ ሐገር በቀል የሕክምና ዕውቀት ሲሆን ባህላዊ መድኃኒትን ወይም የእጅ ጥበብን በመጠቀም ከሚኒስቴሩ ወይም አግባብ ካለዉ አካል ፍቃድ ባገኘ ሰው የሚሰጥ የጤና አገልግሎት ነው፤\n" +
-                   "21/ \"የቅድመ ጤና ተቋም የጤና አገልግሎት\" ማለት ታካሚ ወደ ጤና ተቋም ከመድረሱ በፊት ሕይወትን ለማቆየት የሚሰጥ የሕክምና አገልግሎት ነው፤\n" +
-                   "22/ \"የማገገም ህክምና\" ማለት በከባድ ህመም ላይ ለሚገኙ ሰዎች የሚሰጥ የህክምና አገልግሎት ነው፤\n" +
-                   "23/ \"የተሀድሶ ሕክምና\" ማለት የተገልጋይን የአካላዊ፣ የስሜት ህዋሳት ወይም የአዕምሮ ውስንነትን ለመቅረፍ እና ለማሻሻል ተገልጋዩን መሠረት ባደረገ መልኩ በባለሙያ፣ በተገልጋዩ በራሱ፣ በተገልጋዩ ቤተሰብ ወይም ተገልጋዩን በሚንከባከበው ሰው የሚሰጥ የሕክምና አገልግሎት ነው፤\n" +
-                   "24/ \"የአምቡላንስ ጤና አገልግሎት\" ማለት የድንገተኛ ህክምና፣ በቅብብሎሽ ሂደት ወቅት ወይም ተጨማሪ የሕክምና አገልግሎት ለሚያስፈልገው ሰው አግባብ ባለው አካል ፈቃድ በተሰጠው ተቋም በየብስ፣ በአየር ወይም በውሃ መጓጓዣ ላይ የሚሰጥ የመጀመሪያ ወይም ጊዜያዊ የሕክምና እርዳታ አገልግሎት ነው፤\n" +
-                   "25/ \"ሕዋስ\" ማለት የሰው አካል የተገነባበት የተለየ እና የታወቀ ስራ የሚሰራ ሕይወት ያለው የሰው አካል የመጨረሻው ቅንጣት ነው፤\n" +
-                   "26/ \"ሕብረ-ኅዋስ\" ማለት ሽልን ሳይጨምር ከሰውነት አካል የሚወሰድ በቅርፅ፣ በይዘትና በተግባር ተመሳሳይ የሆነ የህዋስ ስብስብ ነው፤\n" +
-                   "27/ \"አካል\" ማለት ከሕብረ ህዋስ ስብስብ የተገነባ እና የተለየ ተግባር የሚያከናውን የሰውነት ክፍል ነው፤\n" +
-                   "28/ \"ሙሉ አካል\" ማለት በሕብረ-ህዋሳትና እና በአካላት ስብስብ የተዋቀረ የአንድ ሰው ሙሉ አካል ነው፤\n" +
-                   "29/ \"ለጋሽ\" ማለት ደም፣ ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል፣ አካል ወይም ሙሉ አካል ፈቃድ በተሰጠው ተቋም በኩል ለህክምና፣ ለምርምር ወይም ለትምህርት ዓላማ የሚለግስ ሰዉ ነው፤\n" +
-                   "30/ \"ተቀባይ\" ማለት ፈቃድ በተሰጠው ተቋም አማካኝነት ደም፣ ህዋስ፣ ህብረ ህዋስ፣ አካል ወይም ሙሉ አካል የሚቀበል ሰው ነው፤\n" +
-                   "31/ \"ንቅለ-ተከላ\" ማለት የተለገሰን ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል ወይም አካል ለተቀባይ የሚሰጥበት የሕክምና አገልግሎት ነው፤\n" +
-                   "32/ \"የቅርብ ዘመድ\" ማለት እንደቅደም ተከተላቸው የትዳር ጓደኛ ወይም እንደ ባልና ሚስት አብረው የሚኖሩ ጥንዶች፣ ወላጅ፣ አሳዳጊ ወይም ልጅ፣ ወንድም፣ እህት፣ አያት፣ አክስት ወይም አጎት ነው፤\n" +
-                   "33/ \"የባዮቴክኖሎጂ ውጤት\" ማለት የሰውን ጤና ለማሻሻል በቴክኖሎጂ የተገኘ ህዋስ፣ ህብረ-ህዋስ፣ የአካል ክፍል ወይም አካል ነው፤\n" +
-                   "34/ \"በቴክኖሎጅ የታገዘ የሥነ-ተዋልዶ አገልግሎት\" ማለት የወንድ እና የሴት የዘር ፍሬን ከማህጸን ውጭ በማዋሃድ እና ወደ ማህጸን መልሶ በማስገባት ፅንስ የመፍጠር የሕክምና ሂደት ነው፤\n" +
-                   "35/ \"የዘር ፍሬ\" ማለት ከተቃራኒ ጾታ ሰዎች የሚገኝ ህዋስ (የወንድ ስፐርም ወይም የሴት እንቁላል) ሲሆን ከተቃራኒ ጾታ ከሚገኝ የዘር ፍሬ ጋር ሲዋሀድ ፅንስ መፍጠር የሚችል ነው፤\n" +
-                   "36/ \"የዘር ውህድ\" ማለት የዘር ፍሬን በማዋሃድ የመጀመሪያቹ ሰባት ቀናት ውስጥ የሚገኝ ሽል ነው፤\n" +
-                   "37/ \"የጤና ምርምር ተሳታፊ\" ማለት ምርምር እንዲካሄድበት ፈቃዱን የሰጠ ሰው ነው፤\n" +
-                   "38/ \"የጤና መረጃ\" ማለት የጤና አገልግሎት፣ የበሽታ ስርጭት፣ የአገልግሎት ሰጭ ተቋምና ባለሙያዎች መረጃ ነው፤\n" +
-                   "39/ \"ኃይጅን\" ማለት የግል ንጽህና፣ የምግብ ንጽህና እና የአካባቢ ንጽህና መጠበቅን የሚያመለክት ሆኖ የበሽታዎችን ስርጭት ለመከላከል የሚረዱ የንጽህና ሁኔታዎችንና ልምዶችን አግባብነት ባለው መስፈርት መሠረት መተግበርን የሚያመለክት ነው፤\n" +
-                   "40/ \"ተቆጣጣሪ\" ማለት በዚህ አዋጅ መሠረት በጤና ተቋማት፣ ጤና ነክ ተቋማት፣ ምግብ፣ መጠጥ አገልግሎት ሰጪ ተቋማት እና በዚህ አዋጅ መሠረት ቁጥጥር የሚደረግባቸዉ ተቋማት ላይ የቁጥጥር ተግባራትን ለማከናወን በሚኒስቴሩ ወይም አግባብ ባለው አካል ሥልጣን የተሰጠው ባለሙያ ነው፤\n" +
-                   "41/ \"አግባብ ያለው አካል\" ማለት እንደቃሉ አገባብ የዚህ አዋጅ ድንጋጌ የሚመለከተው እና ለማከናወን በሕግ ሥልጣን የተሰጠው የመንግስት መዋቅር ነው፤\n" +
-                   "42/ \"ሚኒስቴር ወይም ሚኒስትር\" ማለት እንደ ቅድም ተከተሉ የጤና ሚኒስቴር ወይም ሚኒስትር ማለት ነው፤\n" +
-                   "43/ \"ሰው\" ማለት የተፈጥሮ ሰው ወይም በሕግ የሰውነት መብት የተሰጠው አካል ነው፤\n" +
-                   "44/ ማንኛውም በወንድ ጾታ የተገለጸ አገላለጽ የሴት ጾታን ይጨምራል፡፡",
-            textEn: "In this Proclamation, unless the context otherwise requires:\n" +
-                   "1/ \"Health\" means a state of complete physical, mental, and social well-being, and not merely the absence of disease or infirmity;\n" +
-                   "2/ \"Health Service\" means service of disease prevention, treatment, recovery and rehabilitation, health promotion, or hospice care;\n" +
-                   "3/ \"Health Institution\" means any institution registered and granted certificate of competency by the Ministry or Appropriate body to provide health services; and includes Institutions providing Complementary or Alternative Medicine and Traditional Medicines;\n" +
-                   "4/ \"Health Related Institution\" means any public service institution including educational institutions, prisons, Refugee camps, pensions, airports, places of worship, child care centers, geriatric centers, market places, gymnasium, massage parlors, hot water service centers, beauty salons, and other similar institutions;\n" +
-                   "5/ \"Mental Health\" means a state of mental well-being that enables people to cope with life's challenges, realize their potential, learn and work properly, and contribute to their communities;\n" +
-                   "6/ \"Food and Beverage Service Provider\" means any organization that provides food or beverage; or both services; which registered and granted certificate of competency from the Ministry or Appropriate Body;\n" +
-                   "7/ \"Environmental Health Care\" means creating an environment that supports health by preventing physical, chemical, and biological conditions outside the human body, as well as all related health problems and diseases that affect life and behavior;\n" +
-                   "8/ \"Waste\" means a liquid, gas, or solid substance that comes out of industries, farms, schools, houses, business places, health and research facilities, latrines, or similar facilities and harmful to a human or animals health;\n" +
-                   "9/ \"Health Professional\" means a person who is trained in the field of health education from a recognized educational institution and is registered and licensed by the ministry or Appropriate Body to provide health services;\n" +
-                   "10/ \"Professional License\" means a certificate issued for a professional who provides health services or complementary or alternative medical services or traditional medical service;\n" +
-                   "11/ \"Certificate of Competence\" means a certificate issued for a health institution; health related institution; food and beverage service providing institution, consultancy service providing institution or an agent who sends abroad a patient through referral system that meets the standards set by the appropriate body;\n" +
-                   "12/ \"Public Health Worker\" means a health professional or supporting staff employed by the government in the health sector;\n" +
-                   "13/ \"Patient's Consent\" means, without prejudice to prescribed in other laws, a consent given in writing, oral or gesture to the health institution or health professional by a patient or his close relative to receive a health service;\n" +
-                   "14/ \"Emergency Medical Service\" means a lifesaving medical service provided to a patient;\n" +
-                   "15/ \"Hospice\" means a health service that is provided to minimize pain as much as possible for the remainder of their lives to patients who are terminally ill and are waiting for the end of their lives;\n" +
-                   "16/ \"Death\" means irreversible failure of cardiovascular and respiratory system or a brain death;\n" +
-                   "17/ \"Brain Death\" means when parts of the brain stop working at a point where they cannot fully recover, and this is confirmed by a specialist;\n" +
-                   "18/ \"Forensic Examination\" means a service employed to investigate act of crime, clinical assessment or research objective;\n" +
-                   "19/ \"Complementary or Alternative Medicine\" means a health service that is permitted by the appropriate body to be provided with up to date way in complementary or alternative with modern health services; and does not include traditional medicine;\n" +
-                   "20/ \"Traditional Medicine\" means a health service that is an indigenous medical knowledge obtained by practice and accepted by the community and uses traditional medicine or handicrafts, and deliver by a person who obtains license from the Ministry or Appropriate body;\n" +
-                   "21/ \"Pre-Health Institution Health Service\" means an emergency medical service provided to the patient precedent to his arrival at the health institution;\n" +
-                   "22/ \"Medical Recovery\" means a medical service given to people who are seriously ill to heal or relieve pain;\n" +
-                   "23/ \"Medical Rehabilitation\" means a service performed by the professional, client, family or care giver that is centered on alleviating and improving the client's physical, emotional and mental limitations;\n" +
-                   "24/ \"Ambulance Health Service\" means first aid or temporary medical care provided by land, air or water transport, by the appropriate body licensed for an emergency treatment or referral or additional medical service;\n" +
-                   "25/ \"Cell\" means a living and smallest structural unit of a human body which performs a unique and well-known function;\n" +
-                   "26/ \"Tissue\" means a set of cells that are similar in shape, content and function excluding the embryo;\n" +
-                   "27/ \"Organ\" means a part of the body that is made up of a set of tissues and performs a special function;\n" +
-                   "28/ \"Full Body\" is the complete body of a person that is made up of a set of tissues and organs;\n" +
-                   "29/ \"Donor\" means a person who donates blood, cells, tissue, organ, part of an organ or body to an authorized institution for the purpose of treatment, research or education;\n" +
-                   "30/ \"Recipient\" means a person who receives blood, cells, tissue, organ or part of an organ for the purpose of treatment;\n" +
-                   "31/ \"Transplant\" means the medical service of implanting donated cells, tissue, organ, part of an organ to a recipient;\n" +
-                   "32/ \"Close Relative\" means spouse, couples who live as irregular union, parent, guardian, a child, brother, sister, grand parent, aunt or uncle, respectively;\n" +
-                   "33/ \"Biotechnology Products\" means a cell, tissue or organ that has been technologically advanced to improve human health;\n" +
-                   "34/ \"Technology-Assisted Reproductive Services\" Is the process of fertilization by incorporating the male and female reproductive cells out of the uterus and inserting it back into the uterus;\n" +
-                   "35/ \"Reproductive Cell\" means a human multiplicative cell (sperm or egg) of the opposite sex that has capability to produce embryo when it is fertilized with reproductive cell of the opposite sex;\n" +
-                   "36/ \"Embryo\" means the concepts created during the first seven days of fertilization;\n" +
-                   "37/ \"Health Research's Participant\" means a person who gives his consent for research to be conducted on him;\n" +
-                   "38/ \"Health Information\" means information about health services, disease epidemiology, health service delivery institutions and professionals;\n" +
-                   "39/ \"Hygiene\" refers to the maintenance of personal hygiene, food hygiene, and environmental hygiene, and the application of appropriate hygiene practices and practices to prevent the spread of disease;\n" +
-                   "40/ \"Inspector\" means a professional authorized by the Ministry or appropriate body to perform inspection activities pursuant to this Proclamation on health institutions, health related institutions, food and beverage service providing institutions and institutions that are regulated according to this proclamation;\n" +
-                   "41/ \"Appropriate Body\" means as the term implies a government structure to which the provision of this Proclamation apply and empowered by law to implement it;\n" +
-                   "42/ \"Ministry or Minister\" means Ministry or Minister of health respectively;\n" +
-                   "43/ \"Person\" means a natural person or juridical person;\n" +
-                   "44/ Any expression in masculine gender includes the feminine."
-          },
-          {
-            artNum: "3",
-            titleAm: "የተፈፃሚነት ወሰን",
-            titleEn: "Scope of Application",
-            textAm: "ይህ አዋጅ የጤና አገልግሎት አስተዳደር እና ቁጥጥርን በሚመለከት በዚህ አዋጅ በተጠቀሱ ጉዳዮች ላይ በመላ ሃገሪቱ ተፈጻሚ ይሆናል፡፡",
-            textEn: "This Proclamation shall be applicable throughout the country on matters mentioned in this Proclamation regarding to the Administration and regulation of health services."
-          }
+        id: "card-1362-1",
+        cat: "S1",
+        sectionAm: "ክፍል አንድ - ጠቅላላ ድንጋጌዎች",
+        sectionEn: "Section One: General Provisions",
+        articles: "Articles 1 – 4",
+        titleAm: "ጠቅላላ ድንጋጌዎች፣ ዓላማ እና የተፈጻሚነት ወሰን",
+        titleEn: "Scope, Purpose & Core Definitions of Proclamation 1362",
+        previewAm: "በኢትዮጵያ ውስጥ በሚገኙ ሁሉም அரசዊ እና ግል የጤና ተቋማትና የጤና ባለሙያዎች ላይ ተፈጻሚ ይሆናል፡፡",
+        previewEn: "Applies nationwide to all public, private, and NGO healthcare facilities and health professionals.",
+        detailsAm: [
+          "<strong>የሕጉ ዓላማ [አንቀጽ 3]</strong>፦ ጥራቱን፣ ደህንነቱንና ተጠያቂነቱን የጠበቀ የጤና አገልግሎት ሥርዓት መዘርጋት።",
+          "<strong>የተፈጻሚነት ወሰን [አንቀጽ 2]</strong>፦ በኢትዮጵያ ግዛት ውስጥ በሚንቀሳቀሱ ሁሉም የመንግሥት፣ የግል እና የበጎ አድራጎት የጤና ተቋማት ላይ ይተገበራል።",
+          "<strong>የጤና ተቋም ትርጓሜ [አንቀጽ 4]</strong>፦ ሆስፒታሎችን፣ የጤና ጣቢያዎችን፣ ክሊኒኮችን፣ ላቦራቶሪዎችን እና የዲያግኖስቲክ ማዕከላትን ያካትታል።",
+          "<strong>የመቆጣጠሪያ ባለሥልጣን [አንቀጽ 4]</strong>፦ የኢትዮጵያ የጤና ባለሥልጣን እና የክልል ቁጥጥር አካላትን ያመለክታል።"
+        ],
+        detailsEn: [
+          "<strong>Statutory Objectives [Art. 3]</strong>: Establishes a standardized, safe, accountable, and accessible healthcare system.",
+          "<strong>Scope of Application [Art. 2]</strong>: Enforces mandatory compliance for all public, private, and NGO facilities operating in Ethiopia.",
+          "<strong>Facility Definition [Art. 4]</strong>: Encompasses hospitals, health centers, clinics, diagnostic centers, and specialty institutes.",
+          "<strong>Regulatory Authority [Art. 4]</strong>: Refers to the Ethiopian Health Authority and delegated regional regulatory bodies."
         ]
       },
       {
-        id: "part-2",
-        num: "2",
-        titleAm: "ክፍል ሁለት - መብትና ግዴታዎች",
-        titleEn: "PART TWO - RIGHTS AND OBLIGATIONS",
-        articles: [
-          {
-            artNum: "4",
-            titleAm: "የተገልጋይ መብትና ግዴታ",
-            titleEn: "Rights and Obligations of a Patient",
-            textAm: "1/ ማንኛውም ተገልጋይ በፈቃደኝነት ላይ የተመሠረተ የጤና አገልግሎት የማግኘት መብት አለው፡፡\n" +
-                   "2/ የተገልጋይ ዝርዝር መብትና ግዴታ የሚኒስትሮች ምክር ቤት በሚያወጣው ደንብ ይወሰናል፡፡",
-            textEn: "1/ Every patient has the right to obtain consent based health service.\n" +
-                   "2/ The details of the rights and obligations of a patient shall be determined by the Regulation to be issued by the Council of Ministers."
-          },
-          {
-            artNum: "5",
-            titleAm: "የጤና ተቋም ግዴታዎች",
-            titleEn: "Duties of a Health Institution",
-            textAm: "ማንኛውም የጤና ተቋም፡-\n" +
-                   "1/ በዚህ አዋጅ የተደነገጉ እና ይህን አዋጅ ተከትለው በሚወጡ ሕጎች የሚደነገጉ የተገልጋይ መብቶችን የማክበር፣\n" +
-                   "2/ ስለሚሰጠው አገልግሎትና የጤና አጠባበቅ ትምህርት አግባብነት ያለውን ወቅታዊ መረጃ እና የምክር አገልግሎት ለተገልጋዩ የመስጠት፣\n" +
-                   "3/ በጤና ተቋሙ የፈረቃ ሥርዓት መሠረት የጤና ባለሙያዎች የሚፈራረቁበትን የተገልጋይ በርክክብ ሥርዓት የመዘርጋት፣\n" +
-                   "4/ ለሚሰጠው አገልግሎት በሕግ አግባብ ስልጣን የተሰጠው አካል ያወጣውን የጥራትና ደህንነት መስፈርት ወይም ደረጃ ያሟላ መሆኑን የማረጋገጥ፣\n" +
-                   "5/ ለተገልጋይ የሕክምና ማስረጃ የመስጠት፤\n" +
-                   "6/ የቅሬታ አቀራረብና አፈታት ሥርዓት የመዘርጋት፣\n" +
-                   "7/ በተገልጋይ ወይም አግባብ ባለው አካል ሲጠየቅ በጤና ተቋሙ ውስጥ ስለተሰጠው አገልግሎትና ሌሎች ተያያዥ የሆኑ መረጃዎችን የመስጠት፤\n" +
-                   "8/ የተቋሙ የጤና ባለሙያ የሙያ ሥነ-ምግባሩን ጠብቆ እንዲሰራ የማመቻቸት፣ የመከታተል እና የመቆጣጠር፣\n" +
-                   "9/ በተቋሙ ውስጥ የሙያ ሥነ-ምግባር ግድፈት በሚከሰትበት ጊዜ ለተቆጣጣሪ አካል የማሳወቅ፣\n" +
-                   "10/ ተገልጋዮች እና ሠራተኞች ለተላላፊ በሽታዎች እንዳይጋለጡ የመከላከል እና የመቆጣጠር፣\n" +
-                   "11/ ተፈጥሯዊ እና ሰው ሰራሽ አደጋዎች በሚከሰቱበት ጊዜ ምላሽ የመስጠት እና የጤና አገልግሎቱን ተደራሽ የማድረግ፤\n" +
-                   "12/ ሰው ሰራሽ እና ተፈጥሯዊ አደጋዎች በሚከሰቱበት ጊዜ የተገልጋዮችን ደህንነት ለመጠበቅ አስፈላጊ እርምጃዎች መወስዳቸው እስኪረጋገጥ ድረስ እንክብካቤውን የማስቀጠል፤\n" +
-                   "13/ ለተግባር ትምህርት ሲመረጥ የጤና ሳይንስ ተማሪዎች የተግባር ትምህርት እንዲያደርጉ የመፍቀድ፣ የተግባር ትምህርት ሊደረግበት እንደሚችል ለተገልጋዩ በግልፅ የማሳወቅ እና የትምህርት ስራውን የመከታተል በጤና ተቋሙ ውስጥ የተግባር ትምህርቱንና የሚያውኩ ተግባራትን የመቆጣጠር፤\n" +
-                   "14/ በተግባር ትምህርት ወቅት በክትትል ጉድለት ምክንያት በተገልጋዩ ላይ ለሚደርስ ጉዳት ከማሰልጠኛ ተቋሙ ጋር በጋራ ኃላፊነት የመውሰድ፤\n" +
-                   "15/ በሕክምና አገልግሎት አሰጣጥ ወቅት በተገልጋይ ላይ ለሚያደርስ ጉዳት የኃላፊነት መድህን የመግባት፤\n" +
-                   "16/ ልዩ ትኩረት የሚሹ የህብረተሰብ ክፍሎችን ያማከለ የጤና አገልግሎት የመስጠት፣\n" +
-                   "17/ የህመም ማስታገሻ መድኀኒቶችን የማቅረብና ለሚያስፈልጋቸው ተገልጋዮች የመስጠት፣\n" +
-                   "18/ በጤና ላይ ለሚደረግ የጥናት ምርምር የመተባበር፣\n" +
-                   "19/ የጤና መረጃን ሚስጥራዊነት የመጠበቅ ደህንነት የማረጋገጥ፤ በመረጃ ቋት የማስቀመጥ፤\n" +
-                   "20/ በተሰጠው የአገልግሎት ደረጃ መሠረት ለህፃናት፣ ለነፍሰ ጡር ሴቶች፣ ለእናቶች እና ለሌሎች የህብረተሰብ ክፍሎች የመከላከያ ክትባት የመስጠት፣\n" +
-                   "21/ በሕግ መሠረት የሚወሰን የበጎ ህክምና አገልግሎት የመስጠት፣ እና\n" +
-                   "22/ በተቋሙ ውስጥ የሚሰጥ የጤና አገልግሎት፣ የመድኃኒት ወይም ክትባት በተገልጋይ ላይ የሚከሰትን የጎንዮሽ ጉዳት ክስተት አግባብነት ላለው አካል ሪፖርት የማድረግ ኃላፊነት እና ግዴታ አለበት፡፡",
-            textEn: "Any health institution shall have the following duties:\n" +
-                   "1/ To respect the rights of patient stipulated on this proclamation and other laws enacted subsequent to this proclamation;\n" +
-                   "2/ To provide the client with an appropriate and up-to-date information about the service and health education and counseling he provides;\n" +
-                   "3/ To establish patient handover system during health professionals' rotation based on the rotation system of the health institution;\n" +
-                   "4/ To ensure that the services it provides fulfills the standard or quality set by the relevant body empowered by law;\n" +
-                   "5/ To give medical certificate for a patient;\n" +
-                   "6/ To establish a grievance handling system;\n" +
-                   "7/ To provide information about the service provided in the health institution and other relevant information upon request by the client or an authorized body;\n" +
-                   "8/ To facilitate, supervise and control the health professional of the institution to adhere to professional ethics;\n" +
-                   "9/ To notify the regulatory body in the event of professional misconduct in the institution;\n" +
-                   "10/ To do all the necessary preventive measures to protect patients and employees from communicable diseases;\n" +
-                   "11/ To respond in the event of natural and man-made disasters and make health services accessible;\n" +
-                   "12/ To continue to providing care in the event of man-made and natural disasters until the necessary measures have been taken to ensure the safety of the patient;\n" +
-                   "13/ To allow health science students to practice when selected for practical education; clearly inform the patient that students may practice on him, and supervise the practice of students, control activities that affect the practical education;\n" +
-                   "14/ To take joint responsibility with the training institution for any damage sustained on patient for lack of supervision during practical training;\n" +
-                   "15/ To take liability insurance for damage caused on the patient during the provision of medical services;\n" +
-                   "16/ To provide health services that incorporates members of society that require special attention;\n" +
-                   "17/ Avail and provide anti pain medicines to patients in need;\n" +
-                   "18/ To cooperate for health research conducted;\n" +
-                   "19/ To maintain health information in a database and ensure its confidentiality and safety;\n" +
-                   "20/ To Provide immunizations to children, pregnant women, mothers and other members of the community based on the service rank given to it;\n" +
-                   "21/ To provide Volunteer medical services determined by law; and\n" +
-                   "22/ To report the occurrence for appropriate body on the side effect of medical services, medication and vaccination provided to the client."
-          }
+        id: "card-1362-2",
+        cat: "S2",
+        sectionAm: "ክፍል ሁለት - የጤና ተቋማት ደረጃዎች እና ፈቃድ",
+        sectionEn: "Section Two: Facility Standards & Licensing",
+        articles: "Articles 5 – 8",
+        titleAm: "የጤና ተቋማት ብቃት ማረጋገጫ እና ደረጃ ማውጣት",
+        titleEn: "Healthcare Facility Standards, Competency & Licensing",
+        previewAm: "ማንኛውም የጤና ተቋም ሥራ ከመጀመሩ በፊት የብቃት ማረጋገጫ ሰርተፍኬት ማግኘት አለበት፡፡",
+        previewEn: "Mandatory pre-operational competency certification and technical standard verification for all facilities.",
+        detailsAm: [
+          "<strong>የብቃት ማረጋገጫ ግዴታ [አንቀጽ 5]</strong>፦ ያለ ሕጋዊ የብቃት ማረጋገጫ ሰርተፍኬት ማናቸውንም የጤና አገልግሎት መስጠት የተከለከለ ነው።",
+          "<strong>የደረጃዎች ማውጣት [አንቀጽ 6]</strong>፦ የመሠረተ-ልማት፣ የመሳሪያዎች፣ የሰው ኃይል እና የመድኃኒት አቅርቦት ዝቅተኛ መስፈርቶች በሕግ ይወሰናሉ።",
+          "<strong>የፈቃድ እድሳት [አንቀጽ 7]</strong>፦ የብቃት ማረጋገጫ ሰርተፍኬት በየዓመቱ ወይም እንደ ደረጃው በተወሰነ ጊዜ መታደስ አለበት።",
+          "<strong>የደረጃ እድገትና ዝቅጠት [አንቀጽ 8]</strong>፦ መስፈርቱን ያላሟላ ተቋም ደረጃው ይወርዳል ወይም ፈቃዱ ይሰረዛል።"
+        ],
+        detailsEn: [
+          "<strong>Mandatory Certification [Art. 5]</strong>: Operating any health facility without a valid certificate of competence is strictly prohibited.",
+          "<strong>Minimum Standards [Art. 6]</strong>: Defines baseline requirements for infrastructure, biomedical equipment, staffing, and pharmaceuticals.",
+          "<strong>Licence Renewal [Art. 7]</strong>: Certificate of competence must be renewed periodically subject to compliance audits.",
+          "<strong>Grading & Demotion [Art. 8]</strong>: Non-compliant facilities face automatic grade demotion or license revocation."
         ]
       },
       {
-        id: "part-3",
-        num: "3",
-        titleAm: "ክፍል ሶስት - ስለ ጤና አገልግሎት አሰጣጥ",
-        titleEn: "PART THREE - PROVISION OF A HEALTH SERVICE",
-        articles: [
-          {
-            artNum: "6",
-            titleAm: "የጤና አገልግሎት መርሆዎች",
-            titleEn: "Principles of Health Services",
-            textAm: "1/ ማንኛውም የጤና አገልግሎት አሰጣጥ፡-\n" +
-                   "ሀ) ጥራት ያለው፣ ተደራሽ፣ የህብረተሰቡን የመክፈል አቅም እና ፍትሃዊ ተጠቃሚነትን ያገናዘበ፣\n" +
-                   "ለ) የተገልጋዩን በእኩልነት የመስተናገድ ወይም እኩል እድል ሁኔታን ከሚያስቀር ወይም ከሚያጠብ አድልዎ ነጻ፣ ተጠያቂነት ያለው እና ሙያዊ ሥነ-ምግባርን የተላበሰ መሆን አለበት፡፡\n" +
-                   "2/ የዚህ አንቀጽ ንዑስ አንቀጽ (1) (ለ) ስር የተደነገገው ቢኖርም ድንገተኛ ታካሚዎች፣ የሳቱ እና ጽኑ ታካሚዎች፣ ለሴቶች፣ ህጻናት፣ አረጋውያን፣ አካል ጉዳተኞች ለመንከባከብ ሲባል አዎንታዊ ልዩነት ይደረጋል፡፡",
-            textEn: "1/ Any health service provision shall:\n" +
-                   "a) be of good quality, accessible, affordable and equitable;\n" +
-                   "b) be free from discrimination that prevents or diminishes the equal treatment or equal opportunity of the patient; have accountability and adhere to professional ethics.\n" +
-                   "2/ Notwithstanding Sub-Article (1) (b) of this Article, positive distinction may be made for the care of emergency patients, unconscious and intensive care patients, women, children, the elderly, persons with disabilities."
-          },
-          {
-            artNum: "7",
-            titleAm: "ስለ ክትባት",
-            titleEn: "About Vaccination",
-            textAm: "1/ ማንኛውም ወላጅ፣ አሳዳጊ ወይም ሌላ በሕግ ኃላፊነት የተጣለበት ሰው ለህፃናት የሚሰጥ ክትባትን የማስከተብ ኃላፊነት አለበት፡፡\n" +
-                   "2/ ማንኛውም ሰው በሃገር አቀፍ ደረጃ ወረርሽኝን ለመከላከልና በሽታን ለማጥፋት በአስገዳጅነት እንዲወሰዱ በሚኒስቴሩ የሚለዩ ክትባቶችን የመውሰድ ግዴታ አለበት፡፡",
-            textEn: "1/ Every parent, guardian or other person responsible by law shall vaccinate vaccines given for children.\n" +
-                   "2/ Every person shall obliged to take a mandatory vaccines designated by the Ministry on nation-wide to prevent epidemic and abolish diseases."
-          },
-          {
-            artNum: "8",
-            titleAm: "የቅድመ ጤና ተቋም የጤና አገልግሎት",
-            titleEn: "Pre-Health Institution Medical Service",
-            textAm: "1/ ማንኛውም አገልግሎት ሰጭ ተቋም የመጀመሪያ ህክምና እርዳታ መስጫ ቁሳቁስ እና በመጀመሪያ የህክምና እርዳታ አሰጣጥ ስልጠና የወሰደ ሠራተኛ የማሟላት ግዴታ አለበት፡፡\n" +
-                   "2/ ማንኛውም ሰው የቅድመ ጤና ተቋም እና የአምቡላንስ ጤና አገልግሎት ለመስጠት ከሚመለከተው አካል ፈቃድ ማግኘት አለበት፡፡\n" +
-                   "3/ ማንኛውም የቅድመ ጤና ተቋም የጤና አገልግሎት የሚሰጥ ሰው የድንገተኛና የአምቡላንስ ጤና አገልግሎት የመስጠት ግዴታ አለበት፡፡",
-            textEn: "1/ Any service providing institution shall fulfill first aid medical supplies and staff who have received first aid training.\n" +
-                   "2/ Any person who provides pre-health institution and ambulance health service shall obtain permission from the relevant body.\n" +
-                   "3/ Any person who provides pre-health institution medical service shall provide emergency and ambulance health services."
-          },
-          {
-            artNum: "9",
-            titleAm: "የተገልጋይን ፈቃድ ስለማግኘት",
-            titleEn: "Obtaining Patient's Consent",
-            textAm: "1/ የህክምና አገልግሎት የሚሰጠው ሕክምናው እንዲሰጠው ተገልጋዩ ወይም የተገልጋዩ የቅርብ ዘመድ ሲፈቅድ ብቻ ነው፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) ፈቃዱን የሚሰጥ ሰው ፈቃድ ለመስጠት በሕግ ችሎታ ያለው መሆን አለበት፡፡\n" +
-                   "3/ ለተግባር ትምህርት ወደ ተመረጠ የጤና ተቋም የሚመጣ ተገልጋይ ስለተግባር ትምህርቱ መረጃ ተሰጥቶት የጤና ሳይንስ ተማሪዎች በትምህርት ደረጃቸው መሠረት የተግባር ትምህርት እንዲያከናውኑ ፈቃዱን እንደሰጠ ይቆጠራል፡፡\n" +
-                   "4/ በዚህ አንቀጽ ንዑስ አንቀጽ (3) መሠረት ለተገልጋዩ ስለሚሰጠው መረጃና የጤና አገልግሎት ዝርዝር ሚኒስቴሩ በሚያወጣው መመሪያ ይወሰናል፡፡\n" +
-                   "5/ በዚህ አንቀጽ ንዑስ አንቀጽ (2) ስር የተደነገገው እንደተጠበቀ ሆኖ የተገልጋዩ የጤና ችግር ከባድ እና ሚስጥራዊ ሕክምና የሚጠይቅ ሆኖ ሲገኝ እድሜው ከ14 እስከ 18 ዓመት የሆነው ተገልጋይ ራሱ ፈቃድ ሊሰጥ ይችላል፡፡\n" +
-                   "6/ በዚህ አንቀፅ ንዑስ-አንቀፅ (1)፣ (2) እና (3) የተደነገገው እንደተጠበቀ ሆኖ የተገልጋዩ ፈቃድ ሳይገኝ የህክምና አገልግሎት መስጠት የሚቻለው፡-\n" +
-                   "ሀ) ተገልጋዩ ለህብረተሰብ ጤና አደጋ በሆነ በሽታ የተያዘ ሲሆን፣\n" +
-                   "ለ) ተገልጋዩ በግልፅ ወይም በማንኛውም መልኩ የሕክምና አገልግሎቱን እንደማይፈልግ ሳያሳውቅ ቀርቶ ህክምናውን ማዘግየት በተገልጋዩ ጤንነት ላይ ዘላቂ ጉዳት ወይም ሞት የሚያስከትል ከሆነ፤\n" +
-                   "ሐ) የተገልጋዩን ፈቃድ ለማግኘት በማይቻልበት ድንገተኛ ህክምና ጊዜ ተገልጋዩ ፈቃዱን ለመስጠት ብቁ ያልሆነ ከሆነና የቅርብ ዘመዱ ፈቃዱን ለመስጠት እምቢተኛ ሲሆንና በህክምና ቡድኑ የሕይወት ማዳን እርዳታ መስጠት አስፈላጊ መሆኑ ሲታመንበትና በህክምና ቡድኑ ሲወሰን፣\n" +
-                   "መ) በዚህ አንቀጽ ንዑስ አንቀጽ (6) (ሐ) የተጠቀሰው አንደተጠበቀ ሆኖ እድሜው ከ18 አመት በታች የሆነ እና ወላጅ ወይም ህጋዊ ሞግዚት ወይም አሳዳጊ የሌለው ህጻን ከሆነ አግባብ ያለው አካልን በማሳወቅ ይሆናል፣\n" +
-                   "ሠ) አግባብ ባለው አካል ወይም በሌላ ሕግ ምርመራ ወይም ሕክምና መደረግ ያለበት መሆኑ አስገዳጅ ሆኖ ሲገኝ እና ሲታዘዝ ነው፡፡\n" +
-                   "7/ ለዚህ አንቀጽ ንዑስ አንቀጽ (6) (ሐ) አፈጻጸም ሲባል የህክምና ቡድን ማለት ቢያንስ ሶስት የህክምና ባለሙያ የያዘ ሆኖ ከሶስቱ አንዱ ተገልጋዩን የሚከታተለው የህክምና ባለሙያን የያዘ ነው፡፡",
-            textEn: "1/ Medical services shall be provided only by obtaining consent from the Patient or his close relative.\n" +
-                   "2/ Any person who gives consent in accordance with Sub-Article (1) of this Article shall be a person who has the legal capacity.\n" +
-                   "3/ A patient who comes to a selected Health Institution for practical education, given well informed about the practical training, is considered to have granted his consent for the practical training by health science students as per their level of education.\n" +
-                   "4/ The details information and service given for the patient based on Sub-Article (3) of this Article shall be determined by the Directive to be issued by the Ministry.\n" +
-                   "5/ Without prejudice to Sub-Article (2) of this Article, any person between 14 and 18 years of age may give consent by himself for medical care depending on the severity and confidentiality of his health problems of the patient.\n" +
-                   "6/ Without prejudice to Sub-Articles (1), (2) and (3) of this Article, medical services may be provided without the consent of the client if:\n" +
-                   "a) the patient is infected with a disease that endangers public health;\n" +
-                   "b) the patient does not expressly or in any way expresses his decision to decline the medical services and if the treatment delay is anticipated to cause permanent harm to the client's health;\n" +
-                   "c) the patient is ineligible to give consent in the event of an emergency and his close relatives refuses to grant consent and decided by the medical team that its necessary to give lifesaving assistance;\n" +
-                   "d) without prejudice to paragraph (c) of Sub-Article (6) of this Article, a child under 18 years of age and does not have a parent or legal guardian or custodian, by notifying the appropriate body;\n" +
-                   "e) It is deemed necessary to subject to examination or treatment and ordered by the appropriate body or other law.\n" +
-                   "7/ For the purpose of Sub-Article (6) (c) of this Article, medical team means a team of minimum three health professionals of which one of them is the one who is treating the patient."
-          },
-          {
-            artNum: "10",
-            titleAm: "ስለ ድንገተኛ ህክምና አገልግሎት",
-            titleEn: "Emergency Medical Service",
-            textAm: "ማንኛውም የጤና ተቋም፡-\n" +
-                   "1/ የድንገተኛ እና ሕይወት አድን ህክምና አገልግሎት የመስጠት፣\n" +
-                   "2/ የአከባቢውን ማህበረሰብ የአደጋ ተጋላጭነትን ወይም የድንገተኛ ህክምና አገልግሎት ፍላጎትን ከግምት ያስገባ የድንገተኛ አደጋ ምላሽ ዝግጅት የማድረግ፣ እና\n" +
-                   "3/ በዚህ አንቀፅ ንዑስ አንቀፅ (1) የተደነገገው እደተጠበቀ ሆኖ አግባብ ካላቸው አካላት ጋር በመሆን አደጋና ወረርሽኝ ወይም ሌሎች የድንገተኛ ህክምና አገልግሎት የሚፈልጉ ሁኔታዎች በተከሰተበት ቦታ ሁሉ የድንገተኛ ህክምና እርዳታ የመስጠት ግዴታ አለበት፡፡",
-            textEn: "Any health institution shall:\n" +
-                   "1/ provide emergency and life-saving medical services;\n" +
-                   "2/ be prepared and provide emergency response by considering the surrounding society disaster vulnerability, emergency medical service necessity; and\n" +
-                   "3/ without prejudice to the provisions of Sub-Article (1) of this Article, provide emergency medical services with relevant bodies wherever there is a disaster and epidemic or other conditions requiring emergency medical service."
-          },
-          {
-            artNum: "11",
-            titleAm: "ስለ ተገልጋይ ቅብብሎሽ ሥርዓት",
-            titleEn: "Patient Referral System",
-            textAm: "1/ ማንኛውም ጤና ተቋም፡-\n" +
-                   "ሀ) የድንገተኛ እና መደበኛ ሕክምና አገልግሎት ለተገልጋዩ መስጠት ያልቻለ እንደሆነ ተገቢውን የሕይወት አድን እርዳታ በማድረግ አስፈላጊውን አገልግሎት ሊያገኝ ወደሚችልበት አግባብ ያለው የጤና ተቋም የቅብብሎሽ ሥርዓቱን በመከተል ከተሟላ መረጃ ጋር የማስተላለፍ፣ እና\n" +
-                   "ለ) የህክምና የቅብብሎሽ ሥርዓቱን ተከትሎ የመጣለትን ተገልጋይ የመቀበልና በደረጃው ያየለዉን የጤና አገልግሎት የመስጠት ግዴታ አለበት፡፡\n" +
-                   "2/ ማንኛውም ተገልጋይ ያጋጠመው የጤና ችግር ከሃገሪቱ የጤና አግልግሎት ደረጃ በላይ ከሆነ ከሃገር ውጭ እንዲታከም በህክምና ቦርድ የፀደቀ የህክምና ማስረጃና ፈቃድ ማግኘት አለበት፡፡\n" +
-                   "3/ በዚህ አንቀጽ ንዑስ አንቀጽ (2) በተጠቀሰው አግባብ የውጭ ሀገር ህክምና አገልግሎት የሚያስፈልገውን ተገልጋይ ወደ ውጪ የሚያስተላልፍ ወይም ከውጪ ህክምና ተቋም ጋር የሚያገናኝ ተቋም የብቃት ማረጋገጫ ፍቃድ ከሚኒስቴሩ ማግኘት አለበት፡፡ ዝርዝሩ ሚኒስቴሩ በሚያወጣው መመሪያ ይወሰናል፡፡",
-            textEn: "1/ Any health institution shall:\n" +
-                   "a) refer a patient to the appropriate health institution with complete information in accordance with the referral system, after providing basic lifesaving support, if the patient's health problems are beyond the capacity of the health institution; and\n" +
-                   "b) It is obliged to accept a patient who comes in accordance with the referral system and provide the health service provided by the step.\n" +
-                   "2/ Any patient shall obtain the medical board evidence and permission to get treatment abroad, if his health problem is beyond the capacity of the country's health service.\n" +
-                   "3/ An institution that sends a patient who needs abroad medical services or connects them with a foreign medical institution in the manner mentioned in Sub-Article (2) of this Article shall obtain a certificate of competence from the Ministry. Details shall be determined by the Directive to be issued by the Ministry."
-          },
-          {
-            artNum: "12",
-            titleAm: "የማገገምና የህክምና ተሃድሶ አገልግሎት",
-            titleEn: "Recovery and Medical Rehabilitation Service",
-            textAm: "1/ የማገገምና የህክምና ተሃድሶ አገልግሎት ለዚሁ ዓላማ ልዩ ፈቃድ በተሰጠው ተቋም ወይም የጤና ተቋም ወይም በቤት ውስጥ ሊሰጥ ይችላል፡፡\n" +
-                   "2/ ማንኛውም የጤና ተቋም ተገቢውን የማገገምና የህክምና ተሃድሶ አገልግሎት መስጠት አለበት፡፡\n" +
-                   "3/ የማገገምና የተሃድሶ ህክምና አገልግሎት በጤና ባለሙያ ወይም ስልጠና በተሰጠው ማንኛውም ሰው ሊሰጥ ይችላል፡፡",
-            textEn: "1/ Recovery and medical rehabilitation services may be provided in an institution licensed for such service or health institution or at home.\n" +
-                   "2/ Any health institution shall provide an appropriate recovery and medical rehabilitation services.\n" +
-                   "3/ Recovery and medical rehabilitation service may be provided by a health professional or anyone trained for that purpose."
-          },
-          {
-            artNum: "13",
-            titleAm: "ስለ ሆስፒስ እንክብካቤ",
-            titleEn: "Hospice Care",
-            textAm: "1/ የሆስፒስ እንክብካቤ በጤና ባለሙያ ወይም ስልጠና በተሰጠው ማንኛውም ሰው ሊሰጥ ይችላል፡፡\n" +
-                   "2/ የሆስፒስ እንክብካቤ የሚሰጠው ተገልጋይ የቅርብ ዘመዶች ስለተገልጋዩ የበሽታ ክብደት፤ ደረጃና ስለሚያስከትለው ውጤት ሊያውቁ ይገባል፡፡\n" +
-                   "3/ በማንኛውም ሁኔታ የተገልጋይን ሕይወት የሚያሳጥር የሕክምና ተግባር መፈፀም (ኤውታናዚያ) የተከለከለ ነው፡፡",
-            textEn: "1/ Hospice care may be provided by a health professional or any person trained for the purpose.\n" +
-                   "2/ The close relatives of the patient receiving hospice care shall be informed about the severity, stage of the illness and its consequences.\n" +
-                   "3/ It is prohibited to commit euthanasia in any case."
-          },
-          {
-            artNum: "14",
-            titleAm: "በመሳሪያ ብቻ የተመሰረተ የአተነፋፈስ ሥርዓት ስለሚቋረጥበት ሁኔታ",
-            titleEn: "Termination of Only Ventilator Assisted Breathing",
-            textAm: "1/ የልብ እና የመተንፈሻ አካላት የአሰራር ሥርዓት መመለስ በማይችልበት ደረጃ ሥራቸውን ሲያቆሙ ወይም የአንጎል ሞት ሲረጋገጥ በመሳሪያ ላይ የተመሰረተ የአተነፋፈስ ሥርዓትን ሶስት አግባብነት ባላቸው ባለሙያዎች ውሳኔ ማቋረጥ ይቻላል ፡፡\n" +
-                   "2/ የዚህ አንቀጽ ዝርዝር አፈጻጸም ሚኒስቴሩ በሚያወጣው መመሪያ ይወሰናል፡፡",
-            textEn: "1/ Ventilator assisted breathing shall only be interrupted by decision of three relevant professionals, when irreversible failure of cardiovascular and respiratory system or brain death is confirmed.\n" +
-                   "2/ The implementation of this article shall be determined by a directive issued by the ministry."
-          },
-          {
-            artNum: "15",
-            titleAm: "ስለ ፎረንሲክ ምርመራ አገልግሎት",
-            titleEn: "Forensic and Toxicology Examination",
-            textAm: "1/ በሚኒስቴሩ ወይም አግባብ ባለው አካል የተፈቀደለት ጤና ተቋም በሕግ ሥልጣን ከተሰጠው አካል ጥያቄ ሲቀርብለት ከወንጀል ጋር ተያያዥነት ያለው የፎረንሲክ ምርመራ አገልግሎት ይሰጣል፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) ስር ከተጠቀሰው አግባብ ውጭ የፎረንሲክ ምርመራ አገልግሎት የሚሰጠው ምርመራው በሚደረግለት ሰው እና በጤና ተቋሙ መካከል በሚደረግ ስምምነት መሠረት ብቻ ነው፡፡",
-            textEn: "1/ The health institution authorized by the ministry or appropriate body may provide crime related forensic and toxicology services at the request of the authorized body.\n" +
-                   "2/ Forensic examination services other than stipulated on sub-article (1) of this article shall be provided only according to an agreement between the person requesting for the examination and the health institution."
-          },
-          {
-            artNum: "16",
-            titleAm: "ስለአስከሬን አያያዝና ዝውውር",
-            titleEn: "Handling and Transfer of Dead Body",
-            textAm: "1/ በሕግ ሥልጣን የተሰጠው አካል ካልፈቀደ በስተቀር የሰው አካል ክፍልን፣ አስክሬንን ወይም አጽምን ወደ ሃገር ውስጥ ማስገባት ወይም ከሃገር ማስወጣት፣ የተከለከለ ነው፡፡\n" +
-                   "2/ የዚህ አንቀፅ ንዑስ አንቀፅ (1) ድንጋጌ ቢኖርም በዓለም አቀፍ የጤና ቁጥጥር ደንብ መሠረት ቁጥጥር የሚደረግበት ተላላፊ በሽታ ያለበትን አስክሬን በማንኛውም ሁኔታ ማዘዋወር የተከለከለ ነው፡፡\n" +
-                   "3/ ማንኛውም ሰው አስክሬንን ወይም አጽምን ለመቅበር፣ ቆፍሮ ለማውጣት፣ ለማዘዋወር አግባብ ያለው አካል ያወጣውን የጤና አጠባበቅ መስፈርት ማሟላት አለበት፡፡",
-            textEn: "1/ It is prohibited to allow Part of human body or dead body or human remains either to enter or leave the country without the approval of the authorized organ by the law.\n" +
-                   "2/ Notwithstanding to the provision of Sub-Article (1) of this Article, no one shall transport a dead body infected by communicable disease regulated by international health regulations.\n" +
-                   "3/ Any person shall observe the requirements set by the appropriate body to bury, exhume or transport dead body or human remains."
-          },
-          {
-            artNum: "17",
-            titleAm: "አስከሬንን ለምርምር ወይም ለማስተማር አገልግሎት ስለመጠቀም",
-            titleEn: "Use of Dead Body for Medical Research or Education Purpose",
-            textAm: "1/ አስከሬንን ለማስተማሪያነት ወይም ለምርምር ማዘጋጀት የሚችለው በሚኒስቴሩ ወይም አግባብነት ባለው አካል ፍቃድ ያገኘ የጤና ተቋም ነው፡፡\n" +
-                   "2/ ማንኛውም አስክሬንን ለማስተማሪያነት ወይም ለምርምር እንዲያዘጋጅ የተመረጠ ተቋም ያዘጋጀውን አስክሬን ከሌላ የማስተማሪያ እና የምርምር ተቋም ጋር በሚያደርገው ስምምነት መሠረት አስክሬንን ለማስተማሪያነት እና ለምርምር ተግባር እንዲውል ሊሰጥ ይችላል፡፡\n" +
-                   "3/ የጤና ሳይንስ ትምህርት ወይም የምርምር ተቋማት አስከሬንን ለማስተማሪያና ለምርምር ተግባር መጠቀም ይችላሉ፡፡\n" +
-                   "4/ አስከሬንን ለትምህርት ወይም ለምርምር አገልግሎት መጠቀም የሚቻለው ሟቹ በሕይወት በነበረበት ወቅት አግባብ ባለው አካል ፊት ሙሉ ሰውነቱን ለመለገስ ፈቃዱን ሰጥቶ ከሆነ ነው፡፡\n" +
-                   "5/ የዚህ አንቀጽ ንዑስ አንቀጽ (4) ቢኖርም የሟቹ የቅርብ ዘመድ ቀርቦ አስክሬኑን ለመውሰድ በአስራ አምስት ቀናት ውስጥ ካልጠየቀ ጉዳዩ የሚመለከተውን የመንግስት አካል በማሳወቅ አስከሬንን ለትምህርት ወይም ለምርምር አገልግሎት መጠቀም ይቻላል፡፡\n" +
-                   "6/ የዚህ አንቀጽ ንዑስ አንቀጽ (5) እንደተጠበቀ ሆኖ አስከሬኑ ለምርምር ወይም ለተማሪዎች የተግባር ልምምድ በመዘጋጀት ላይ ባለበት ወቅት የቅርብ ዘመዱ አስክሬኑን ለመውሰድ ከጠየቀ የመውሰድ መብት አለው፡፡\n" +
-                   "7/ አግባብ ያለው አካል ለህብረተሰብ ጤና እና ደህንነት ሥጋት የሚሆን አዲስ የተከሰተ በሽታ ምንነት፣ መንስኤ፣ ህክምና ወይም መከላከያ ለማወቅ የአስከሬን ምርመራ ሊያደርግ ይችላል፡፡\n" +
-                   "8/ አስከሬንን ለትምህርት ውይም ለምርምር ተግባር የሚጠቀም ተቋም ተግባሩን ሲያጠናቅቅ ለአስክሬን ሊሰጥ የሚገባውን ክብር ባሟላ ሁኔታ እንዲቀበር የማድረግ ግዴታ አለበት፡፡\n" +
-                   "9/ የዚህ አንቀጽ ዝርዝር አፈፃፀም ሚኒስቴሩ በሚያወጣው መመሪያ ይወሰናል፡፡",
-            textEn: "1/ Preparing dead body for teaching or research purpose is allowed only for health institutions authorized by the Ministry or relevant body.\n" +
-                   "2/ An institution selected to prepare the dead body for teaching or research, based on the agreement it has made with the teaching or research institution, may handover the body it prepared for teaching or research purpose.\n" +
-                   "3/ Health science education or research institutions may use dead body for education or research purpose.\n" +
-                   "4/ The dead body may be used for educational or research purposes only if the deceased has given his consent to donate his entire body while he was alive.\n" +
-                   "5/ Notwithstanding to Sub-Article (4) of this Article, the body of the deceased may be used for educational or research purposes by informing the relevant government body only if the close relative of the deceased has not claimed the body within fifteen days.\n" +
-                   "6/ Without prejudice to Sub-Article (5) of this Article, the close relative of the deceased has the right to take the body, if he claims while it is on preparation for education or research.\n" +
-                   "7/ Where the appropriate body finds it necessary to identify the nature, cause, treatment or prevention of a new disease that poses a threat to public health and safety, post-mortem examination may be made.\n" +
-                   "8/ The institution that uses the body for education or research purpose shall have the duty to bury the body with due respect.\n" +
-                   "9/ The detail implementation of this provision shall be determined by the Directive to be issued by the Ministry."
-          },
-          {
-            artNum: "18",
-            titleAm: "ስለ ባህል ፣ ተደጋጋፊ እና አማራጭ ህክምና አገልግሎት",
-            titleEn: "Traditional, Complementary and Alternative Medical Services",
-            textAm: "1/ ማንኛውም ሰው አግባብ ካለው ሕጋዊ አካል ፈቃድ ሳያገኝ የባህል ፣ ተደጋጋፊ እና አማራጭ ህክምና አገልግሎት መስጠት አይችልም፡፡\n" +
-                   "2/ ማንኛውም ሰው አግባብ ባለው አካል ከተፈቀደለት የስራ አድራሻ ውጭ አገልግሎቱን መስጠት አይችልም፡፡\n" +
-                   "3/ የዚህ አንቀጽ አፈፃፀም ሚኒስትሮች ምክር ቤት በሚያወጣው ደንብ ይወሰናል፡፡",
-            textEn: "1/ No person shall provide traditional or complementary and alternative medical service without obtaining permission from the appropriate body.\n" +
-                   "2/ No person shall provide traditional and complementary or alternative health service out of the registered address permitted by the appropriate body.\n" +
-                   "3/ The implementation of this Article shall be determined by the Regulation issued by the Council of Ministers."
-          }
+        id: "card-1362-3",
+        cat: "S2",
+        sectionAm: "ክፍል ሁለት - የጤና ባለሙያዎች ምዝገባ እና ፈቃድ",
+        sectionEn: "Section Two: Practitioner Licensure",
+        articles: "Articles 9 – 12",
+        titleAm: "የጤና ባለሙያዎች ምዝገባ፣ የሙያ ፈቃድ እና ተጠያቂነት",
+        titleEn: "Health Professional Registration, Licensure & Relicensure",
+        previewAm: "የሙያ ፈቃድ ማውጣት፤ የተያያዘ የትምህርት እድገት (CPD) እና የስነ-ምግባር ተጠያቂነት።",
+        previewEn: "Mandatory clinical licensing, Continuing Professional Development (CPD) credits, and ethical accountability.",
+        detailsAm: [
+          "<strong>የሙያ ፈቃድ ግዴታ [አንቀጽ 9]</strong>፦ ማንኛውም የጤና ባለሙያ በሕግ ከተመዘገበና የሙያ ፈቃድ ካወጣ በኋላ ብቻ ይሠራል፡፡",
+          "<strong>የተያያዘ የትምህርት እድገት (CPD) [አንቀጽ 10]</strong>፦ የሙያ ፈቃድ ለማደስ የተወሰነ የCPD ነጥብ ማከማቸት ግዴታ ነው፡፡",
+          "<strong>የውጭ ሀገር ባለሙያዎች [አንቀጽ 11]</strong>፦ በኢትዮጵያ ውስጥ የሚሠሩ የውጭ ሀገር ባለሙያዎች ልዩ የሙያ ፈቃድ ማውጣት አለባቸው፡፡",
+          "<strong>የሙያ ስህተት ተጠያቂነት [አንቀጽ 12]</strong>፦ በቸልተኝነት ወይም በጥፋት ለሚደርስ ጉዳት ባለሙያውና ተቋሙ ተጠያቂ ይሆናሉ፡፡"
+        ],
+        detailsEn: [
+          "<strong>Professional Licensure [Art. 9]</strong>: Practice is illegal without formal registration and an active professional license.",
+          "<strong>Mandatory CPD Credits [Art. 10]</strong>: Renewal of practice licenses requires mandatory Continuing Professional Development (CPD) points.",
+          "<strong>Expat Practitioners [Art. 11]</strong>: Foreign healthcare professionals must obtain temporary practice permits under strict verification.",
+          "<strong>Medical Malpractice Liability [Art. 12]</strong>: Joint professional and institutional liability for negligence or malpractice."
         ]
       },
       {
-        id: "part-4",
-        num: "4",
-        titleAm: "ክፍል አራት - ስለ ልዩ የጤና አገልግሎቶች",
-        titleEn: "PART FOUR - SPECIAL HEALTH SERVICES",
-        articles: [
-          {
-            artNum: "19",
-            titleAm: "የአዕምሮ ጤና አገልግሎት አሰጣጥ",
-            titleEn: "Mental Health Service Provision",
-            textAm: "1/ ማንኛውም የጤና ተቋም፡-\n" +
-                   "ሀ) ደረጃው በሚፈቅደው መሠረት የአዕምሮ ሕክምና አገልግሎት የመስጠት ግዴታ አለበት፣\n" +
-                   "ለ) የታካሚው የአእምሮ ጤና ችግር ከጤና ተቋሙ አቅም በላይ በሚሆንበት ወቅት አስፈላጊውን የድንገተኛ ህክምና እርዳታ በመስጠት ለተጨማሪ ሕክምና የመላክ፤ እና\n" +
-                   "ሐ) የታካሚውን መሠረታዊ ፍላጎት እና ሌሎች የአዕምሮ ጤና ችግሩን ደረጃ ያገናዘበ ድጋፍ የማሟላት ግዴታ አለበት፡፡\n" +
-                   "2/ የአዕምሮ ጤና አገልግሎት በታማሚው ወይም በቅርብ ዘመድ ወይም በሞግዚት ወይም በማንኛውም ተቋም ጠያቂነት ሊሰጥ ይችላል፡፡\n" +
-                   "3/ ታካሚው በራሱ ላይ ወይም በሌሎች ሰዎች ላይ ጉዳት እንደሚያደርስ የጤና ተቋሙ ሲያምን ከሌሎች ታካሚዎች ለይቶ ደህንነቱ በተጠበቀ ቦታ ተገቢውን ህክምና ሊሰጥ ይችላል፡፡\n" +
-                   "4/ የአዕምሮ ሕክምና ታካሚ የቅብብሎሽ ሥርዓቱን ሳይጠብቅ የሕክምና አገልግሎት የማግኘት መብት አለው፡፡\n" +
-                   "5/ ታካሚው በራሱ ወይም በሌሎች ሰዎች ላይ አደጋ ያደርሳል ተብሎ ሲታመን ተገድዶ ወደ ህክምና ተቋም እንዲገባ እና ህክምና እንዲያገኝ ሊደረግ ይችላል፡፡",
-            textEn: "1/ Every health institution shall:\n" +
-                   "a) provide mental health service in accordance with its level of standard;\n" +
-                   "b) refer for further treatment after providing appropriate emergency health service when the mental health problem of the patient is beyond its capacity; and\n" +
-                   "c) fulfill the patient's basic needs and other mental health support while providing mental health services.\n" +
-                   "2/ Mental health services may be provided upon the request of the patient or close relative or guardian or any institution.\n" +
-                   "3/ A health institution may provide an appropriate health service in a safe and isolated place when it is believed that the patient may cause harm on himself or others.\n" +
-                   "4/ A person who is mentally ill has the right to get mental health services without referral system.\n" +
-                   "5/ A mentally ill person who is believed to harm himself or others shall be forced to go to a health institution and receive treatment."
-          },
-          {
-            artNum: "20",
-            titleAm: "የአዕምሮ ጤና የፎሬንሲክ ምርመራ እና የሕክምና አገልግሎት",
-            titleEn: "Mental Health Forensic Examination and Treatment",
-            textAm: "1/ የአዕምሮ ጤና የፎሬንሲክ ምርመራ እና የህክምና አገልግሎት የሚሰጠው ጥያቄው በሕግ ሥልጣን በተሰጠው አካል ሲቀርብ ነው፡፡\n" +
-                   "2/ የአዕምሮ ጤና የፎረንሲክ ምርመራ እና የህክምና አገልግሎት በጤና ተቋም፣ በፖሊስ ጣቢያ ወይም በማረሚያ ቤት ውስጥ ሊሰጥ ይችላል፡፡\n" +
-                   "3/ የአዕምሮ ጤና የፎረንሲክ ምርመራና ህክምና አገልግሎት በአዕምሮ ጤና ባለሙያ ወይም በህክምና ቡድን ይሠጣል፡፡",
-            textEn: "1/ Mental health forensic examination and treatment shall be provided at the request of an authorized body.\n" +
-                   "2/ Mental health forensic examination and treatment may be provided at health institution, police station or prison.\n" +
-                   "3/ Mental health forensic examination and treatment shall be provided by a mental health professional or a team of health professionals."
-          },
-          {
-            artNum: "21",
-            titleAm: "ስለ ልገሳ",
-            titleEn: "Donation",
-            textAm: "1/ ማንኛውም ሰው አግባብነት ባለው አካል ፊት ቀርቦ በሚሰጠው ፈቃድ መሠረት ደም፣ ህዋሱን፣ ህብረ ህዋሱን፣ የአካል ክፍሉን፣ አካሉን መለገስ ይችላል፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) መሠረት የሰጠውን ፈቃድ ንቅለ ተከላ ከመካሄዱ በፊት በማንኛውም ጊዜ ሊሽር ይችላል፡፡\n" +
-                   "3/ ማንኛውም ሰው ደም፣ ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል ወይም አካል መለገስ የሚችለው ለዚሁ ዓላማ ሲባል ለሚቋቋመው ተቋም ብቻ ነው፡፡",
-            textEn: "1/ Any person may donate his blood, blood products, cell, tissue, organ part or organ voluntarily and without any pressure or influence, upon giving his consent before the appropriate body.\n" +
-                   "2/ The donor may revoke his consent given under Sub-Article (1) of this Article at any time before the transplantation.\n" +
-                   "3/ A donor shall donate blood, blood products, cell, tissue, organ part or organ only to an institution established for such purpose."
-          },
-          {
-            artNum: "22",
-            titleAm: "ስለ ንቅለ-ተከላ ህክምና አገልግሎት",
-            titleEn: "Transplant Service",
-            textAm: "የህዋስ፣ የሕብረ-ህዋስ፣ የአካል ክፍል እና የአካል ንቅለ ተከላ ህክምናን ማከናወን የሚቻለው የተቀባዩን ሕይወት ለማቆየት ወይም የሰውነት አቋሙን ለማስተካከል ሌላ የተሻለ አማራጭ መንገድ የማይገኝ መሆኑ በህክምና ቦርድ ሲረጋገጥ ብቻ ነው፡፡",
-            textEn: "Cell, tissue, organ part and organ transplantation takes place only where the medical board approves that there is no other better alternative in keeping the recipient alive or stabilizing his health condition."
-          },
-          {
-            artNum: "23",
-            titleAm: "የጤና ተቋም ኃላፊነትና ግዴታ",
-            titleEn: "Obligations and Responsibilities of Health Institution",
-            textAm: "ማንኛውም ልገሳ የሚያስተባብር ተቋም ወይም ንቅለ ተከላ አገልግሎት የሚሰጥ የጤና ተቋም፡-\n" +
-                   "1/ የልገሳና ንቅለ ተከላ ሃገራዊ ደረጃን የማሟላት፤\n" +
-                   "2/ የልገሳ እና የንቅለ ተከላ አገልግሎት ሂደት ያለአድልዎ የመስጠት፤\n" +
-                   "3/ ለተቀባዩ የሚሰጠው ህዋስ ወይም ህብረ-ህዋስ ወይም የአካል ክፍል ወይም አካል ደህንነቱና ጥራቱ የተረጋገጠ መሆኑን የማረጋገጥ ግዴታ አለበት፡፡",
-            textEn: "Any institution that coordinates donation or any health institution that provides transplant services shall:\n" +
-                   "1/ meet the national standard of donation and transplantation;\n" +
-                   "2/ conduct the donation and transplantation services without discrimination;\n" +
-                   "3/ ensure the safety and quality of the cell or tissue or part of an organ or organ to be given to the recipient."
-          },
-          {
-            artNum: "24",
-            titleAm: "ክልከላ",
-            titleEn: "Prohibition",
-            textAm: "1/ ማንኛውም ሰው በሽያጭ ወይም ሌላ ኢኮኖሚያዊ ጥቅም ለማግኘት ሲባል ደም፣ ህዋስ፣ ህብረ ህዋስን፣ የአካል ክፍል እና አካልን መለገስም ሆነ መቀበል የተከለከለ ነው::\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) ስር የተደነገገው ቢኖርም ልገሳ ለማድረግ ወይም ንቅለ ተከላ አገልግሎት ለማግኘት የሚወጡ ወጪዎች እንደ ክፍያ ወይም ስጦታ አይቆጠሩም፡:\n" +
-                   "3/ ከሕጋዊ የልገሳ ሥርዓት ውጭ የተገኘ አካል፤ የአካል ክፍል፤ ሕብረ ህዋስ ወይም ህዋስ አገልግሎት ላይ ማዋል የተከለከለ ነው፡፡",
-            textEn: "1/ Any person is prohibited to donate or receive blood, cell, tissue, part of an organ or organ by means of sale or receiving economic benefits.\n" +
-                   "2/ Notwithstanding the provision of Sub-Article (1) of this Article, expenses related to donations and transplant service are not considered as payment or gift.\n" +
-                   "3/ It is prohibited to use cell or tissue, part of an organ or organ for transplantation obtained out of legal donation system."
-          },
-          {
-            artNum: "25",
-            titleAm: "ከሞት በኋላ ተፈፃሚ ስለሚሆን ልገሳ",
-            titleEn: "Donation Causa Mortis",
-            textAm: "1/ ማንኛውም ሰው ሕይወቱ ሲያልፍ ህዋሱን፣ ህብረ ህዋሱን ፣ የአካል ክፍሉን ወይም አካሉን ለመለገስ ፈቃዱን አግባብነት ላለው አካል ሊሰጥ ይችላል፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) መሠረት ፈቃዱን የሰጠ ሰው ፈቃዱን በማንኛውም ጊዜ ማንሳት ይችላል፡፡\n" +
-                   "3/ ለጋሹ ህዋሱን፣ ሕብረ ህዋሱን፣ የአካል ክፍሉን ወይም አካሉን የሚቀበለውን ሰው መምረጥ አይችልም፡፡\n" +
-                   "4/ ለንቅለ ተከላ ሕክምና አገልግሎት ህዋስ፣ ሕብረ ህዋስ፣ የአካል ክፍል ወይም አካል መውሰድ የሚቻለው መሞቱ በባለሙያ ከተረጋገጠ እና ለጋሹ ሥልጣን ለተሰጠው ተቋም የፍቃደኝነት ማረጋገጫ በመፈረም ወይም በጽሁፍ ኑዛዜ ካስቀመጠ ብቻ ነው፡፡\n" +
-                   "5/ በዚህ አንቀጽ ንዑስ አንቀጽ (4) ላይ የተጠቀሰው እንደተጠበቀ ሆኖ ሟች በሕይወት በነበረበት ወቅት መፍቀዱን ወይም መከልከሉን ማረጋገጥ ካልተቻለ የሟቹ የቅርብ ዘመድ ፈቃድ መስጠት ይችላል፡፡\n" +
-                   "6/ የዚህ አንቀጽ ንዑስ አንቀጽ (4) እና (5) ቢኖርም የሟች የቅርብ ዘመድ የዐይን ብሌንን ለመጠቀም በሚቻልበት የጊዜ ገደብ እስከ አስር ስዓት ተገኝቶ ካልከለከለ በስተቀር የዐይን ብሌንን ብቻ ለንቅለ ተከላ መውሰድ ይቻላል፡፡\n" +
-                   "7/ ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል ወይም አካል ከሞተ ሰው ሲሰበሰብም ሆነ ከተሰበሰበ በኋላ ለአስክሬን ሊሰጥ የሚገባን ክብር በጠበቀ መልኩ መሆን አለበት፡፡",
-            textEn: "1/ Any person may give his consent to the appropriate body to donate his cell, tissue, part of an organ or organ after his death.\n" +
-                   "2/ A person who has given consent in accordance with Sub-Article (1) of this Article may revoke his consent at any time.\n" +
-                   "3/ The donor shall not select the recipient of his cell, tissue, part of an organ or organ.\n" +
-                   "4/ Cell, tissue, part of an organ or organ shall be harvested for transplant service only if death is confirmed by professionals and the donor has signed consent before an Authorized Institution or written will while alive.\n" +
-                   "5/ Without prejudice to the provisions of Sub-Article (4) of this Article, if it is not possible to ascertain whether the deceased has given or denied his consent during his lifetime, a close relative of the deceased may grant permission.\n" +
-                   "6/ Notwithstanding to Sub-Articles (4) and (5) of this Article, unless a close relative of the deceased is not present and prohibit within ten hours of the time limit to use the eyeball, only cornea can be harvested for transplant.\n" +
-                   "7/ During and after harvesting cell, tissue, part of an organ or organ, due respect and dignity shall be given to the body of a deceased person."
-          },
-          {
-            artNum: "26",
-            titleAm: "በሕይወት ካለ ሰው ስለመውሰድ",
-            titleEn: "Taking from a Living Person",
-            textAm: "1/ ማንኛውም ሰው ለቅርብ ዘመዱ የአካል ክፍሉን ወይም አካሉን ሥልጣን ለተሰጠው ተቋም ፈቃዱን በመስጠት በሕይወት እያለ ተፈፃሚ የሚሆን ልገሳ ማድረግ ይቻላል፡፡\n" +
-                   "2/ ማንኛውም ሰው ሥልጣን ለተሰጠው ተቋም ፈቃዱን በመስጠት ደም፣ ሕዋስ ወይም ሕብረ ሕዋስ መስጠት ይችላል፡፡\n" +
-                   "3/ ለጋሹ በዚህ አንቀፅ መሠረት የሰጠውን ፈቃድ በማንኛውም ጊዜ ማንሳት ይችላል፡፡\n" +
-                   "4/ በሕይወት ካለ ለጋሽ ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል ወይም አካል መውሰድ የሚቻለው ለጋሹ፡-\n" +
-                   "ሀ) የሕግ ችሎታ ያለው ሰው ከሆነ፤\n" +
-                   "ለ) ሥልጣን ለተሰጠው ተቋም ፈቃዱን በጽሁፍ ከሰጠ፣ እና\n" +
-                   "ሐ) በጤናው እና በሕይወቱ ላይ አደጋ የማይፈጥርበት መሆኑ በጤና ባለሙያ ሲረጋገጥ ብቻ ነው፡፡\n" +
-                   "5/ በሕግ ከለላ ስር ከሚገኝ ሰው የአካል ክፍል ወይም አካል መውሰድ የሚቻለው ተቀባዩ የቅርብ ዘመድ ሲሆን ብቻ ነው፡፡\n" +
-                   "6/ የዚህ አንቀጽ ንዑስ አንቀጽ (1) ድንጋጌ ቢኖርም የለጋሹ አካል ክፍል ለተቀባይ ተስማሚ በማይሆንበት ጊዜ የሚስማማ አካል ካለው ከሌላ ለጋሽ ጋር መለዋወጥ ይቻላል፡፡",
-            textEn: "1/ Any person while alive may donate part of an organ or organ to a close relative by giving consent to the authorized institution.\n" +
-                   "2/ Any person may donate his blood, cell or tissue by giving consent to the authorized institution.\n" +
-                   "3/ The Donor may at any time revoke the consent given in accordance with this Article.\n" +
-                   "4/ Cell, tissue, part of an organ or organ donation may be taken from a living person:\n" +
-                   "a) if the donor has legal capacity;\n" +
-                   "b) if the donor has given written consent to authorized institution; and\n" +
-                   "c) only when it is verified by health professionals that it is safe for his health and life.\n" +
-                   "5/ Part of an organ or organ may be taken from a person under the protection of the law only if the recipient is a close relative.\n" +
-                   "6/ Notwithstanding the provisions of Sub-Article (1) of this Article, donor body may be exchanged with another donor body if body part of the donor doesn't suit to the recipient."
-          },
-          {
-            artNum: "27",
-            titleAm: "የእንስሳት ወይም የባዮቴክኖሎጂ ውጤቶችን ለንቅለ ተከላ ሕክምና ስለመጠቀም",
-            titleEn: "Use of Animal or Biotechnology Products for Transplantation",
-            textAm: "1/ ከእንስሳት ወይም ከባዮቴክኖሎጂ የተገኙ ውጤቶችን ለንቅለ ተከላ ሕክምና አገልግሎት እንዲውሉ ሚኒስቴሩ ሊፈቅድ ይችላል፡፡\n" +
-                   "2/ በዚህ አንቀፅ ንዑስ አንቀፅ (1) የተደነገገው ቢኖርም ሰውን ወይም የሰው አካልን ወይም ህዋስ ወይም ዘረመልን በቴክኖሎጂ አማካኝነት ቅጂ ማድረግ፣ ማራባትና ማሻሻል (ክሎኒንግ) የተከለከለ ነው፡፡",
-            textEn: "1/ The Ministry may authorize the use of products derived from animals or biotechnology for transplantation.\n" +
-                   "2/ Notwithstanding the provisions of Sub-Article (1) of this Article, cloning, copying, regenerating or modification of any person human body, cell or gene by technology is prohibited."
-          },
-          {
-            artNum: "28",
-            titleAm: "በቴክኖሎጅ የታገዘ የሥነ ተዋልዶ ሕክምና አገልግሎት ስለመፍቀድ",
-            titleEn: "Provision of a Technology Assisted Reproductive Health Service",
-            textAm: "ማንኛውም ለዚሁ ዓላማ ፈቃድ የተሰጠው የጤና ተቋም በቴክኖሎጅ የታገዘ የሥነ ተዋልዶ የሕክምና አገልግሎት ሁለት በጋብቻ የተጣመሩ ባለትዳሮች የራሳቸውን የዘር ፍሬ ብቻ ያለልገሳ በመውሰድ ሊሰጥ ይችላል፡፡",
-            textEn: "A health institution duly authorized may provide a technology assisted reproductive health service to spouses, without donation only by using their own reproductive cell."
-          },
-          {
-            artNum: "29",
-            titleAm: "በቴክኖሎጂ የታገዘ የሥነ ተዋልዶ የሕክምና አገልግሎት የሚሰጥባቸው ሁኔታዎች",
-            titleEn: "Provision of Assisted Reproductive Technology Conditions",
-            textAm: "በቴክኖሎጅ የታገዘ የሥነ-ተዋልዶ ሕክምና አገልግሎት ሊሰጥ የሚችለው በሚከተሉት ሁኔታዎች ብቻ ነው፡-\n" +
-                   "1/ የአገልግሎቱ ተጠቃሚዎች በሕጋዊ ጋብቻ የተጣመሩ እና ለዚህም ከሚመለከተው አካል ማረጋገጫ ማቅረብ የሚችሉ ከሆነ፣\n" +
-                   "2/ ተፈጥሯዊ በሆነ መንገድ ልጅ መውለድ የማይችሉ መሆኑ በዘርፉ ባለሙያ ሲረጋገጥ፣\n" +
-                   "3/ የሚሰጠው ሕክምና አወንታዊ ውጤት ሊኖረው እንደሚችል እና በተገልጋዩ ጤና ላይ ጉዳት የማያስከትል መሆኑ በዘርፉ የሕክምና ባለሙያ ከተረጋገጠ፤ እና\n" +
-                   "4/ ባለትዳሮቹ አገልግሎቱን ለማግኘት በመረጃ ላይ የተመሠረተ የጽሁፍ ፈቃድ ከሰጡ ብቻ ነው፡፡",
-            textEn: "Technology-assisted reproductive health services shall be provided only on the following conditions:\n" +
-                   "1/ If the client is engaged in lawful marriage and submit authenticated document;\n" +
-                   "2/ If it certified by a qualified health professional that they are incapable having birth through conceiving naturally;\n" +
-                   "3/ If It is medically proved that using technology assisted reproductive services will have a positive effect for the spouses;\n" +
-                   "4/ When the spouses gives Substantiate consent in written to obtain the service."
-          },
-          {
-            artNum: "30",
-            titleAm: "ስለ ዘር ፍሬ ወይም የዘር ፍሬ ውህድ አወሳሰድ፣ አያያዝ ፤ አጠቃቀም እና አወጋገድ",
-            titleEn: "Handling, Usage and Disposal of Reproductive Cell or Embryo",
-            textAm: "1/ ከባለትዳሮች ከራሳቸው በተወሰደ የዘር ፍሬ በቴክኖሎጂ የታገዘ የሥነ ተዋልዶ የህክምና አገልግሎት ለራሳቸው ብቻ ሊሰጥ ይችላል፡፡\n" +
-                   "2/ ከባለትዳሮች የተወሰደ የዘር ፍሬ ወይም ውህድ በተገቢው መንገድ በጥንቃቄ መያዝ አለበት፡፡\n" +
-                   "3/ ከባለትዳሮቹ የተወሰደ የዘር ፍሬ ወይም ከማህፀን ውጪ የተዘጋጀ የዘር ፍሬ ውህድ ወደ ሴቷ ማህጸን ከመግባቱ በፊት በባለሙያ ውሳኔ እና በባለ ትዳሮቹ ፍላጎት በማንኛውም ጊዜ ሊወገድ ይችላል፡፡\n" +
-                   "4/ በዚህ አንቀፅ ንዑስ አንቀፅ (3) መሠረት እንዲወገድ የተወሰነው የዘር ፍሬ ወይም የዘር ፍሬ ውህድ ከተገልጋዮቹ ፍቃድ ከተገኘ የዘር ፍሬውን ወይም የዘር ፍሬ ውሁዱን ቅጂ ከማድረግ፣ ከማራባትና ከማሻሻል ተግባር ውጪ ለሆነ ለምርምር ዓላማ ሊውል ይችላል፡፡",
-            textEn: "1/ Technology-assisted reproductive health services may be provided to spouses themselves using their own reproductive cell.\n" +
-                   "2/ A reproductive cell or embryo which is taken from spouses shall be kept in appropriate way.\n" +
-                   "3/ A reproductive cell harvested from spouses or out of uterus Embryo may be castoff by the decision of a professional and at the Discretion of the spouses at any time before the implant.\n" +
-                   "4/ A reproductive cell or Embryos decided to dispose in accordance with Sub-Article (3) of this Article except replicating, cloning, breeding and modifying activities may be used for research purposes, only after obtaining consent from the spouses."
-          }
+        id: "card-1362-4",
+        cat: "S3",
+        sectionAm: "ክፍል ሶስት - የህክምና ስነ-ምግባር እና ፅንስ ማቋረጥ",
+        sectionEn: "Section Three: Medical Ethics & Euthanasia",
+        articles: "Articles 13 – 14",
+        titleAm: "የዩታናዚያ (Active Euthanasia) ፍጹም ክልከላ እና የህይወት ድጋፍ ማሽን ማቋረጥ",
+        titleEn: "Absolute Ban on Euthanasia (Art. 13(3)) vs Ventilator Withdrawal (Art. 14)",
+        previewAm: "ዩታናዚያ (የሰው ህይወት ሆን ብሎ ማሳለፍ) ፍጹም የተከለከለ ነው፤ የህይወት ድጋፍ የሚነሳው ህክምናዊ ሞት ሲረጋገጥ ብቻ ነው።",
+        previewEn: "Active euthanasia strictly prohibited (Art. 13(3)); mechanical ventilator withdrawal permitted only post-brain death (Art. 14).",
+        detailsAm: [
+          "<strong>የዩታናዚያ ፍጹም ክልከላ [አንቀጽ 13(3)]</strong>፦ በህይወት ያለን ታካሚ ህይወት ሆን ብሎ ማሳለፍ (Euthanasia) በማናቸውም ሁኔታ የተከለከለ ነው። ታካሚው ቢስማማም ወይም ከባድ ስቃይ ላይ ቢሆንም ሕጋዊ ተቀባይነት የለውም።",
+          "<strong>የህይወት ድጋፍ ማሽን ማቋረጥ [አንቀጽ 14]</strong>፦ የሚፈቀደው የታካሚው የአእምሮ ሞት (Brain Death) ወይም ሙሉ የልብና የሳንባ ሥራ መቆም በሕክምና ሲረጋገጥ ብቻ ነው።",
+          "<strong>የ3 ሐኪሞች ውሳኔ መስፈርት [አንቀጽ 14]</strong>፦ ማሽኑ እንዲነሳ 3 የሚመለከታቸው የህክምና ባለሙያዎች በጋራ ድምጽ ሞቱን ማረጋገጥ አለባቸው።",
+          "<strong>የሕጉ ልዩነት [አንቀጽ 13 vs 14]</strong>፦ አንቀጽ 13(3) በህይወት ያለን ሰው ይጠብቃል፤ አንቀጽ 14 ሞት ከተረጋገጠ በኋላ ያለውን ማሽን ማቆም ይደነግጋል።"
+        ],
+        detailsEn: [
+          "<strong>Absolute Euthanasia Ban [Art. 13(3)]</strong>: Categorical statutory ban on deliberate active ending of a living patient's life. Severe pain or patient consent does NOT alter prohibition.",
+          "<strong>Ventilator Withdrawal Standard [Art. 14]</strong>: Mechanical respiration withdrawal is legally permitted ONLY after clinical confirmation of brain death or total cardiac/respiratory cessation.",
+          "<strong>3-Doctor Consensus Requirement [Art. 14]</strong>: Requires unanimous joint medical confirmation by 3 concerned physicians before turning off artificial machines.",
+          "<strong>Core Distinction [Art. 13 vs 14]</strong>: Art. 13(3) protects living individuals; Art. 14 regulates stopping support machinery after clinical death."
         ]
       },
       {
-        id: "part-5",
-        num: "5",
-        titleAm: "ክፍል አምስት - ስለ ጤና ዘርፍ የሰው ኃብት ልማት እና አስተዳደር",
-        titleEn: "PART FIVE - HEALTH SECTOR HUMAN RESOURCE DEVELOPMENT AND ADMINISTRATION",
-        articles: [
-          {
-            artNum: "31",
-            titleAm: "ስለ ሰው ኃብት አስተዳደር እና ልማት",
-            titleEn: "Human Resource Administration and Development",
-            textAm: "1/ ሚኒስቴሩ፡-\n" +
-                   "ሀ) ለማንኛውም የጤና ሙያ ትምህርትና ስልጠና የሙያ ደረጃና የብቃት መስፈርት ከሚመለከታቸው አካላት ጋር በትብብር ያወጣል፤ ይተገብራል፣\n" +
-                   "ለ) በጤናው ዘርፍ ፍላጎት ላይ ተመስርቶ አዳዲስ የጤና ሙያ ዘርፍ ትምህርት ፕሮግራሞች እንዲጀመሩ ከሚመለከታቸው ጋር ሁሉ በትብብር ይሰራል፤\n" +
-                   "ሐ) የጤና ሙያ ትምህርትና ሥልጠና ጥራትና አግባብነት ባለው ሁኔታ እንዲካሄድ ከሚመለከታቸው ጋር በትብብር ይሰራል፡፡\n" +
-                   "2/ ማንኛውም የጤና ሳይንስ ትምህርት የሚሰጥ ተቋም ተማሪዎቹ በጤና ተቋም የተግባር ልምምድ እንዲያደርጉ ሁኔታዎችን የማመቻቸት ግዴታ አለበት፡፡\n" +
-                   "3/ በዚህ አንቀፅ ንዑስ አንቀፅ (2) መሠረት ተማሪዎችን ለተግባር ልምምድ የሚልክ የትምህርት ተቋም፡-\n" +
-                   "ሀ) ተማሪዎቹን የሚከታተል አግባብነት ያለው ባለሙያ የመመደብ፣ እና\n" +
-                   "ለ) የሚያስፈልገውን ማንኛውንም ወጪ እና ግብዓት ሙሉ በሙሉ የመሸፈን ግዴታ አለበት፡፡\n" +
-                   "4/ በተግባር ልምምድ ወቅት በክትትል ጉድለት ምክንያት በተገልጋዩ ላይ ለሚደርስ ጉዳት የትምህርት ተቋሙ እና እንዲከታተል የተመደበው ባለሙያ በጋራ ወይም በተናጠል ተጠያቂ ይሆናሉ፡፡",
-            textEn: "1/ The Ministry:\n" +
-                   "a) Develops professional standards and qualifications for any health vocational education and training in collaboration with the relevant bodies; And implement it;\n" +
-                   "b) Work in Collaboration with all relevant bodies to launch new professional health education programs based on the needs of the health sector;\n" +
-                   "c) Work in Collaboration with all relevant bodies for the provision of quality and relevant health vocational education and training.\n" +
-                   "2/ Every health science institution shall be obliged to facilitate conditions for the students thereby to practice in the health facility.\n" +
-                   "3/ Any Educational institution that sends students for practice in accordance with Sub-Article (2) of this Article shall:\n" +
-                   "a) assign an appropriate professional to supervise the students; And\n" +
-                   "b) obligated to cover all necessary expenses and inputs required.\n" +
-                   "4/ The Educational Institution and assigned supervisor shall be jointly and severally liable for damage caused to the client during the practice due to lack of supervision."
-          },
-          {
-            artNum: "32",
-            titleAm: "የጤና ዘርፍ ሠራተኛ መብት",
-            titleEn: "Rights of Health Sector Employee",
-            textAm: "1/ በሌሎች የሃገሪቱ ሕጎች ስለ ስራ ቦታ ደህንነት የተደነገጉ ድንጋጌዎች እንደተጠበቁ ሆኖ የጤና ዘርፍ ሠራተኛ በስራው ባህሪ ምክንያት ተጋላጭ ለሚሆንባቸው በሽታዎች ቅድሚያ የጤና አገልግሎት የማግኘት መብት አለው፡፡\n" +
-                   "2/ የጤናው ዘርፍ የመንግስት ሠራተኛ የጤና መድህን አባልነት ሙሉ መዋጮ በመንግስት የሚሸፈን ይሆናል፡፡\n" +
-                   "3/ የዚህ አንቀጽ ዝርዝር አፈፃፀም ሚኒስትሮች ምክር ቤት በሚያወጣው ደንብ ይወሰናል፡፡",
-            textEn: "1/ Without prejudice to the provisions of other laws of the country regarding the safety of the workplace, the health sector professional shall have the right to priority health care for vulnerable diseases due to the nature of the work.\n" +
-                   "2/ The health insurance premium for the public health employee shall be covered by the government.\n" +
-                   "3/ The detail implementation of this Article shall be determined by the Regulation to be issued by the Council of Ministers."
-          },
-          {
-            artNum: "33",
-            titleAm: "ስለ ተከታታይ የሙያ ማጎልበቻ",
-            titleEn: "Continuous Professional Development (CPD)",
-            textAm: "1/ የጤና ባለሙያዎች ተከታታይ የሙያ ማጎልበቻ ስልጠና በሃገር አቀፍ ደረጃ ተግባራዊ ይደረጋል፡፡\n" +
-                   "2/ የዚህ ድንጋጌ ዝርዝር አፈፃፀም በሚኒስቴሩ በሚወጣ መመሪያ ይወሰናል፡፡",
-            textEn: "1/ Continuous professional development training shall be implemented at national level.\n" +
-                   "2/ The detail implementation of this provision shall be determined by a Directive to be issued by the Ministry."
-          }
+        id: "card-1362-5",
+        cat: "S4",
+        sectionAm: "ክፍል አራት - የድንገተኛ ህክምና አገልግሎት ግዴታ",
+        sectionEn: "Section Four: Emergency Medical Care",
+        articles: "Articles 15 – 18",
+        titleAm: "የድንገተኛ ህክምና መስጠት ግዴታ እና ክፍያ አለመጠየቅ",
+        titleEn: "Emergency Care Obligations & Prohibition of Advance Payment",
+        previewAm: "ማንኛውም የጤና ተቋም ለድንገተኛ ታካሚ ቅድመ-ክፍያ ሳይጠይቅ ህይወት አዳኝ ህክምና የመስጠት ግዴታ አለበት።",
+        previewEn: "Mandatory emergency medical stabilization prior to asking for payment or deposit in all facilities.",
+        detailsAm: [
+          "<strong>የቅድመ-ክፍያ ክልከላ [አንቀጽ 15]</strong>፦ ድንገተኛ ታካሚ ሲመጣ ክፍያ ሳይጠየቅ ወዲያውኑ ህይወት አዳኝ ህክምና መጀመር አለበት።",
+          "<strong>የተቋማት ግዴታ [አንቀጽ 16]</strong>፦ የመንግሥትም ሆነ የግል የጤና ተቋማት ድንገተኛ ታካሚን የመቀበልና የማረጋጋት (stabilize) ግዴታ አለባቸው።",
+          "<strong>ማንቀሳቀስና ሪፈር ማለት [አንቀጽ 17]</strong>፦ ታካሚው ከተረጋጋ በኋላ ብቻና የተሻለ ተቋም መኖሩ ሲረጋገጥ ሪፈር ይባላል።",
+          "<strong>የወጪ ማካካሻ ሥርዓት [አንቀጽ 18]</strong>፦ ክፍያ መክፈል ለማይችሉ ድንገተኛ ታካሚዎች መንግሥት የመክፈያ ሥርዓት ይዘረጋል።"
+        ],
+        detailsEn: [
+          "<strong>Ban on Advance Payments [Art. 15]</strong>: Immediate life-saving emergency care MUST be rendered without demanding upfront deposits.",
+          "<strong>Universal Obligation [Art. 16]</strong>: All public and private facilities must admit and stabilize emergency trauma cases.",
+          "<strong>Referral Protocol [Art. 17]</strong>: Transfer of emergency patients permitted ONLY after clinical stabilization and verified receiving facility space.",
+          "<strong>Emergency Reimbursement [Art. 18]</strong>: Government fund mechanism established to reimburse indigent emergency care costs."
         ]
       },
       {
-        id: "part-6",
-        num: "6",
-        titleAm: "ክፍል ስድስት - ስለጤና ባለሙያዎች፤ ጤናና ጤና ነክ ተቋማት እና የምግብና መጠጥ አገልግሎት ሰጪ ተቋማት ቁጥጥር",
-        titleEn: "PART SIX - REGULATION OF HEALTH PROFESSIONALS, HEALTH AND HEALTH RELATED INSTITUTIONS AND FOOD AND BEVERAGE SERVICE PROVIDING INSTITUTIONS",
-        articles: [
-          {
-            artNum: "34",
-            titleAm: "ስለ ብቃት ምዘና እና ምዝገባ",
-            titleEn: "Competency Assessment and Registration",
-            textAm: "1/ ማንኛውም በጤና ዘርፍ ትምህርቱን ያጠናቀቀ ሰው የሙያ ምዝገባ እና ፍቃድ ለማግኘት በሚኒስቴሩ ወይም አግባብ ባለው አካል የሚሰጠውን የብቃት ምዘና ፈተና መፈተን እና ማለፍ አለበት፡፡\n" +
-                   "2/ በዚህ አንቀፅ ንዑስ አንቀፅ (1) መሠረት በሙያው ፈተና ያለፈ የጤና ባለሙያ ለመስራት ተመዝግቦ የሙያ ፈቃድ ሊኖረው ይገባል፡፡\n" +
-                   "3/ የሙያ ፈቃድ ለማደስ ተከታታይ የሙያ ማጎልበቻ ስልጠና እንዲወስድ የሚጠበቅበት የጤና ባለሙያ ሙያው የሚጠይቀውን ስልጠና ስለመውሰዱ ማረጋገጫ ማቅረብ አለበት፡፡\n" +
-                   "4/ ሚኒስቴሩ ወይም አግባብ ያለው አካል የዚህን አንቀፅ ድንጋጌ አፈፃፀም በየደረጃው እየተከታተለ ይተገብራል፡፡\n" +
-                   "5/ የዚህ ድንጋጌ ዝርዝር አፈፃፀም በመመሪያ ይወሰናል፡፡",
-            textEn: "1/ Any person who has completed his health education, must pass the proficiency assessment test administered by the Ministry or appropriate body to obtain professional registration and license.\n" +
-                   "2/ A health professional which is successful in accordance with Sub-Article (1) of this Article shall be registered and licensed to practice the profession.\n" +
-                   "3/ A health professional who is required to take continuous professional development training to renew professional license shall present evidence for completion of the required training.\n" +
-                   "4/ The Ministry or an appropriate body shall follow up the enforcement of this Article provision and implement it at all levels.\n" +
-                   "5/ The detail implementation of this provision shall be determined by the Directive."
-          },
-          {
-            artNum: "35",
-            titleAm: "ስለ ሙያ ደረጃና የሙያ ወሰን",
-            titleEn: "Professional Standard and Scope of Practice",
-            textAm: "1/ ማንኛውም የጤና ባለሙያ የጤና አገልግሎት የሚሰጠው ተፈፃሚነት ባለው የአገልግሎት ደረጃና የሙያ ወሰን መሠረት ብቻ ነው፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ-አንቀጽ (1) የተደነገገው እንደተጠበቀ ሆኖ በልዩ ሁኔታ ሲጠየቅና አስፈላጊ የሆነውን ስልጠና ማግኘቱ ሲረጋገጥ ባለሙያው ከተመዘገበበት የሙያ ወሰን ውጪ አገልግሎት እንዲሰጥ አግባብ ያለው አካል ሊፈቅድ ይችላል፡፡",
-            textEn: "1/ Any health professional shall provide health service only in accordance with applicable standards and scope of practice.\n" +
-                   "2/ Without prejudice to Sub-Article (1) of this Article, the appropriate body may authorize the professional to perform services beyond the scope of practice, proved that he is requested in a special circumstance and received the necessary training."
-          },
-          {
-            artNum: "36",
-            titleAm: "ስለ ጤና ሙያ ሥነ-ምግባር",
-            titleEn: "About Health Professional Ethics",
-            textAm: "1/ ማንኛውም የጤና ባለሙያ፡-\n" +
-                   "ሀ) ሙያው በሚመራበት የሥነ-ምግባር መርሆዎች መሠረት ኃላፊነቱን የመወጣት፣ እና\n" +
-                   "ለ) በሚሰራበት የጤና ተቋም ውስጥ የሙያ ሥነ-ምግባር ግድፈት በሚከሰትበት ወቅት ለሚመለከተው አካል የማሳወቅ ግዴታ አለበት፡፡\n" +
-                   "2/ በፌደራል፣ በክልል፣ በድሬደዋ እና አዲስ አበባ ከተማ አስተዳደር ደረጃ የጤና ሙያ ሥነ-ምግባር ግድፈት የሚመረምር የጤና ሙያ ሥነ-ምግባር ኮሚቴ ይቋቋማል፡፡\n" +
-                   "3/ ማንኛውም የጤና ተቋም በስሩ ባሉ የጤና ባለሙያዎች የሚፈፀም የሙያ የሥነ-ምግባር ግድፈትን የሚከታተል የጤና ሙያ ሥነ-ምግባር ኮሚቴ ያቋቁማል፡፡\n" +
-                   "4/ ሃገር አቀፍ የጤና ባለሙያዎች የሥነ-ምግባር ኮድ በሚኒስቴሩ ይወጣል፡፡\n" +
-                   "5/ የጤና ባለሙያዎች የሙያ ሥነ-ምግባር ደንብ በሚኒስትሮች ምክር ቤት በሚወጣ ደንብ ይወሰናል፡፡",
-            textEn: "1/ Any health professional shall:\n" +
-                   "a) fulfill his responsibility in accordance with the ethical principles of the profession; And\n" +
-                   "b) report to appropriate body any misconduct in the health facility where he works.\n" +
-                   "2/ A health professional ethics committee shall be established at Federal, Regional and Dire-Dawa and Addis Ababa City Administration level.\n" +
-                   "3/ Every health institution shall establish a Health Professional Ethics Committee to monitor its professional misconduct.\n" +
-                   "4/ National code of health professionals shall be issued by the Ministry.\n" +
-                   "5/ The Health Professionals ethics and Code of Conduct shall be determined by Regulation to be issued by Council of Ministers."
-          },
-          {
-            artNum: "37",
-            titleAm: "ከሕክምና አገልግሎት ጋር የተያየዙ ክሶች ስለሚቀርቡበትና ስለሚሰሙበት ሁኔታ",
-            titleEn: "Lodging of an Accusation and Court Hearing Procedure of Lawsuits Related to Medical Service",
-            textAm: "1/ በሕክምና አገልግሎት አሰጣጥ አማካኝነት በወንጀል የተጠረጠረ ማንኛውም የጤና ባለሙያ በወንጀል ሥነ-ሥርዓት ሕግ ድንጋጌዎች መሠረት በቁጥጥር ስር የሚውለው ባለሙያው ወንጀሉን ስለመፈፀሙ ምክንያታዊ ጥርጣሬ እንዲኖር የሚያስችል ማስረጃ ሲኖር ብቻ ነው፡፡\n" +
-                   "2/ ፍርድ ቤት በህክምና አገልግሎት አሰጣጥ ምክንያት በወንጀል ተጠርጥሮ ክስ የቀረበበት ባለሙያ ላይ ፍርድ ለመስጠት የጤና ሙያ ሥነ-ምግባር ኮሚቴ ውሳኔን እንዲሁም ሌሎች ማስረጃዎችን መመዘን አለበት፡፡\n" +
-                   "3/ የዚህ አንቀፅ ዝርዝር አፈፃፀም ይህን አዋጅ ለማስፈፀም በሚኒስትሮች ምክር ቤት በሚወጣ ደንብ ይወሰናል፡፡",
-            textEn: "1/ Any health professional who is suspected of committing a crime in relation to providing medical services shall be arrested in accordance with the provisions of the Criminal Procedure code only when there is evidence for a reasonable suspicion that the professional has committed the crime.\n" +
-                   "2/ The Court shall consider the decision of the Health Professions Ethics Committee and other evidence to pass judgment on a professional who has been charged with a crime due to the provision of medical services.\n" +
-                   "3/ The detail implementation of this Article shall be determined by the Regulation to be issued for the implementation of this proclamation by the Council of Ministers."
-          },
-          {
-            artNum: "38",
-            titleAm: "የጤና ተቋማት ቁጥጥር",
-            titleEn: "Regulation of Health Institutions",
-            textAm: "1/ ማንኛውም የጤና ተቋም በሚኒስቴሩ ወይም አግባብ ባለው አካል የተመዘገበና የብቃት ማረጋገጫ ምስክር ወረቀት ያለው መሆን አለበት፡፡\n" +
-                   "2/ የጤና ተቋማት ደረጃ አመዳደብና አሰራር አግባብ ያለው አካል በሚያወጣው አስገዳጅ ሃገራዊ ደረጃ መሠረት ይወሰናል፡፡\n" +
-                   "3/ ማንኛውም የጤና ተቋም አዲስ የጤና አገልግሎት መጀመር የሚችለው አገልግሎቱ የሚጠይቀውን ደረጃ ማሟላቱ ሲረጋገጥና ሲፈቀድለት ነው፡፡\n" +
-                   "4/ ማንኛውም የጤና ተቋም የሚሰጠውን የጤና አገልግሎት ጥራትና ደህንነት ለማረጋገጥ የጥራት ቁጥጥር ሥርዓት የመዘርጋት ኃላፊነት አለበት፡፡\n" +
-                   "5/ ማንኛውም የጤና ተቋም አገልግሎት ለመስጠት ሃገራዊ የሃይጅንና አካባቢ ጤና አጠባበቅ ደረጃ ወይም መስፈርት ማሟላት አለበት፡፡",
-            textEn: "1/ Any health institution shall be registered by the Ministry or an appropriate body and have certificate of competency.\n" +
-                   "2/ The level of standard and operation of health institutions shall be determined by the appropriate body in accordance with the mandatory national standards.\n" +
-                   "3/ Any health institution shall provide new health service only if it is certified and approved to meet the required standards.\n" +
-                   "4/ Any health institution shall establish a quality control system to ensure the quality and safety of the health services provided.\n" +
-                   "5/ Any health institution, to provide service shall meet the national hygiene and environmental health standards."
-          },
-          {
-            artNum: "39",
-            titleAm: "ስለ ጤና ነክ ተቋማት ቁጥጥር",
-            titleEn: "Regulation of Health-Related Institutions",
-            textAm: "1/ የአገልግሎት ጥራትና ደረጃ አመዳደብና አሰራር አግባብ ያለው አካል በሚያወጣው አስገዳጅ ሃገራዊ ደረጃ መሠረት ይወሰናል፡፡\n" +
-                   "2/ የጤና ነክ ተቋም የብቃት ማረጋገጫ ምስክር ወረቀት አሰጣጥ እና የቁጥጥር ሥርዓት ይህንን አዋጅ ለማስፈፀም በሚኒስትሮች ምክር ቤት በሚወጣ ደንብ ይወሰናል፡፡\n" +
-                   "3/ እያንዳንዱ የምግብና መጠጥ አገልግሎት ሰጪ ተቋም አገልግሎት ለመስጠት ሃገራዊ የሃይጅንና አካባቢ ጤና አጠባበቅ ደረጃ ወይም መስፈርት ማሟላትና የብቃት ማረጋገጫ ምስክር ወረቀት ያለው መሆን አለበት፡፡",
-            textEn: "1/ The quality and level of standard and procedure of the service shall be determined by the appropriate body in accordance with the mandatory national standard.\n" +
-                   "2/ Issuance of certificate of competency and regulatory system of health related institutions shall be determined by a Regulation to be issued for the implementation of this Proclamation by the Council of Ministers.\n" +
-                   "3/ Every food and beverage service providing institution, to provide service shall meet the national hygiene and environmental health standard and have certificate of competency."
-          },
-          {
-            artNum: "40",
-            titleAm: "ስለቆሻሻ አያያዝና አወጋገድ",
-            titleEn: "Waste Handling and Disposal",
-            textAm: "1/ የጤና ተቋማት፣ የምግብ እና መጠጥ አገልግሎት ሰጪ ተቋማት እና ጤና ነክ ተቋም በሌሎች አግባብነት ባላቸው ሕጎች ውስጥ ስለቆሻሻ አያያዝ በተደነገገው መንገድ ቆሻሻን የመያዝ እና የማስወገድ ግዴታ አለባቸው፡፡\n" +
-                   "2/ ማንኛውም ከጤና፣ ምግብና መጠጥ አገልግሎት ሰጪ እና ጤና ነክ ተቋም የሚወጣ ደረቅ፣ ፍሳሽ ወይም ሌሎች ቆሻሻዎችን አካባቢን በሚበክልና በጤንነት ላይ ጉዳት በሚያደርስ መንገድ ማከማቸት ወይም ማስወገድ የተከለከለ ነው፡፡\n" +
-                   "3/ ሚኒስቴሩ የዚህን አንቀጽ ዝርዝር አፈፃፀም የሚደነግግ መመሪያ ያወጣል፡፡",
-            textEn: "1/ Health institutions, Food and Beverage Service Providing institutions and health-related institutions shall handle and dispose waste according to provisions specified by other laws.\n" +
-                   "2/ It is prohibited to collect or dispose any solid, liquid or other wastes generated from health, health related and food and beverage service providing institutions in a manner contaminating the environment and harmful to health.\n" +
-                   "3/ The Ministry shall issue Directive for detail implementation of this Article."
-          },
-          {
-            artNum: "41",
-            titleAm: "ስለ ኃይጅን እና የአካባቢ ጤና አጠባበቅ",
-            titleEn: "Hygiene and Environmental Health Care",
-            textAm: "1/ ማንኛውም አገልግሎት ሰጭ ተቋም የተሟላ እና ንጽህናው የተጠበቀ የመጸዳጃ ቤት እና ሌሎች አስፈላጊ የንጽህና መጠበቂያ ቁሳቁሶችን ለተጠቃሚዎች ተደራሽ የማድረግ ግዴታ አለበት፡፡\n" +
-                   "2/ ማንኛውም የምግብ እና መጠጥ አገልግሎት ሰጪ ተቋም ንፁህ እና ደህንነቱ የተጠበቀ ምግብና መጠጥ የማቅረብ ግዴታ አለበት፡፡\n" +
-                   "3/ ኃይጅን እና ሌሎች የአካባቢ የጤና አጠባበቅን የሚመለከቱ ዝርዝር ግዴታዎች እና መስፈርቶች ሚኒስቴሩ በሚያወጣው መመሪያ ይወሰናሉ፡፡",
-            textEn: "1/ Every service provider has the obligation to provide a complete and toilets and other necessary hygiene materials to users.\n" +
-                   "2/ Every food and beverage service providing institution obliged to provide clean and hygienic food and beverage.\n" +
-                   "3/ Detail obligations and standards regarding hygiene and related environmental health care shall be determined by the Directive issued by the Ministry."
-          },
-          {
-            artNum: "42",
-            titleAm: "የተቆጣጣሪው ግዴታ",
-            titleEn: "Duties of an Inspector",
-            textAm: "ማንኛውም ተቆጣጣሪ፡-\n" +
-                   "1/ ስራውን ከማከናወኑ በፊት ማንነቱን፣ ለምን እንደመጣ፣ ቁጥጥር ወደሚደረግበት ተቋም በመግባት የመቆጣጠር ሥልጣን የተሰጠው ስለመሆኑ የሚገልፅ መታዎቂያ እና አግባብ ካለው አካል ፍቃድ መያዝና የማሳየት ግዴታ አለበት፣\n" +
-                   "2/ ቁጥጥር ከሚደረግበት ተቋም የሚገኙ ማስረጃዎችን የመያዝ፣ የመሰብሰብ እና ለሚኒስቴሩ ወይም አግባብ ላለው አካል የማቅረብ ግዴታ አለበት፣\n" +
-                   "3/ ኃላፊነቱን በሚወጣበት ወቅት የዚህን አዋጅ ዓላማ፣ የሥነ-ምግባር መርሆዎችን እና ሌሎች አግባብነት ያላቸውን የሃገሪቱን ሕጎች መሠረት ያደረገ መሆን አለበት::",
-            textEn: "Any inspector:\n" +
-                   "1/ before conducting any inspection, shall present his identification card and introduce his identity and organization, the reasons for the visit and permission of the appropriate body to enter and inspect institutions;\n" +
-                   "2/ shall retain, collect and present to the Ministry and appropriate body evidences collected from a regulated institution;\n" +
-                   "3/ shall respect provisions of this Proclamation, Code of Conduct and other relevant laws of the country when performing his duties."
-          }
+        id: "card-1362-6",
+        cat: "S4",
+        sectionAm: "ክፍል አራት - የታካሚ መብቶች እና ምስጢር ጥበቃ",
+        sectionEn: "Section Four: Patient Rights & Data",
+        articles: "Articles 19 – 24",
+        titleAm: "የታካሚ መብቶች፣ የህክምና ምስጢር ጥበቃ እና የመረጃ አያያዝ",
+        titleEn: "Patient Rights Charter, Medical Confidentiality & E-Health Records",
+        previewAm: "የታካሚ ሙሉ መረጃ የማግኘት መብት፣ በህክምና ላይ የመስማማት መብት እና የዲጂታል ጤና መረጃ ጥበቃ።",
+        previewEn: "Informed consent, full disclosure of treatment options, medical record access, and digital data privacy.",
+        detailsAm: [
+          "<strong>የተካሚ መብቶች [አንቀጽ 19]</strong>፦ አክብሮት ያለው አገልግሎት የማግኘት፣ ስለ ህመሙና ህክምናው የማወቅ መብት።",
+          "<strong>የስምምነት መስፈርት (Informed Consent) [አንቀጽ 20]</strong>፦ ከቀዶ ህክምናና ከባድ ህክምና በፊት የታካሚው ወይም የሕጋዊ ወኪሉ የጽሁፍ ስምምነት ያስፈልጋል።",
+          "<strong>የህክምና ምስጢር ጥበቃ [አንቀጽ 22]</strong>፦ የታካሚው ህክምና መረጃ ያለ ታካሚው ፈቃድ ወይም ያለ ፍርድ ቤት ትእዛዝ ለሶስተኛ ወገን አይሰጥም።",
+          "<strong>የዲጂታል ጤና መረጃ (E-Health) [አንቀጽ 24]</strong>፦ የኤሌክትሮኒክ የህክምና መረብ ደህንነቱ በተጠበቀ ሁኔታ መያዝ አለበት።"
+        ],
+        detailsEn: [
+          "<strong>Patient Charter [Art. 19]</strong>: Guarantees respectful treatment, non-discrimination, and right to second medical opinion.",
+          "<strong>Informed Consent [Art. 20]</strong>: Mandatory prior written consent for surgical procedures and high-risk therapies.",
+          "<strong>Medical Confidentiality [Art. 22]</strong>: Disclosure of patient records to third parties strictly illegal without consent or court order.",
+          "<strong>E-Health Record Protection [Art. 24]</strong>: Encryption and data protection standards for electronic medical record (EMR) systems."
         ]
       },
       {
-        id: "part-7",
-        num: "7",
-        titleAm: "ክፍል ሰባት - ስለ ጤና ምርምር",
-        titleEn: "PART SEVEN - CONCERNING TO HEALTH RESEARCH",
-        articles: [
-          {
-            artNum: "43",
-            titleAm: "የጤና ምርምር",
-            titleEn: "Health Research",
-            textAm: "1/ የጤና ምርምር በላቮላቶሪ፤ በተቋም፤ ቤት ለቤት፣ በማህበረሰብ አቀፍ ደረጃ እንዲሁም በአካባቢ ውስጥ ሊሰራ ይችላል፡፡\n" +
-                   "2/ የጤና ምርምር በሰው፤ በእንስሳት፤ በእፅዋትና ሕይወት ባላቸው ወይም በሌላቸው አካላት ላይ ሊሰራ ይችላል፡፡",
-            textEn: "1/ Health research may be conducted in the laboratory, institution, door-to-door, community level as well as environment.\n" +
-                   "2/ Health research may be conducted on human beings, animals, plants, living or nonliving things."
-          },
-          {
-            artNum: "44",
-            titleAm: "ስለ ጤና ምርምር ፈቃድና ቁጥጥር",
-            titleEn: "Licensing and Regulating Health Research",
-            textAm: "1/ ማንኛውም የጤና ምርምር ከመጀመሩ በፊት የታቀደው ምርምር በሕግ ሥልጣን በተሰጠው አካል ተገምግሞ ፈቃድ ማግኘት አለበት፡፡\n" +
-                   "2/ ማንኛውም የጤና ምርምር የሚመራ ተቋም ምርምሩ ሳይንሳዊ መሆኑን፣ የሚጠይቀውን የሥነ-ምግባር መርህ እና ደንብ መከበሩን የመቆጣጠር ግዴታ አለበት፡፡\n" +
-                   "3/ ማንኛውም ለምርምር የሚያስፈልግ ናሙና እና መረጃ ከሃገር ማስወጣትም ሆነ ማስገባት የሚፈልግ አካል ከሚመለከተው አካል ፈቃድ ማግኘት አለበት፡፡\n" +
-                   "4/ አግባብ ባለው አካል ሲፈቀድ ከተለያዩ የሃገር ውስጥና ዓለም አቀፍ ተቋማት እና ሃገራት ጋር የምርምር መረጃና ናሙና ልውውጥ ሊደረግ ይችላል፡፡",
-            textEn: "1/ Any health research proposal shall be reviewed and approved by the authorized body prior to the commencement of the research.\n" +
-                   "2/ Any institution conducting a health research shall ensure that the research is scientifically accepted and the required code of conduct and Regulation are upheld.\n" +
-                   "3/ Anyone who wants to export or import samples and data needed for the research shall get authorization from the relevant body.\n" +
-                   "4/ Research data and samples may be exchanged with various local and international institutions and countries with the approval of the appropriate body."
-          },
-          {
-            artNum: "45",
-            titleAm: "የጤና ምርምር የሚደረግበትን ሰው ፈቃድ ስለማግኘት",
-            titleEn: "Obtaining Participant's Consent for Health Research",
-            textAm: "1/ የጤና ምርምር የሚደረግበትን ሰው ፈቃድ ሳይገኝ ማንኛውንም የጤና ምርምር ማካሄድ አይቻልም፡፡\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) መሠረት ፈቃዱን የሚሰጥ ሰው ስለምርምሩ ዓላማ፣ ሂደት፣ ስለሚያስከትለው ተፅዕኖ እና በመሳተፉ ስለሚያገኘው ጥቅም የሚገልፅ ዝርዝር መረጃ ሊሰጠው ይገባል፡፡\n" +
-                   "3/ የዚህ አንቀጽ ንዑስ አንቀጽ (1) ቢኖርም እድሜው 12 ዓመት እና ከዚያ በታች ለሆነ ወይም የአዕምሮ ጤና ችግር ወይም ህመም ላለባቸው ወይም ራሳቸውን ማዘዝ ለማይችሉ ታካሚዎች የምርምር ተሳታፊ ፈቃድ የሚሰጠው የምርምሩ ተሳታፊ ወላጆች፣ አሳዳጊ ወይም ሞግዚት ነው፡፡\n" +
-                   "4/ እድሜው ከ12 ዓመት በላይ እና ከ18 ዓመት በታች የሆነ ሰው የምርምር ተሳታፊ ለመሆን ከወላጅ፣ አሳዳጊ ወይም ሞግዚት ፈቃድ በተጨማሪ ተሳታፊው ራሱ ፈቃዱን መስጠት አለበት፡፡\n" +
-                   "5/ ማንኛውም ሰው በጤና ምርምር በመሳተፉ ወይም ባለመሳተፉ ምክንያት በሚያገኘው የጤና እና ሌሎች አገልግሎቶች ላይ አድልዎ አይደረግበትም፡፡",
-            textEn: "1/ Any health research shall not be conducted without the consent of the research participant.\n" +
-                   "2/ A person giving his consent pursuant to Sub-Article (1) of this Article shall get detailed information on the purpose and process of the research, its effects and the benefits thereof.\n" +
-                   "3/ Notwithstanding to Sub-Article (1) of this Article, consent shall be given by the parent or guardian of the research participant who is 12 of age or younger, patients with mental health problem and unable to control themselves.\n" +
-                   "4/ A research participant whose age is above 12 and under 18 years shall give his consent in addition to his parent's or guardian's consent.\n" +
-                   "5/ No one shall be discriminated on the provision of health or other services because of participating or not participating in a health research."
-          }
+        id: "card-1362-7",
+        cat: "S5",
+        sectionAm: "ክፍል አምስት - የህዋስ እና የአካል ህክምና (Transplant)",
+        sectionEn: "Section Five: Organ Transplants & Bioethics",
+        articles: "Articles 25 – 30",
+        titleAm: "የሰውነት አካልና ህዋስ ልገሳ፣ ንቅለ-ተከላ እና የንግድ ክልከላ",
+        titleEn: "Human Organ & Tissue Donation, Transplantation & Anti-Commercialization",
+        previewAm: "የአካል ልገሳ በበጎ ፈቃድ ላይ ብቻ የተመሠረተ ነው፤ የሰውነት አካል መሸጥና መግዛት በሕግ ፍጹም የተከለከለ ነው።",
+        previewEn: "Strict legal prohibition of commercial human organ trading; donation based solely on altruistic voluntary consent.",
+        detailsAm: [
+          "<strong>የልገሳ መሠረት [አንቀጽ 25]</strong>፦ የሰውነት አካል ልገሳ የሚከናወነው በፈቃደኝነትና በነጻ ስጦታ ብቻ ነው፡፡",
+          "<strong>የንግድ ክልከላ [አንቀጽ 26]</strong>፦ የሰውነት አካልን መሸጥ፣ መግዛት ወይም በገንዘብ ለመቀየር መድራደር በወንጀል የሚያስቀጣ ነው።",
+          "<strong>የለጋሽ ዕድሜ ገደብ [አንቀጽ 27]</strong>፦ በህይወት ያለ ለጋሽ ሙሉ በሙሉ ህጋዊ ዕድሜ (18 ዓመት) የሞላውና ጤንነቱ የተረጋገጠ መሆን አለበት።",
+          "<strong>ከሟች አካል መውሰድ (Cadaveric) [አንቀጽ 29]</strong>፦ ሟቹ አስቀድሞ የሰጠው ፈቃድ ካለ ወይም የቅርብ ቤተሰብ ሲስማማ ብቻ ይወሰዳል።"
+        ],
+        detailsEn: [
+          "<strong>Altruistic Donation [Art. 25]</strong>: Human organ and tissue donation restricted strictly to voluntary, uncoerced altruism.",
+          "<strong>Ban on Organ Trading [Art. 26]</strong>: Commercialization, buying, selling, or brokering human organs is a severe felony offence.",
+          "<strong>Living Donor Criteria [Art. 27]</strong>: Living donors must be ≥18 years old with verified full mental capacity and medical fitness.",
+          "<strong>Cadaveric Donation [Art. 29]</strong>: Post-mortem retrieval valid only via prior written donor pledge or immediate family consent."
         ]
       },
       {
-        id: "part-8",
-        num: "8",
-        titleAm: "ክፍል ስምንት - ስለ ጤና መረጃ ሥርዓት",
-        titleEn: "PART EIGHT - HEALTH INFORMATION SYSTEM",
-        articles: [
-          {
-            artNum: "46",
-            titleAm: "ብሔራዊ የጤና መረጃ ሥርዓት ስለመዘርጋት",
-            titleEn: "Establishing National Health Information System",
-            textAm: "ማንኛውም የጤና ተቋም የጤና መረጃን የመመዝገብ እና ለሚመለከተው አካል ሪፖርት የማድረግ ኃላፊነት አለበት፡፡",
-            textEn: "Every health institution shall register health information and report to the relevant body."
-          },
-          {
-            artNum: "47",
-            titleAm: "ስለጤና መረጃ አሰባሰብ፣ አያያዝ፤ አጠቃቀም እና አወጋገድ",
-            titleEn: "Collection, Handling, Use and Disposal of Health Information",
-            textAm: "1/ ማንኛውም የጤና መረጃ በብሔራዊ የመረጃ አሰባሰብ ሥርዓት መሠረት ይሰበሰባል፤ ሚስጥራዊነቱ ተጠብቆና ይዘቱ ሳይቀየር ጥቅም ላይ ይውላል፣ እንደ አግባብነቱ ይወገዳል፡፡\n" +
-                   "2/ የጤና መረጃን መጠቀም ወይም ለሌላ ሰው ማስተላለፍ ወይም ይፋ ማድረግ የሚቻለው ለተገልጋዩ የጤና ክብካቤ አገልግሎት ዓላማ፣ ለማህበረሰብ ጤናና ደህንነት፣ ለምርምር ወይም ለሕጋዊ ዓላማዎች ብቻ ይሆናል፡፡\n" +
-                   "3/ በሕግ ከተፈቀደው ውጭ የግለሰብ ጤና መረጃ ከጤና ተቋም ማውጣት የተከለከለ ነው፡፡\n" +
-                   "4/ በጤና አገልግሎት ላይ ቅሬታ የቀረበበት ወይም በምርምራ ላይ የሚገኝ የተገልጋይ የሕክምና ማህደር ደህንነቱ ተጠብቆ በልዩ ቦታ መያዝ አለበት፡፡\n" +
-                   "5/ የማንኛውም የግለሰብ የህክምና ማህደር በኤሌክትሮኒክስ መያዝ በመያዝ ማህደሩ እንደአግባብነቱ ሊወገድ ይችላል፡፡",
-            textEn: "1/ Any health information shall be collected in accordance with the national data collection system; it shall be used confidentially and without altering its content and disposed as Appropriate.\n" +
-                   "2/ Using, transferring to a third party or disclosing health information is only allowed for purpose of health care service to the client, public health and safety; for research or legal purposes.\n" +
-                   "3/ It is prohibited to take away personal health information from a health institution unless permitted by law.\n" +
-                   "4/ The medical record of a client who has a complaint or under investigation shall be kept safely in special place.\n" +
-                   "5/ By keeping electronic copies of an individual medical record, it can be disposed of as Appropriate."
-          },
-          {
-            artNum: "48",
-            titleAm: "የጤና አገልግሎት ማስታዎቂያ ስለማዘጋጀትና ማሰራጨት",
-            titleEn: "Preparing and Broadcasting Health Service Advertisement",
-            textAm: "በሌሎች ሕጎች የተደነገገው እንደተጠበቀ ሆኖ፡-\n" +
-                   "1/ በመገናኛ ብዙሃን ወይም በሌላ ዘዴ የሚተላለፍ ማንኛውም የጤና አገልግሎት ማስታዎቂያ ትክክለኛ፣ ተገቢ እና ወቅታዊ መሆን አለበት፤\n" +
-                   "2/ ማንኛውም የጤና አገልግሎት ይዘት ያለው ዘገባ እና የኪነ-ጥበብ ስራ የጤና ሙያ ሥነ-ምግባርን የጤና ባለሙያውን ክብር እና የሙያውን ሳይንሳዊ ይዘት የጠበቀ ስለመሆኑ ከሚመለከተው አካል ጋር በትብብር ይሰራል፤\n" +
-                   "3/ በዚህ አንቀፅ ንዑስ አንቀጽ (1) መሠረት ቁጥጥር የሚደረግባቸው ማስታዎቂያዎች ዝርዝር ይህንን አዋጅ ለማስፈፀም በሚወጣ መመሪያ መሠረት የሚወሰን ይሆናል፡፡",
-            textEn: "Without prejudice to the provisions of other laws:\n" +
-                   "1/ any health service advertisement transmitted through mass media or other means shall be accurate, appropriate and up-to-date;\n" +
-                   "2/ any news report and artwork that has health service contents shall perform collaboratively with appropriate body to adhere to the health profession ethics, professional dignity and scientific content of the profession;\n" +
-                   "3/ details regarding advertisements regulated in accordance with Sub-Articles (1) of this Article shall be determined in accordance with Directives issued for the implementation of this Proclamation."
-          }
+        id: "card-1362-8",
+        cat: "S5",
+        sectionAm: "ክፍል አምስት - ክሊኒካዊ ምርምር እና ባዮ-ኤቲክስ",
+        sectionEn: "Section Five: Clinical Trials & Bioethics",
+        articles: "Articles 31 – 35",
+        titleAm: "የሰው ልጅ ክሊኒካዊ ሞከራዎች እና የኤቲክስ ኮሚቴ ፈቃድ",
+        titleEn: "Human Clinical Trials, Bioethical Committees & Protection",
+        previewAm: "በሰው ልጅ ላይ የሚደረግ ማንኛውም የህክምና ምርምር የባዮ-ኤቲክስ ኮሚቴ ፈቃድ ማግኘት አለበት።",
+        previewEn: "Mandatory institutional bioethics board approval and insurance protection for all human subject clinical trials.",
+        detailsAm: [
+          "<strong>የኤቲክስ ፈቃድ [አንቀጽ 31]</strong>፦ በሰው ላይ የሚደረግ ክሊኒካዊ ምርምር በብሔራዊ የኤቲክስ ኮሚቴ ሳይፈቀድ መካሄድ አይችልም።",
+          "<strong>የተሳታፊዎች ጥበቃ [አንቀጽ 32]</strong>፦ ምርምር ተሳታፊዎች በማንኛውም ጊዜ ከምርምሩ የመውጣት ሙሉ መብት አላቸው።",
+          "<strong>የመድህን (Insurance) ሽፋን [አንቀጽ 34]</strong>፦ ምርምር የሚያካሂደው አካል ለተሳታፊዎች የመድህን ዋስትና መግዛት አለበት።",
+          "<strong>ተጋላጭ ወገኖች ጥበቃ [አንቀጽ 35]</strong>፦ በህፃናትና ነፍሰ ጡሮች ላይ የሚደረግ ምርምር ልዩ ጥብቅ መስፈርት አለው።"
+        ],
+        detailsEn: [
+          "<strong>Ethics Board Approval [Art. 31]</strong>: No clinical trial may commence without prior clearance from National Bioethics Committee.",
+          "<strong>Participant Autonomy [Art. 32]</strong>: Human subjects retain absolute right to withdraw from clinical trials at any stage.",
+          "<strong>Mandatory Trial Insurance [Art. 34]</strong>: Sponsors must secure comprehensive clinical trial injury insurance for participants.",
+          "<strong>Vulnerable Groups [Art. 35]</strong>: Heightened bioethical protections for trials involving pregnant women, children, and prisoners."
         ]
       },
       {
-        id: "part-9",
-        num: "9",
-        titleAm: "ክፍል ዘጠኝ - የጤና ፋይናንስ እና የመንግስትና የግል አጋርነት",
-        titleEn: "PART NINE - HEALTH FINANCE AND PUBLIC-PRIVATE PARTNERSHIPS",
-        articles: [
-          {
-            artNum: "49",
-            titleAm: "ስለ ጤና ፋይናንስ",
-            titleEn: "Health Finance",
-            textAm: "ሚኒስቴሩ፡-\n" +
-                   "1/ የጤናውን ሥርዓት ቀጣይነት ለማረጋገጥ የጤና የፋይናንስ ሥርዓት ይዘረጋል፤\n" +
-                   "2/ የፋይናንስ ምንጮችን ይለያል፣ ከመንግስት፣ ከማህበረሰቡ፣ ከአጋር ድርጀቶችና ሌሎች የፋይናንስ ምንጮች ሀብት ይሰበስባል፤ በሃገሪቱ የፋይናንስ ሕግ መሠረት ይጠቀማል፤\n" +
-                   "3/ የስራ አፈፃፀም ውጤትን መሠረት ያደረገ የጤና ተቋም የማበራታቻ ሥርዓት ይዘረጋል፣\n" +
-                   "4/ ሁሉም የጤና አገልግሎት በክፍያ የሚሰጥበትን የአሰራር ሥርዓት ይዘረጋል፤\n" +
-                   "5/ በዚህ አንቀፅ ንዑስ አንቀፅ (4) የተደነገገው እንደተጠበቀ ሆኖ በጤና መድህን ያልተሸፈነ እና በግል መክፈል ለማይችል ተገልጋይ የጤና አገልግሎት ወጭ በመንግሰት ወይም እንደ አግባብነቱ በሌላ ማንኛውም አካል ይሸፈንለታል፣\n" +
-                   "6/ የዚህ አንቀጽ ንዑስ አንቀጽ (1) ዝርዝር አፈፃፀም በሚኒስቴሩ በሚወጣ መመሪያ ይወሰናል፡፡",
-            textEn: "The Ministry shall:\n" +
-                   "1/ establish sustainable health finance system to ensure the sustainability of the health system;\n" +
-                   "2/ identify financial sources, collect resources from the government, the community, partner organizations and other financial sources and utilizes based on the country's financial law;\n" +
-                   "3/ establish performance-based incentive system for health institutions;\n" +
-                   "4/ Establish a system where all health services are provided for a fee;\n" +
-                   "5/ Without prejudice to Sub-Article (4) of this Article, the expenses of health care services which are not covered by health insurance and cannot be paid out of pocket shall be covered by the government or by any other body as the case may be;\n" +
-                   "6/ Detail implementation of Sub-Article (1) of this Article shall be determine by the directive issued by the Ministry."
-          },
-          {
-            artNum: "50",
-            titleAm: "የመንግስት እና መንግስታዊ ያልሆኑ ተቋማት አጋርነት",
-            titleEn: "Government and Non-Governmental Organizations Partnership",
-            textAm: "ድንገተኛ የህብረተሰብ ጤና አደጋ በሚከሰትበት ወቅት መንግስታዊ እና መንግስታዊ ያልሆኑ ተቋማት በመንግስት እና የግል አጋርነት ሥርዓት በጋራ የሚሰሩበትን ሥርዓት ሚኒስቴሩ ይዘረጋል፡፡",
-            textEn: "The Ministry shall establish a system for collaborative working of government and non-governmental organizations during the occurrence of Urgent social health problem."
-          }
+        id: "card-1362-9",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የመድኃኒት አጠቃቀም እና ቁጥጥር",
+        sectionEn: "Section Six: Pharmaceuticals & Controlled Substances",
+        articles: "Articles 36 – 40",
+        titleAm: "የመድኃኒት ማዘዣ (Prescription)፣ ቁጥጥር እና የነርኮቲክ መድኃኒቶች",
+        titleEn: "Prescription Protocols, Controlled Narcotics & Pharmacy Rules",
+        previewAm: "የነርኮቲክና የሳይኮትሮፒክ መድኃኒቶች ጥብቅ ማዘዣ እና የፋርማሲ አገልግሎት መመሪያዎች።",
+        previewEn: "Strict prescription controls for narcotic drugs, psychotropic substances, and rational antibiotic prescribing.",
+        detailsAm: [
+          "<strong>የሕጋዊ ማዘዣ ግዴታ [አንቀጽ 36]</strong>፦ መድኃኒቶች ሊታደሉ የሚችሉት ፈቃድ ባለው የሕክምና ባለሙያ ከተጻፈ ማዘዣ ጋር ብቻ ነው፡፡",
+          "<strong>የነርኮቲክ መድኃኒቶች ቁጥጥር [አንቀጽ 37]</strong>፦ አደንዛዥና አእምሮ የሚቀይሩ መድኃኒቶች ልዩ የቁጥጥር ቅጽ ይፈልጋሉ፡፡",
+          "<strong>የአንቲባዮቲክ አጠቃቀም [አንቀጽ 38]</strong>፦ መድኃኒትን የመላመድ (Antimicrobial Resistance) አደጋን ለመከላከል ጥብቅ መመሪያ ይተገበራል።",
+          "<strong>የያለፈበት መድኃኒት ማስወገድ [አንቀጽ 40]</strong>፦ ጊዜያቸው ያለፈባቸው መድኃኒቶች በአካባቢ ጥበቃ ደንብ መሠረት ይወገዳሉ።"
+        ],
+        detailsEn: [
+          "<strong>Valid Prescription Rule [Art. 36]</strong>: Prescription drugs may only be dispensed against authentic licensed practitioner orders.",
+          "<strong>Narcotic Substance Control [Art. 37]</strong>: Narcotics and psychotropic meds subject to strict serialized tracking registers.",
+          "<strong>Antimicrobial Stewardship [Art. 38]</strong>: Regulations targeting irrational antibiotic use to mitigate drug resistance risks.",
+          "<strong>Disposal of Expired Drugs [Art. 40]</strong>: Safe destruction of expired biologicals and drugs adhering to environmental norms."
         ]
       },
       {
-        id: "part-10",
-        num: "10",
-        titleAm: "ክፍል አስር - የተለያዩ አካላት ሥልጣን እና ተግባር",
-        titleEn: "PART TEN - POWER AND RESPONSIBILITY OF DIFFERENT BODIES",
-        articles: [
-          {
-            artNum: "51",
-            titleAm: "የሚኒስቴሩ ሥልጣን እና ተግባር",
-            titleEn: "Power and Responsibility of the Ministry",
-            textAm: "ሚኒስቴሩ፡-\n" +
-                   "1/ በጤና አገልግሎት አሰጣጥ የተገልጋይ ደህንነትና መብት የሚከበርበትን አሰራር ይዘረጋል፣ ተግባራዊ ያደርጋል፤\n" +
-                   "2/ ደም፣ ህዋስ፣ ህብረ ህዋስ፣ የአካል ክፍል እና አካል ልገሳ እና ንቅለ ተከላ አገልግሎት አሰጣጥ እና አስተዳደር ተግባራትን ለማከናወን የሚያስችል የአሰራር ሥርዓት ይዘረጋል፣\n" +
-                   "3/ በቴክኖሎጅ የታገዘ የሥነ-ተዋልዶ አገልግሎት የሚሰጥበት የአሰራር ሥርዓት የመዘርጋት፣ አፈፃፀሙን የመከታተል እና የመቆጣጠር፤\n" +
-                   "4/ ወረርሽኝን ለመከላከልና በሽታን ለማጥፋት በሃገር አቀፍ ደረጃ በአስገዳጅ ሁኔታ የሚወሰዱ ክትባቶችን ይለያል፣ ያቀርባል፤ የአሰጣጥ ሥርዓቱን ይዘረጋል፣\n" +
-                   "5/ የቅድመ ጤና ተቋም የህክምና አገልግሎት እና የአደጋ ጊዜ የጥሪ ማዕከል የሚደራጅበትን ሥርዓት ይዘረጋል፣\n" +
-                   "6/ በግለሰብ፣ በቤተሰብ እና በማህበረሰብ ደረጃ በሽታ መከላከል፣ ጤና ማበልጸግ እና የተቀናጀ የቤት ለቤትና የቤተሰብ ህክምና አሰጣጥ ሥርዓት ይዘረጋል፤ ያጠናከራል፤ ይመራል፤\n" +
-                   "7/ የጤና ኤክስቴሽን አገልግሎትን ይመራል፣ አስተባብራል፤ የማህበረሰቡ ባለቤትነት እንዲጎለብት ይሰራል፣\n" +
-                   "8/ በሃገር አቀፍ ደረጃ የባህል እና ተደጋጋፊ ወይም አማራጭ ህክምና አገልግሎት አሰጣጥ ሥርዓትን ይዘረጋል፤\n" +
-                   "9/ ሃገር አቀፍ የአዕምሮ ጤና አገልግሎት አሰጣጥ ሥርዓትን ይዘረጋል፤ አፈጻጸሙን ይከታተላል፤\n" +
-                   "10/ የጤናውን ዘርፍ የሰው ሀብት ልማት እና አስተዳደር ስትራቴጂ ይነድፋል፤ ተግባራዊ ያደርጋል፤\n" +
-                   "11/ የሐይጅን የቤት ውስጥ አየር ብክለት መከላከል እና የአካባቢ ጤና አጠባበቅ ተግባራት ላይ የህብረተሰብ የባህሪ ለውጥ እና የተግባቦት ስልቶችን ይቀይሳል፣ ይተገብራል፣ ይመራል፣\n" +
-                   "12/ በሐይጅንና አካባቢ ጤና አጠባበቅ ችግሮች ምክንያት የሚከሰቱ በሽታዎችን በማጥናት ፖሊሲና ስትራቴጂ ይቀርፃል፣ ስራዎችን ያመቻቻል፣ ይመራል፣\n" +
-                   "13/ ሃገር አቀፍ የጤና መረጃ ቋት ያደራጃል፤ በሃገሪቱ የሚገኝ የጤና መረጃ ይሰበሰባል፤ ተደራሽ ያደርጋል፤\n" +
-                   "14/ በሃገር አቀፍ ደረጃ በቴክኖሎጂ የተደገፈ የጤና አገልግሎት አሰጣጥ እና መረጃ አያያዝ ሥርዓት ይዘረጋል፤\n" +
-                   "15/ ጥራት ያለው የጤና አገልግሎት ተደራሽ ለማድረግ የመንግስትና የግሉ ዘርፍ በአጋርነት የሚሰሩበትን ሥርዓት ይዘረጋል፣\n" +
-                   "16/ በመንግስትና በሃገር ውስጥ ባለሀብቶች ሊሸፈኑ ያልቻሉ የጤና አገልግሎቶችን ተደራሽ ለማድረግ በዘርፉ የተሰማሩ የውጪ ባለሀብቶች ገብተው እንዲያለሙ ከሚመለከታቸው አካላት ጋር ይሰራል፣\n" +
-                   "17/ የሜዲካል ቱሪዝም ማዕከላት በሃገር ውስጥ እና በውጭ ባለሃብቶች እንዲቋቋም የሚያበረታታ አሰራር ይዘረጋል፤\n" +
-                   "18/ የጤና ተቋማት በመሠረተ ልማት፤ በሰው ኃይል፤ በህክምና መሣሪያ እና ሌሎች የአግልግሎት ግብዓቶች የተሟሉ እንዲሆኑ ተገቢውን ድጋፍ የመስጠት፤\n" +
-                   "19/ ዘርፈ ብዙ ምላሽ የሚፈልጉ ተላላፊ ወይም ተላላፊ ያልሆኑ በሽታዎችን፣ ወረርሽኝና አደጋዎችን ይለያል፣ ይከታተላል፣ ይቆጣጠራል፣ ያስተባብራል፤\n" +
-                   "20/ የጤና ባለሙያዎች፣ የጤና ግብዓት የጤና ተቋማት ጤና ነክ ተቋማትን እና ምግብና መጠጥ አገልግሎት ሰጪ ተቋማት ቁጥጥር የሚያከናውን ነፃ፣ ገለልተኛ እና ጠንካራ ተቋም እንዲቋቋም ያደርጋል፤\n" +
-                   "21/ መድኃኒቶች፣ የህክምና መሣሪያዎችና ግብዓትን በአገር ውስጥ የሚያመርቱ ተቋማትን ምርትና ምርታማነት ለማሳደግ አቅም የማጎልበት ስራዎች እንዲጠናከር ያደረጋል፤\n" +
-                   "22/ የምርምር ሂደቶችን ያለፉ የባህል መድኃኒቶች በዘመናዊ መንገድ የሚመረትበትንና ጥቅም ላይ የሚውልባቸውን ሥርዓት ይዘረጋል፤\n" +
-                   "23/ የጤና፣ የጤና ነክ፣ የምግብ እና መጠጥ አገልግሎት ሰጪ ተቋማት፣ እና ባለሙያዎች ቁጥጥርን በተመለከተ አስገዳጅ መስፈርቶች መከበራቸውን ያረጋግጣል፤\n" +
-                   "24/ አገር አቀፍ የአካል ድጋፍና ተሃድሶ አገልግሎት መዘርጋቱን ያረጋግጣል፤ ይደግፋል፡፡",
-            textEn: "The Ministry shall:-\n" +
-                   "1/ establish and implement a system to ensure the safety and rights of a patient when providing health services;\n" +
-                   "2/ establish a system for provision and administration of blood, cell, tissue, part of organ, and organ donation and transplant services;\n" +
-                   "3/ establish a system for technology-assisted reproductive services; monitor and regulate the implementation;\n" +
-                   "4/ identify, provide and develope a system for mandatory vaccines to be taken at national level to prevent epidemic diseases and to eliminate diseases;\n" +
-                   "5/ design a system for the establishment of pre-health institution medical care and an emergency call center;\n" +
-                   "6/ develop, strength and lead a system of disease prevention, health promotion and an integrated home and family medical delivery system at the individual, family and community level;\n" +
-                   "7/ lead and coordinate health extension service; work to promote community ownership;\n" +
-                   "8/ establish a national delivery system of traditional and complementary or alternative medical services;\n" +
-                   "9/ establish a nationwide system for mental health service and monitor the implementation;\n" +
-                   "10/ formulate and implement a strategy to develop and administer the human resources of the health sector;\n" +
-                   "11/ design, implement, and guide behavioral change and communication strategies for hygiene, air pollution prevention of the home and environmental health activities in the community;\n" +
-                   "12/ formulate and coordinate policies and strategies by studying diseases caused by hygiene and environmental health problems;\n" +
-                   "13/ organize a national health information database, collect health information in the country and makes it accessible;\n" +
-                   "14/ establish technology assisted health service delivery and information handling system at national level;\n" +
-                   "15/ establish a public-private partnership system to ensure accessibility and quality of health services;\n" +
-                   "16/ work with the relevant bodies to enable foreign investors engaged in the health sector to access and develop health services that cannot be covered by the government and local investors;\n" +
-                   "17/ Establish a system to encourage the establishment of medical tourism centers by local and foreign investors;\n" +
-                   "18/ provide the necessary support to health institutions in fulfilling infrastructure, manpower, medical equipment and other inputs;\n" +
-                   "19/ Identify, monitor, regulate and coordinate communicable and non-communicable diseases, epidemics and disasters that require multi-sectorial response;\n" +
-                   "20/ establish an independent and strong institution that regulates health professionals, health institutions, health resources or inputs and food and beverage service providing institutions;\n" +
-                   "21/ Strengthens capacity building activities given to increase the production and productivity of institutions that produce drugs, medical equipment and inputs locally;\n" +
-                   "22/ Establishes a system in which traditional medicines that have gone through research processes are produced and used in a modern way;\n" +
-                   "23/ Regulate compliance with mandatory national health standards for institutions and professionals;\n" +
-                   "24/ Ensure and support establishment of nation-wide prosthetic and orthotic and rehabilitation service."
-          },
-          {
-            artNum: "52",
-            titleAm: "የተቆጣጣሪ ሥልጣንና ተግባር",
-            titleEn: "Power and Responsibilities of an Inspector",
-            textAm: "ተቆጣጣሪዉ የሚከተሉት ሥልጣንና ተግባራት ይኖሩታል፡-\n" +
-                   "1/ የጤና፣ የጤና ነክ እና የምግብና መጠጥ አገልግሎት የሚሰጡ ተቋማት የሚሰጡትን አገልግሎት በስራ ሰዓት በመግባት ይቆጣጠራል፣\n" +
-                   "2/ በዚህ አንቀጽ ንዑስ አንቀጽ (1) የተደነገገው እንደተጠበቀ ሆኖ ጤናን አደጋ ላይ ሊጥል የሚችል ሁኔታ ተፈጥሯል የሚያሰኝ በቂ ምክንያት ሲኖረው በማንኛውም ጊዜ ወደ ማንኛውም የጤና፣ የጤና ነክ እና ምግብና መጠጥ አገልግሎት የሚሰጡ ተቋማት በመግባት ፍተሻ ያከናወናል፣\n" +
-                   "3/ ምርመራ ለማድረግ ወይም መረጃ ለማሰባሰብ አስፈላጊ ሆኖ ሲገኝ ናሙናዎችን፣ ልኬቶችን፣ የሰነዶች ቅጂ፣ ፎቶግራፎችን፣ የተንቀሳቃሽ ምስል ቅጂ፣ የመዝገብ ቅጂ እና ሌሎች መረጃዎችን ይወስዳል፤\n" +
-                   "4/ ከፍሳሽ ቆሻሻ ማጠራቀሚያዎች፣ ከማስረጊያዎች እና ከኢንዱስትሪ የሚወጣውን ጤና የሚበክል ያልታከመ ፍሳሽ ቆሻሻ ወደ አካባቢ፣ ወደ ውኃ አካላት ወይም ወደ ውኃ አካላት መገናኛዎች በመልቀቅ ህብረተሰቡ ላይ ሊደርስ የሚችለውን ጉዳት ለመከላከል አግባብ ካለው አካል ጋር ተባብሮ ይሰራል፤\n" +
-                   "5/ አደገኛ ኬሚካሎች በሚዘጋጁበት፣ በሚጓጓዙበትና በሚከማቹበት ጊዜ አካባቢን እንዳይበክሉና በሕብረተሰቡ ጤና ላይ ጉዳት እንዳያደርሱ አግባብ ካለው አካል ጋር ተባብሮ ይሰራል፤\n" +
-                   "6/ ለማንኛውም አገልግሎት የሚውል ግንባታ በሕብረተሰቡ ጤና ላይ ጉዳት እንዳያደርስ አግባብ ካለው አካል ጋር ተባብሮ ይሰራል፣\n" +
-                   "7/ በጤና፣ ምግብና መጠጥ እና ጤና ነክ ተቋማት ላይ አስተዳደራዊ እርምጃ ይወስዳል፣ እንዲወሰድ ያደርጋል፡፡",
-            textEn: "An inspector has the following powers and responsibilities to:\n" +
-                   "1/ Enter into and inspect, during working hours, the services provided by health, health-related institutions and food and beverage service providing institutions;\n" +
-                   "2/ Without prejudice to Sub-Article (1) of this Article, the inspector shall, at any time, enter into and inspect any health, health-related and food and beverage service providing institutions if there is sufficient reason to believe that there exists a situation endangering public health;\n" +
-                   "3/ when it is necessary for conducting investigation or gathering evidence, take samples, measurements, copy of records, photographs, video copies, document copies and other evidences;\n" +
-                   "4/ Cooperate with the relevant body to prevent potential harm to the community by discharging untreated sewage from the sewers, sewers, and industrial waste into the environment, water bodies, or waterways;\n" +
-                   "5/ Cooperate with the appropriate body to ensure that hazardous chemicals do not pollute the environment or harm public health during their preparation, transportation and storage;\n" +
-                   "6/ Cooperate with the appropriate body to ensure that construction of any kind does not endanger public health;\n" +
-                   "7/ take administrative measures against health, food and beverage, and health-related institutions; and cause to taken measure."
-          }
+        id: "card-1362-10",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የላቦራቶሪ እና የጨረራ ደህንነት",
+        sectionEn: "Section Six: Diagnostic Safety & Radiation",
+        articles: "Articles 41 – 45",
+        titleAm: "የላቦራቶሪ ጥራት ቁጥጥር፣ የሜዲካል ኢሜጂንግ እና የጨረራ ደህንነት",
+        titleEn: "Clinical Laboratory Quality Control, Imaging & Radiation Safety",
+        previewAm: "የኤክስሬይና የሲቲስካን ጨረራ ደህንነት ጥበቃ እና የላቦራቶሪ ጥራት ማረጋገጫ መስፈርቶች።",
+        previewEn: "Bio-safety levels for diagnostic labs and strict radiation safety shields for X-Ray/CT imaging facilities.",
+        detailsAm: [
+          "<strong>የላቦራቶሪ ጥራት ማረጋገጫ [አንቀጽ 41]</strong>፦ ሁሉም ዲያግኖስቲክ ላቦራቶሪዎች የውጭ ጥራት ማረጋገጫ (EQA) ማለፍ አለባቸው።",
+          "<strong>የጨረራ ደህንነት ጥበቃ [አንቀጽ 42]</strong>፦ ኤክስ-ሬይ፣ ሲቲ-ስካንና የኒዩክሌር ህክምና ተቋማት የጨረራ ከለላ (Lead shielding) ማሟላት አለባቸው።",
+          "<strong>የባዮ-ደህንነት ደረጃዎች [አንቀጽ 44]</strong>፦ ተላላፊ በሽታዎችን የሚመረምሩ ላቦራቶሪዎች የባዮ-ሴፍቲ (BSL-2/3) ደረጃን መያዝ አለባቸው።",
+          "<strong>የባለሙያ ጨረራ መለኪያ [አንቀጽ 45]</strong>፦ በጨረራ ክፍሎች የሚሠሩ ባለሙያዎች Dosimeter ባጅ የማሰር ግዴታ አለባቸው።"
+        ],
+        detailsEn: [
+          "<strong>Laboratory Quality Assurance [Art. 41]</strong>: Mandatory participation in External Quality Assessment (EQA) schemes.",
+          "<strong>Radiation Shielding [Art. 42]</strong>: Mandatory lead shielding and safety certification for X-Ray, CT, and nuclear medicine.",
+          "<strong>Biosafety Levels [Art. 44]</strong>: Diagnostic labs handling pathogens must comply with BSL-2 or BSL-3 safety standards.",
+          "<strong>Occupational Dosimetry [Art. 45]</strong>: Radiation workers must wear personal dosimeter badges to monitor cumulative exposure."
         ]
       },
       {
-        id: "part-11",
-        num: "11",
-        titleAm: "ክፍል አስራ አንድ - ስለ አስተዳዳራዊ እርምጃ እና የወንጀል ቅጣት",
-        titleEn: "PART ELEVEN - ADMINISTRATIVE MEASURES AND PENALTY",
-        articles: [
-          {
-            artNum: "53",
-            titleAm: "አስተዳደራዊ እርምጃ",
-            titleEn: "Administrative Measures",
-            textAm: "1/ በዚህ አዋጅ እና ይህን አዋጅ ተከትለው በሚወጡ ሕጎች የተደነገጉ ክልከላዎችን ተላልፎ የተገኘ ማንኛውም የጤና ባለሙያ እንደተፈጸመው ጥፋት ክብደት ከማስጠንቀቂያ እስከ ፍቃድ መሰረዝ የሚደርስ እርምጃ ይወሰድበታል፡፡\n" +
-                   "2/ በዚህ አዋጅ የተደነገገውን ተላልፎ የተገኘ የጤና፣ ጤና ነክ እና የምግብና መጠጥ አገልግሎት ሰጪ ተቋም ከማስጠንቀቂያ እስከ የብቃት ማረጋገጫ ምስክር ወረቀት መሰረዝ የሚያደርስ አስተዳደራዊ እርምጃ ሊወሰድበት ይችላል፡፡\n" +
-                   "3/ የዚህ አንቀጽ ዝርዝር አፈጻጸም በሚኒስትሮች ምክር ቤት በሚወጣ ደንብ ይወሰናል፡፡",
-            textEn: "1/ Any health professional who violates the prohibitions stipulated under this Proclamation and other subsequent laws shall be subject to measures ranging from warning up to revocation of license, based on gravity of the fault.\n" +
-                   "2/ Any health, health related and food and beverage service providing institution that violates the provisions of this Proclamation may be subjected to an administrative measure that ranges from warning up to revocation of competency certificate.\n" +
-                   "3/ The details implementation of this Article shall be determined by a Regulation to be issued by the Council of Ministers."
-          },
-          {
-            artNum: "54",
-            titleAm: "ስለ ቅሬታ አቀራረብ",
-            titleEn: "Lodging a Complaint",
-            textAm: "1/ የሚመለከተው የጤና ተቋም በጤና ተቋማት በታዩ ጉዳዮች የተገልጋዮችን የይግባኝ ቅሬታ ተቀብሎ የውሳኔ ሃሳብ ለበላይ ኃላፊ የሚያቀርብ የሥነ-ምግባር ኮሚቴ ያቋቁማል፡፡\n" +
-                   "2/ ማንኛውም በዚህ አዋጅ የተሰጠው መብት የተጣሰ ወይም የተከለከለ አካል የመብት ጥሰቱ ከተከሰተበት ቀን ጀምሮ በስልሳ (60) ተከታታይ ቀናት ውስጥ አግባብ ላለው አካል ቅሬታውን ማቅረብ ይችላል፡፡\n" +
-                   "3/ ማንኛውም አስተዳደራዊ እርምጃ የተወሰደበት ሰው ቅሬታ ካለው እርምጃው ከተወሰደበት ቀን ጀምሮ በሠላሳ (30) ተከታታይ ቀናት ውስጥ ለሚኒስቴሩ ቅሬታውን ማቅረብ ይችላል፡፡\n" +
-                   "4/ በዚህ አንቀጽ ንዑስ አንቀጽ (2) እና (3) መሠረት ቅሬታ የቀረበለት አካል በአስራ አምስት (15) የሥራ ቀናት ውስጥ ውሳኔ መስጠት አለበት፡፡\n" +
-                   "5/ በዚህ አንቀጽ ንዑስ አንቀጽ (4) መሠረት ሚኒስቴሩ በሰጠው ውሳኔ ቅር የተሰኘ ማንኛውም አካል ጉዳዩን ለማየት አግባብነት ላለው መደበኛ ፍርድ ቤት በስልሳ (60) ተከታታይ ቀናት ውስጥ ማቅረብ ይችላል፡፡\n" +
-                   "6/ ለዚህ አንቀጽ አፈፃፀም የበላይ ኃላፊ ማለት የጤና ቢሮ ኃላፊ ወይም የሚኒስቴሩ ሚኒስትር ነው፡፡\n" +
-                   "7/ ዝርዝር የቅሬታ አቀራረብ ሥርዓት አዋጁን ለማስፈፀም በሚወጣ የሚኒስትሮች ምክር ቤት ደንብ ይወሰናል፡፡",
-            textEn: "1/ The relevant health institution shall establish a moral and ethics committee that entertain patient's appeals on health institutions and make recommendations to the higher official.\n" +
-                   "2/ Any organ whose rights guaranteed under this Proclamation is infringed or denied may submit a complaint to the appropriate body within sixty (60) consecutive days from the date such infringement or denial occurred.\n" +
-                   "3/ Any person who has grievance against administrative measures taken against him, may submit his complaint to the Ministry within thirty (30) consecutive days from the date the measure is taken.\n" +
-                   "4/ The body that receives the complaint pursuant to Sub-Article (2) and (3) of this Article shall render decision within fifteen (15) working days.\n" +
-                   "5/ Any person who has a grievance against a final administrative decision made pursuant to Sub-Article (4) of this Article may appeal to a regular Court having jurisdiction within sixty (60) consecutive days.\n" +
-                   "6/ For the implementation of this Article, Higher Official means, as necessary, the Head of the Regional Health Bureau or the Minister of the Ministry.\n" +
-                   "7/ The details regarding lodging grievances shall be determined by a Regulation to be issued by the Council of Ministers."
-          },
-          {
-            artNum: "55",
-            titleAm: "ቅጣት (ሙሉ የ22 ንዑሳን አንቀፆች የወንጀል ማትሪክስ)",
-            titleEn: "Penalty (Exhaustive Matrix of 22 Offense Sub-Articles)",
-            textAm: "የወንጀል ቅጣቶች ዝርዝር ድንጋጌዎች ማጠቃለያ ማትሪክስ፡-",
-            textEn: "Summary of Criminal Penalties Matrix:",
-            isTable: true,
-            tableData: [
-              {
-                offenseAm: "1/ ያለፈቃድ አስከሬን፣ የአስከሬን አካል ክፍል ወይም አፅም ወደ ሃገር ማስገባት/ማስወጣት",
-                offenseEn: "1/ Unauthorized import or export of a dead body, part of a dead body or skeleton",
-                penaltyAm: "ከ1 ዓመት ያላነሰ እና ከ3 ዓመት ያልበለጠ ቀላል እሥራት",
-                penaltyEn: "Simple imprisonment from 1 year to 3 years"
-              },
-              {
-                offenseAm: "2/ ቁጥጥር የሚደረግበት ተላላፊ በሽታ ያለበትን አስከሬን ማዘዋወር",
-                offenseEn: "2/ Transferring a dead body infected with regulated communicable disease",
-                penaltyAm: "ከ3 ዓመት ያላነሰ እና ከ5 ዓመት ያልበለጠ ጽኑ እሥራት",
-                penaltyEn: "Rigorous imprisonment from 3 years to 5 years"
-              },
-              {
-                offenseAm: "3/ ያለፈቃድ አስከሬንን ለትምህርትና ምርምር ተግባር ማዋል (ተቋም)",
-                offenseEn: "3/ Unauthorized use of dead body for health education or research by institution",
-                penaltyAm: "ከብር 100,000 እስከ ብር 200,000 የገንዘብ መቀጮ",
-                penaltyEn: "Fine from 100,000 Birr to 200,000 Birr"
-              },
-              {
-                offenseAm: "4/ ያለፈቃድ የሰውነት አካል ወይም አካል ክፍል መውሰድ (ግለሰብ)",
-                offenseEn: "4/ Taking an organ or part of an organ without permission (individual)",
-                penaltyAm: "ከ5 ዓመት ያላነሰ እና ከ15 ዓመት ያልበለጠ ጽኑ እስራት",
-                penaltyEn: "Rigorous imprisonment from 5 years to 15 years"
-              },
-              {
-                offenseAm: "5/ ያለፈቃድ የሰውነት አካል መውሰድ (በጤና ተቋም የተፈፀመ ከሆነ)",
-                offenseEn: "5/ Taking organ without permission committed by health institution",
-                penaltyAm: "ከብር 1,000,000 እስከ ብር 5,000,000 መቀጮ",
-                penaltyEn: "Fine from 1,000,000 Birr to 5,000,000 Birr"
-              },
-              {
-                offenseAm: "6(ሀ)/ ያለ ለጋሽ ፈቃድ የህዋስ ወይም የህብረ ህዋስ ንቅለ ተከላ መስጠት (ባለሙያ)",
-                offenseEn: "6(a)/ Providing cell or tissue transplant without donor consent (professional)",
-                penaltyAm: "ከ3 ዓመት ያላነሰ እና ከ5 ዓመት ያልበለጠ ጽኑ እስራት",
-                penaltyEn: "Rigorous imprisonment from 3 years to 5 years"
-              },
-              {
-                offenseAm: "6(ለ)/ ያለ ለጋሽ ፈቃድ የአካል ወይም አካል ክፍል ንቅለ ተከላ መስጠት (ባለሙያ)",
-                offenseEn: "6(b)/ Providing organ or organ part transplant without donor consent",
-                penaltyAm: "ከሰባት ዓመት ያላነሰ ከ15 ዓመት ያልበለጠ ጽኑ እሥራት",
-                penaltyEn: "Rigorous imprisonment from 7 years to 15 years"
-              },
-              {
-                offenseAm: "6(ሐ)/ ሕገ-ወጥ ህዋስ/ኦርጋን በመጠቀም ንቅለ ተከላ መስጠት (ተቋም)",
-                offenseEn: "6(c)/ Providing transplant service using illegally obtained organ/cell (institution)",
-                penaltyAm: "ከብር 1,000,000 እስከ ብር 3,000,000 የገንዘብ መቀጮ",
-                penaltyEn: "Fine from 1,000,000 Birr to 3,000,000 Birr"
-              },
-              {
-                offenseAm: "7(ሀ)/ ኦርጋን/ህዋስን በገንዘብ ወይም በሌላ ጥቅም ተቀብሎ መገኘት",
-                offenseEn: "7(a)/ Receiving cell, tissue, organ with monetary or economic benefit",
-                penaltyAm: "ከ5 ዓመት ያላነሰ እና ከ15 ዓመት ያልበለጠ ጽኑ እሥራት",
-                penaltyEn: "Imprisonment from 5 years to 15 years"
-              },
-              {
-                offenseAm: "7(ለ)/ ኦርጋን/ህዋስን በገንዘብ ወይም በሌላ ጥቅም ለመስጠት መተባበር",
-                offenseEn: "7(b)/ Handing over or facilitating giving organ/cell for economic benefit",
-                penaltyAm: "ከ3 ዓመት ያላነሰ እና ከ7 ዓመት ያልበለጠ ጽኑ እሥራት",
-                penaltyEn: "Rigorous imprisonment from 3 years to 7 years"
-              },
-              {
-                offenseAm: "8/ የ7(ሀ) እና 7(ለ) ጥፋት በተቋም ከተፈፀመ",
-                offenseEn: "8/ Commercial organ trade committed by an institution",
-                penaltyAm: "ከብር 2,000,000 እስከ ብር 5,000,000 የገንዘብ መቀጮ",
-                penaltyEn: "Fine from 2,000,000 Birr to 5,000,000 Birr"
-              },
-              {
-                offenseAm: "9(ሀ)/ ያለሕግ አግባብ ህዋስ ወይም ህብረ ህዋስ ይዞ ወይም ሲያጓጉዝ መገኘት",
-                offenseEn: "9(a)/ Possessing or transporting cell or tissue without authorization",
-                penaltyAm: "ከ3 ዓመት ያላነሰና ከ5 ዓመት ያልበለጠ ጽኑ እስራት",
-                penaltyEn: "Rigorous imprisonment from 3 years to 5 years"
-              },
-              {
-                offenseAm: "9(ለ)/ ያለሕግ አግባብ ኦርጋን ወይም የአካል ክፍል ይዞ/ሲያጓጉዝ መገኘት",
-                offenseEn: "9(b)/ Possessing or transporting organ or organ part without authorization",
-                penaltyAm: "ከሰባት ዓመት ያላነሰ እና ከ15 ዓመት ያልበለጠ ጽኑ እሥራት",
-                penaltyEn: "Rigorous imprisonment from 7 years to 15 years"
-              },
-              {
-                offenseAm: "10/ ጥፋት 9(ሀ) ወይም 9(ለ) በግል ተቋም ከተፈፀመ",
-                offenseEn: "10/ Illegal possession/transport of organs committed by private institution",
-                penaltyAm: "ከብር 300,000 እስከ ብር 5,000,000 የገንዘብ መቀጮ",
-                penaltyEn: "Fine from 300,000 Birr to 5,000,000 Birr"
-              },
-              {
-                offenseAm: "11/ በአዋጁ ከተደነገገው ውጭ በቴክኖሎጅ የታገዘ ART መስጠት (ባለሙያ)",
-                offenseEn: "11/ Providing ART reproductive services violating Proclamation rules",
-                penaltyAm: "እስከ 5 ዓመት እሥራት",
-                penaltyEn: "Imprisonment up to 5 years"
-              },
-              {
-                offenseAm: "12/ ጥፋት 11 በጤና ተቋም የተፈጸመ እንደሆነ",
-                offenseEn: "12/ Illegal ART reproductive service committed by health institution",
-                penaltyAm: "ከብር 100,000 እስከ ብር 500,000 የገንዘብ መቀጮ",
-                penaltyEn: "Fine from 100,000 Birr to 500,000 Birr"
-              },
-              {
-                offenseAm: "13(ሀ)/ ተቆጣጣሪ እንዳያከናውን እንቅፋት መፍጠር (ባለሙያ)",
-                offenseEn: "13(a)/ Obstructing inspector from exercising regulatory tasks",
-                penaltyAm: "ከ6 ወር እስከ 3 ዓመት ቀላል እሥራት",
-                penaltyEn: "Simple imprisonment from 6 months to 3 years"
-              },
-              {
-                offenseAm: "13(ለ)/ የሙያ ፈቃድን ለሌላ ሰው ማስተላለፍ",
-                offenseEn: "13(b)/ Transferring professional license to another person",
-                penaltyAm: "ከ2 ዓመት እስከ 5 ዓመት ቀላል እሥራት",
-                penaltyEn: "Simple imprisonment from 2 years to 5 years"
-              },
-              {
-                offenseAm: "14/ የሙያ ምዝገባና ፈቃድ ሳይኖረው በጤና አገልግሎት ተሰማርቶ መገኘት",
-                offenseEn: "14/ Engaging in health service provision without registration and license",
-                penaltyAm: "ከ5 ዓመት እስከ 7 ዓመት ጽኑ እስራት",
-                penaltyEn: "Rigorous imprisonment from 5 years to 7 years"
-              },
-              {
-                offenseAm: "15(ሀ)/ ፈቃድ ሳይኖረው ባህላዊ ህክምና መስጠት",
-                offenseEn: "15(a)/ Providing traditional medicine without license",
-                penaltyAm: "እስከ 6 ወር ቀላል እስራት",
-                penaltyEn: "Simple imprisonment not exceeding 6 months"
-              },
-              {
-                offenseAm: "15(ለ)/ ከተፈቀደለት ቦታ ውጭ ባህላዊ ህክምና መስጠት",
-                offenseEn: "15(b)/ Providing traditional medicine outside authorized premises",
-                penaltyAm: "እስከ 3 ወር ቀላል እስራት",
-                penaltyEn: "Simple imprisonment not exceeding 3 months"
-              },
-              {
-                offenseAm: "16/ ያለፈቃድ ተደጋጋፊ ወይም አማራጭ ህክምና መስጠት",
-                offenseEn: "16/ Providing complementary/alternative medicine without license",
-                penaltyAm: "ከብር 200,000 እስከ ብር 500,000 መቀጮ",
-                penaltyEn: "Fine from 200,000 Birr to 500,000 Birr"
-              },
-              {
-                offenseAm: "17(ሀ)/ የጤና ማስታወቂያ ህግ መጣስ (ባለሙያ)",
-                offenseEn: "17(a)/ Violating health advertisement provisions (professional)",
-                penaltyAm: "ከ6 ወር እስከ 1 ዓመት እሥራት",
-                penaltyEn: "Imprisonment from 6 months to 1 year"
-              },
-              {
-                offenseAm: "17(ለ)/ የጤና ማስታወቂያ ህግ መጣስ (ማስታወቂያ/ሚዲያ/ተቋም)",
-                offenseEn: "17(b)/ Violating health ad provisions (agency, media, institution)",
-                penaltyAm: "ከብር 50,000 እስከ ብር 100,000 መቀጮ",
-                penaltyEn: "Fine from 50,000 Birr to 100,000 Birr"
-              },
-              {
-                offenseAm: "18/ ተቆጣጣሪን በኃይል/በዛቻ መከልከል ወይም ማስረጃ ማጥፋት",
-                offenseEn: "18/ Preventing inspector by force, destroying evidence or misleading",
-                penaltyAm: "ከ6 ወር እስከ 1 ዓመት ቀላል እሥራት እና የገንዘብ መቀጫ",
-                penaltyEn: "Simple imprisonment 6 months to 1 year and fine"
-              },
-              {
-                offenseAm: "19(ሀ)/ ተቆጣጣሪ አደጋ የሚያስከትል ድርጊትን እያወቀ ሳይናገር ጉዳት ማድረስ",
-                offenseEn: "19(a)/ Inspector failing to report known danger causing public harm",
-                penaltyAm: "ከ2 ዓመት እስከ 5 ዓመት ቀላል እሥራት",
-                penaltyEn: "Simple imprisonment from 2 years to 5 years"
-              },
-              {
-                offenseAm: "19(ለ)/ ተቆጣጣሪ ሀሰተኛ ሪፖርት ማቅረብ ወይም እርምጃ አለመውሰድ",
-                offenseEn: "19(b)/ Inspector submitting false report or failing required action",
-                penaltyAm: "ከ3 ዓመት እስከ 5 ዓመት ቀላል እስራት",
-                penaltyEn: "Simple imprisonment from 3 years to 5 years"
-              },
-              {
-                offenseAm: "20/ የግለሰብ ጤና መረጃን ከሕግ ውጪ ከጤና ተቋም ማውጣት",
-                offenseEn: "20/ Releasing personal health records outside legal procedure",
-                penaltyAm: "ከ3 ዓመት ያላነሰ ቀላል እስራት",
-                penaltyEn: "Simple imprisonment not less than 3 years"
-              },
-              {
-                offenseAm: "21/ ያለብቃት ማረጋገጫ ተገልጋይን ለህክምና ወደ ውጪ መላክ",
-                offenseEn: "21/ Sending/referring patients abroad without competency certificate",
-                penaltyAm: "ከብር 100,000 ያላነሰ መቀጮ",
-                penaltyEn: "Fine not less than 100,000 Birr"
-              },
-              {
-                offenseAm: "22/ ከጤና ተቋማት የሚወጣ ቆሻሻን በሰው ጤና ላይ ጉዳት በሚያደርስ መንገድ ማስወገድ",
-                offenseEn: "22/ Unsafe accumulation or disposal of waste endangering health",
-                penaltyAm: "በቀላል እስራት ይቀጣል",
-                penaltyEn: "Punishable with simple imprisonment"
-              }
-            ]
-          }
+        id: "card-1362-11",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የደም እና የደም ተዋጽኦዎች ባንክ",
+        sectionEn: "Section Six: Blood Bank & Transfusion Safety",
+        articles: "Articles 46 – 50",
+        titleAm: "የደም ባንክ አገልግሎት፣ የደም ደህንነት እና የልገሳ ደንቦች",
+        titleEn: "National Blood Bank Systems, Screening & Transfusion Safety",
+        previewAm: "የደም ለጋሾች ደህንነት፣ ነጻ የደም ልገሳ እና ለተላላፊ በሽታዎች (HIV/Hepatitis) ጥብቅ ምርመራ።",
+        previewEn: "Screening of all donated blood units for HIV, Hepatitis B/C, and Syphilis prior to transfusion release.",
+        detailsAm: [
+          "<strong>ነጻ የደም ልገሳ [አንቀጽ 46]</strong>፦ ደም መሰብሰብ የሚካሄደው በነጻ የበጎ ፈቃድ ልገሳ ላይ ብቻ ተመስርቶ ነው፡፡",
+          "<strong>የግዴታ የደም ምርመራ [አንቀጽ 47]</strong>፦ ማንኛውም ደም ለታካሚ ከመሰጠቱ በፊት ኤችአይቪ፣ ሄፓታይቲስ ቢ/ሲ እና ቂጥኝ መመርመር አለበት።",
+          "<strong>የደም ባንክ ደረጃዎች [አንቀጽ 48]</strong>፦ የደም ማከማቻና የማዛመድ (Cross-matching) ማዕከላት ጥብቅ የቅዝቃዜ ሰንሰለት መያዝ አለባቸው።",
+          "<strong>የደም ሽያጭ ክልከላ [አንቀጽ 50]</strong>፦ ደምን ለንግድ ዓላማ መሸጥ ወይም መለወጥ በሕግ በጥብቅ የተከለከለ ነው።"
+        ],
+        detailsEn: [
+          "<strong>Voluntary Non-Remunerated Donation [Art. 46]</strong>: Blood collection operates exclusively on voluntary non-paid donation.",
+          "<strong>Mandatory Disease Screening [Art. 47]</strong>: 100% testing of blood units for HIV, Hepatitis B, Hepatitis C, and Syphilis.",
+          "<strong>Cold Chain Storage [Art. 48]</strong>: Cold chain integrity and cross-matching quality standards for all processing banks.",
+          "<strong>Ban on Blood Commercialization [Art. 50]</strong>: Commercial trade or sale of human blood products is strictly criminalized."
         ]
       },
       {
-        id: "part-12",
-        num: "12",
-        titleAm: "ክፍል አስራ ሁለት - ልዩ ልዩ ድንጋጌዎች",
-        titleEn: "PART TWELVE - MISCELLANEOUS PROVISIONS",
-        articles: [
-          {
-            artNum: "56",
-            titleAm: "ተፈፃሚነት ስለሌላቸው ሕጎች",
-            titleEn: "Inapplicable Laws",
-            textAm: "ከዚህ አዋጅ ጋር የሚቃረን ማንኛውም አዋጅ፣ ደንብ፣ መመሪያ ወይም ልማዳዊ አሰራር በዚህ አዋጅ የተሸፈኑ ጉዳዮችን በሚመለከት ተፈፃሚነት አይኖረውም፡፡",
-            textEn: "No Proclamation, Regulation, Directive or Customary Practice inconsistent with this Proclamation shall be applicable with respect to matters covered under this Proclamation."
-          },
-          {
-            artNum: "57",
-            titleAm: "የተሻሩ ሕጎች",
-            titleEn: "Repealed Laws",
-            textAm: "በዚህ አዋጅ የተሸፈኑ ጉዳዮችን በሚመለከት አዋጅ ቁጥር 661/2002 ተሽሯል፡፡",
-            textEn: "With respect to matters covered under this Proclamation Proclamation No. 661/2002 is hereby repealed."
-          },
-          {
-            artNum: "58",
-            titleAm: "ደንብና መመሪያ ሰለማውጣት",
-            titleEn: "Power to Issue Regulations and Directives",
-            textAm: "1/ ይህንን አዋጅ ለማስፈፀም የሚኒስትሮች ምክር ቤት ደንብ ሊያወጣ ይችላል፡፡\n" +
-                   "2/ ሚኒስቴሩ ይህን አዋጅ እና አዋጁን ተከትሎ የሚወጡ ደንቦችን ለማስፈፀም መመሪያዎችን ሊያወጣ ይችላል፡፡",
-            textEn: "1/ Council of Ministers may issue Regulations for the implementation of this Proclamation.\n" +
-                   "2/ The Ministry may issue Directives for the implementation of this Proclamation and Regulations issued pursuant to this Proclamation."
-          },
-          {
-            artNum: "59",
-            titleAm: "አዋጁ የሚፀናበት ጊዜ",
-            titleEn: "Effective Date",
-            textAm: "ይህ አዋጅ በፌደራል ነጋሪት ጋዜጣ ታትሞ ከወጣበት ቀን ጀምሮ ተፈፃሚ ይሆናል፡፡\n\n" +
-                   "አዲስ አበባ ግንቦት 12 ቀን 2017 ዓ.ም\n" +
-                   "ታዬ አጽቀሥላሴ\n" +
-                   "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ ፕሬዚዳንት",
-            textEn: "This Proclamation shall enter in force on the date of publication in the Federal Negarit Gazette.\n\n" +
-                   "Done at Addis Ababa, on this 20th Day of May, 2025\n" +
-                   "TAYE ATSKE SELASSIE\n" +
-                   "PRESIDENT OF THE FEDERAL DEMOCRATIC REPUBLIC OF ETHIOPIA"
-          }
+        id: "card-1362-12",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የኢንፌክሽን መከላከያ እና ቆሻሻ አወጋገድ",
+        sectionEn: "Section Six: IPC & Healthcare Waste",
+        articles: "Articles 51 – 55",
+        titleAm: "የኢንፌክሽን መከላከያና ቁጥጥር (IPC) እና የህክምና ቆሻሻ አወጋገድ",
+        titleEn: "Infection Prevention & Control (IPC) & Biohazard Waste Standards",
+        previewAm: "የህክምና ቆሻሻን በደረጃው የመለየት፣ የማከማቸትና በIncinerator የማስወገድ ግዴታ።",
+        previewEn: "Mandatory color-coded waste segregation, biohazard safety containment, and high-temperature incineration.",
+        detailsAm: [
+          "<strong>የIPC ኮሚቴ ማቋቋም [አንቀጽ 51]</strong>፦ ማንኛውም የጤና ተቋም የኢንፌክሽን መከላከያ ኮሚቴና መመሪያ ሊኖረው ይገባል።",
+          "<strong>የቆሻሻ መለያየት (Segregation) [አንቀጽ 52]</strong>፦ የህክምና ቆሻሻ በቀለም በተለዩ ባልዲዎች (ብልጭታ፣ ስለታም፣ መደበኛ) መለየት አለበት።",
+          "<strong>ስለታም ቁሳቁሶች [አንቀጽ 53]</strong>፦ መርፌዎችና ስለታም ቁሳቁሶች በተዘጋጁ Safety Box ውስጥ ብቻ ይከማቻሉ።",
+          "<strong>የቆሻሻ ማቃጠያ (Incineration) [አንቀጽ 55]</strong>፦ አደገኛ የህክምና ቆሻሻዎች በከፍተኛ ሙቀት ማቃጠያ ወይም አውቶክሌቭ መወገድ አለባቸው።"
+        ],
+        detailsEn: [
+          "<strong>IPC Committee Mandate [Art. 51]</strong>: Every health facility must maintain an active IPC Committee and protocols.",
+          "<strong>Color-Coded Segregation [Art. 52]</strong>: Mandatory sorting of infectious, sharp, and general waste at point of generation.",
+          "<strong>Sharps Disposal [Art. 53]</strong>: Used needles and blades must be immediately deposited into puncture-proof Safety Boxes.",
+          "<strong>Biohazard Incineration [Art. 55]</strong>: Hazardous biological waste must undergo high-temperature incineration or autoclaving."
+        ]
+      },
+      {
+        id: "card-1362-13",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የባህላዊ ህክምና እና አውታር ቁጥጥር",
+        sectionEn: "Section Six: Traditional Medicine Regulation",
+        articles: "Articles 56 – 60",
+        titleAm: "የባህላዊ ህክምና ምዝገባ፣ የደህንነት ማረጋገጫ እና ቁጥጥር",
+        titleEn: "Traditional Medicine Registration, Safety & Regulation",
+        previewAm: "የባህላዊ ህክምና አውታሮችን መመዝገብ፣ ደህንነታቸውን ማረጋገጥ እና ከዘመናዊ ህክምና ጋር ማቀናጀት።",
+        previewEn: "Regulatory registration, toxicity screening, and evidence-based integration of traditional practices.",
+        detailsAm: [
+          "<strong>የምዝገባ ግዴታ [አንቀጽ 56]</strong>፦ ማንኛውም ባህላዊ ህክምና አቅራቢ መመዝገብና የብቃት ማረጋገጫ ማግኘት አለበት።",
+          "<strong>የደህንነት ምርመራ [አንቀጽ 57]</strong>፦ የባህላዊ መድኃኒቶች መርዝነት (Toxicity) እና የጎንዮሽ ጉዳት በላቦራቶሪ ይመረመራል።",
+          "<strong>የማስታወቂያ ገደብ [አንቀጽ 58]</strong>፦ ያልተረጋገጠ ፈውስ የሚያስተዋውቁ ባህላዊ ህክምና አቅራቢዎች በሕግ ይጠየቃሉ።",
+          "<strong>የምርምር ድጋፍ [አንቀጽ 60]</strong>፦ ውጤታማነታቸው ለተረጋገጠ ባህላዊ መድኃኒቶች የሳይንሳዊ ምርምር ድጋፍ ይደረጋል።"
+        ],
+        detailsEn: [
+          "<strong>Mandatory Registration [Art. 56]</strong>: Traditional medicine practitioners must undergo registration and licensing verification.",
+          "<strong>Toxicity & Safety Screening [Art. 57]</strong>: Laboratory safety screening required to rule out heavy metal contamination and toxicity.",
+          "<strong>Advertising Ban [Art. 58]</strong>: Misleading claims or unverified miracle cure advertisements strictly illegal.",
+          "<strong>Scientific Integration [Art. 60]</strong>: State support for scientific standardization of validated herbal formulations."
+        ]
+      },
+      {
+        id: "card-1362-14",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የመስክ ቁጥጥር እና ኢንስፔክሽን",
+        sectionEn: "Section Six: Regulatory Inspection & Audit",
+        articles: "Articles 61 – 65",
+        titleAm: "የተቆጣጣሪዎች ሥልጣን፣ ድንገተኛ ኢንስፔክሽን እና ናሙና መውሰድ",
+        titleEn: "Regulatory Inspector Powers, Unannounced Audits & Sampling",
+        previewAm: "የጤና ተቆጣጣሪዎች ያለቅድመ ማስታወቂያ ወደ ማንኛውም የጤና ተቋም የመግባትና የመቆጣጠር ሥልጣን።",
+        previewEn: "Unannounced regulatory entry, document seizure, biomedical device audit, and product sampling powers.",
+        detailsAm: [
+          "<strong>የመግባት ሥልጣን [አንቀጽ 61]</strong>፦ ተቆጣጣሪዎች በሥራ ሰዓት ያለቅድመ ማስታወቂያ ወደ ማንኛውም የጤና ተቋም መግባት ይችላሉ።",
+          "<strong>የናሙና መውሰድ [አንቀጽ 62]</strong>፦ የመድኃኒት፣ የምግብ፣ የውኃ ወይም የቁሳቁስ ናሙና ለላቦራቶሪ ምርመራ የመውሰድ መብት።",
+          "<strong>ሰነድ የመመርመር [አንቀጽ 63]</strong>፦ የታካሚ የህክምና መዝገቦችን፣ የባለሙያ ፈቃዶችንና ደረሰኞችን የመመርመር ሥልጣን።",
+          "<strong>ጊዜያዊ እገዳ [አንቀጽ 65]</strong>፦ አጣዳፊ የሕዝብ ጤና አደጋ የሚያስከትል ተቋም ተቆጣጣሪው ወዲያውኑ በጊዜያዊነት ሊያሸግ ይችላል።"
+        ],
+        detailsEn: [
+          "<strong>Right of Unannounced Entry [Art. 61]</strong>: Authorized inspectors hold full legal right to inspect facilities without prior notice.",
+          "<strong>Product Sampling [Art. 62]</strong>: Legal authority to draw diagnostic, pharmaceutical, or water samples for testing.",
+          "<strong>Document Audit [Art. 63]</strong>: Right to inspect patient registers, practitioner credentials, and maintenance logs.",
+          "<strong>Immediate Closure Power [Art. 65]</strong>: Authority to order immediate temporary seal of facilities presenting imminent public health hazards."
+        ]
+      },
+      {
+        id: "card-1362-15",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - አስተዳደራዊ እርምጃዎች እና ቅጣቶች",
+        sectionEn: "Section Six: Administrative Penalties",
+        articles: "Articles 66 – 70",
+        titleAm: "የማስጠንቀቂያ፣ የእገዳ፣ የፈቃድ መሰረዝ እና የእሺታ እርምጃዎች",
+        titleEn: "Administrative Sanctions, License Revocation & Facility Closure",
+        previewAm: "ደንብ ለተላለፉ የጤና ተቋማትና ባለሙያዎች የሚሰጡ የጽሁፍ ማስጠንቀቂያዎች፣ የፈቃድ እገዳዎች እና መሰረዝ።",
+        previewEn: "Progressive administrative measures: written warnings, fines, operational suspension, and permanent closure.",
+        detailsAm: [
+          "<strong>የጽሁፍ ማስጠንቀቂያ [አንቀጽ 66]</strong>፦ የመጀመሪያ ደረጃ አነስተኛ ጥፋቶች ሲገኙ በጽሁፍ ማስጠንቀቂያና የማስተካከያ ጊዜ ይሰጣል።",
+          "<strong>የገንዘብ የተቀጮ [አንቀጽ 67]</strong>፦ እንደ ጥፋቱ ደረጃ ለተቋማትና ባለሙያዎች አስተዳደራዊ የገንዘብ መቀጮ ይጣላል።",
+          "<strong>የፈቃድ እገዳ [አንቀጽ 68]</strong>፦ ግኝቶችን በተሰጠው ጊዜ ያላረመ ተቋም ወይም ባለሙያ ፈቃዱ እስከ 6 ወር ይታገዳል።",
+          "<strong>የፈቃድ መሰረዝ [አንቀጽ 70]</strong>፦ ከባድ ጥፋት የፈጸመ ወይም በታገደበት ወቅት አገልግሎት የሰጠ ተቋም ፈቃዱ በዘላቂነት ይሰረዛል።"
+        ],
+        detailsEn: [
+          "<strong>Written Warnings [Art. 66]</strong>: Initial minor non-compliance triggers formal written notice specifying corrective timelines.",
+          "<strong>Administrative Fines [Art. 67]</strong>: Statutory fine schedules applied against non-compliant facilities and personnel.",
+          "<strong>License Suspension [Art. 68]</strong>: Failure to rectify audit gaps results in up to 6 months of license suspension.",
+          "<strong>Permanent Revocation [Art. 70]</strong>: Severe ethical violations or practicing under suspension leads to permanent revocation."
+        ]
+      },
+      {
+        id: "card-1362-16",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የወንጀል ተጠያቂነት እና መቀጮዎች",
+        sectionEn: "Section Six: Criminal Offences & Fines",
+        articles: "Articles 71 – 75",
+        titleAm: "ያለፈቃድ መስራት፣ የሐሰት ሰነድ እና የወንጀል ቅጣቶች",
+        titleEn: "Criminal Prosecution, Illegal Practice Fines & Imprisonment",
+        previewAm: "ያለ ፈቃድ መስራት፣ ሐሰተኛ የህክምና ሰርተፍኬት መስጠት እና ድንገተኛ ታካሚ አለመቀበል በወንጀል ያስቀጣል ።",
+        previewEn: "Criminal prosecution, heavy fines, and imprisonment for illegal practice or denying emergency care.",
+        detailsAm: [
+          "<strong>ያለ ፈቃድ መስራት ቅጣት [አንቀጽ 71]</strong>፦ ያለ ሕጋዊ ፈቃድ የጤና ተቋም መክፈት ወይም ማገልገል በእስራትና በከባድ ገንዘብ መቀጮ ያስቀጣል።",
+          "<strong>ሐሰተኛ ሰርተፍኬት መስጠት [አንቀጽ 72]</strong>፦ ሐሰተኛ የህመም ፈቃድ ወይም የህክምና ማስረጃ የሚሰጥ ባለሙያ በወንጀል ይጠየቃል ።",
+          "<strong>ድንገተኛ ታካሚ አለመቀበል [አንቀጽ 73]</strong>፦ ድንገተኛ ታካሚን ባለመቀበል ለሞት ወይም ለአካል ጉዳት የዳረገ ተቋም ኃላፊ በወንጀል ይከሰሳል።",
+          "<strong>ህገ-ወጥ የሰውነት አካል ንግድ [አንቀጽ 75]</strong>፦ በሰውነት አካል ንግድ የተካፈለ በማንኛውም አካል ላይ ጽኑ እስራት ይበየናል።"
+        ],
+        detailsEn: [
+          "<strong>Unlicensed Practice Penalty [Art. 71]</strong>: Operating without a valid license attracts criminal fines and imprisonment.",
+          "<strong>False Certification [Art. 72]</strong>: Issuing fraudulent medical or sick leave certificates punishable under the penal code.",
+          "<strong>Emergency Care Refusal [Art. 73]</strong>: Denying emergency stabilization resulting in harm triggers severe criminal charges.",
+          "<strong>Illegal Organ Trade Prosecution [Art. 75]</strong>: Participation in human organ trafficking penalized by maximum prison terms."
+        ]
+      },
+      {
+        id: "card-1362-17",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - የይግባኝ አቀራረብ እና ቅሬታ ሰሚ",
+        sectionEn: "Section Six: Regulatory Appeals",
+        articles: "Articles 76 – 80",
+        titleAm: "የአስተዳደራዊ ውሳኔ ይግባኝ እና የይግባኝ ሰሚ ጉባዔ",
+        titleEn: "Regulatory Decisions Appeal Window & Hearing Board",
+        previewAm: "በቁጥጥር አካል ውሳኔ ላይ ቅሬታ ያለው አካል በ30 ቀናት ውስጥ ለይግባኝ ሰሚ ጉባዔ ማቅረብ ይችላል።",
+        previewEn: "30-day appeal window for administrative sanctions to the independent Health Regulatory Appeals Board.",
+        detailsAm: [
+          "<strong>የቅሬታ ማቅረቢያ መስኮት [አንቀጽ 76]</strong>፦ በኢንስፔክሽን ውሳኔ ቅር የተሰኘ አካል ውሳኔው በደረሰው በ30 ቀናት ውስጥ ይግባኝ ማቅረብ ይችላል።",
+          "<strong>የይግባኝ ሰሚ ጉባዔ [አንቀጽ 77]</strong>፦ ከጤና ሚኒስቴር፣ ከፍትሕና ከሙያ ማህበራት የተጣጣመ ነጻ ጉባዔ ይቋቋማል።",
+          "<strong>የውሳኔ ማጸናትና መሻር [አንቀጽ 78]</strong>፦ ጉባዔው የቀረበለትን ይግባኝ መርምሮ ውሳኔውን ማጸናት፣ ማሻሻል ወይም መሻር ይችላል።",
+          "<strong>የመጨረሻ የፍርድ ቤት ይግባኝ [አንቀጽ 80]</strong>፦ በሕግ ስህተት ላይ ብቻ ለፌደራል ከፍተኛ ፍርድ ቤት ይግባኝ ማቅረብ ይቻላል።"
+        ],
+        detailsEn: [
+          "<strong>30-Day Appeal Window [Art. 76]</strong>: Aggrieved parties may appeal administrative decisions within 30 days of notification.",
+          "<strong>Independent Appeals Board [Art. 77]</strong>: Multi-sectoral board comprising Ministry, Justice, and professional association reps.",
+          "<strong>Board Powers [Art. 78]</strong>: Authority to confirm, modify, or overturn regulatory sanctions upon review.",
+          "<strong>Judicial Review [Art. 80]</strong>: Final recourse on points of law available at the Federal High Court."
+        ]
+      },
+      {
+        id: "card-1362-18",
+        cat: "S6",
+        sectionAm: "ክፍል ስድስት - መሸጋገሪያ ድንጋጌዎች እና መመሪያዎች",
+        sectionEn: "Section Six: Transitional Provisions",
+        articles: "Articles 81 – 85",
+        titleAm: "የመሸጋገሪያ ጊዜ፣ መመሪያ የማውጣት ሥልጣን እና የተሻሩ ሕጎች",
+        titleEn: "Transitional Timeline, Directive Authority & Repealed Laws",
+        previewAm: "ነባር የጤና ተቋማት በ1 ዓመት ውስጥ ከአዲሱ ሕግ ጋር መጣጣም አለባቸው፤ የተሻሩ መመሪያዎች።",
+        previewEn: "1-year transitional window for existing facilities to align with new legal standards under Proc 1362.",
+        detailsAm: [
+          "<strong>የ1 ዓመት መሸጋገሪያ ጊዜ [አንቀጽ 81]</strong>፦ ነባር የጤና ተቋማትና ባለሙያዎች አዋጁ ከወጣበት ቀን ጀምሮ በ1 ዓመት ውስጥ ማሟላት አለባቸው።",
+          "<strong>መመሪያ የማውጣት ሥልጣን [አንቀጽ 82]</strong>፦ የጤና ሚኒስቴርና የቁጥጥር ባለሥልጣኑ ዝርዝር መመሪያዎችን ያወጣሉ።",
+          "<strong>የተሻሩ ሕጎች [አንቀጽ 84]</strong>፦ ከዚህ አዋጅ ጋር የሚቃረኑ አሰራሮች፣ ደንቦችና መመሪያዎች ተፈጻሚነት አይኖራቸውም።",
+          "<strong>አዋጁ የሚጸናበት ቀን [አንቀጽ 85]</strong>፦ ይህ አዋጅ በነጋሪት ጋዜጣ ታትሞ ከወጣበት ቀን ጀምሮ የጸና ይሆናል፡፡"
+        ],
+        detailsEn: [
+          "<strong>1-Year Grace Period [Art. 81]</strong>: Existing licensed facilities granted 1 year to upgrade infrastructure to match new standards.",
+          "<strong>Directive Issuance Power [Art. 82]</strong>: Authorizes Ministry of Health and Regulatory Authority to issue specific directives.",
+          "<strong>Repeal Provision [Art. 84]</strong>: Any prior regulations, directives, or practices inconsistent with Proc 1362 are null and void.",
+          "<strong>Effective Date [Art. 85]</strong>: Enforced immediately upon publication in the Federal Negarit Gazette."
         ]
       }
     ];
 
+    let filteredCards = [...flashcardsData];
+
     document.addEventListener('DOMContentLoaded', () => {
-      renderTOC();
-      renderProclamation();
+      renderActiveCard();
+      updateDashboardStats();
       updateBookmarkCount();
     });
 
-    function renderTOC() {
-      const container = document.getElementById('toc-container');
-      container.innerHTML = proclamationData.map(part => `
-        <a href="#${part.id}" class="toc-item" id="toc-link-${part.id}" onclick="setActiveTOC('${part.id}')">
-          <span>${currentLang === 'en' ? 'Part ' + part.num : 'ክፍል ' + part.num}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
+    function renderActiveCard() {
+      if (filteredCards.length === 0) {
+        document.getElementById('front-title-am').textContent = "ምንም ካርድ አልተገኘም";
+        document.getElementById('front-title-en').textContent = "No Flashcards Found";
+        document.getElementById('front-preview-am').textContent = "እባክዎ የፍለጋ ቃሉን ይቀይሩ።";
+        document.getElementById('front-preview-en').textContent = "Try broadening your search query.";
+        document.getElementById('deck-counter-indicator').textContent = "0 of 0";
+        return;
+      }
+
+      if (currentCardIndex >= filteredCards.length) currentCardIndex = 0;
+      const card = filteredCards[currentCardIndex];
+
+      // Badges
+      document.getElementById('front-section-badge').textContent = card.sectionEn.split(':')[0];
+      document.getElementById('front-articles-badge').textContent = card.articles;
+
+      // Titles & Previews
+      document.getElementById('front-title-am').textContent = card.titleAm;
+      document.getElementById('front-title-en').textContent = card.titleEn;
+      document.getElementById('front-preview-am').textContent = card.previewAm;
+      document.getElementById('front-preview-en').textContent = card.previewEn;
+
+      // Visibility based on language mode
+      const amCol = document.querySelector('.amharic-col');
+      const enCol = document.querySelector('.english-col');
+      const splitGrid = document.getElementById('front-split-grid');
+
+      if (currentLang === 'am') {
+        amCol.style.display = 'block';
+        enCol.style.display = 'none';
+        splitGrid.classList.remove('dual-mode');
+      } else if (currentLang === 'en') {
+        amCol.style.display = 'none';
+        enCol.style.display = 'block';
+        splitGrid.classList.remove('dual-mode');
+      } else {
+        amCol.style.display = 'block';
+        enCol.style.display = 'block';
+        splitGrid.classList.add('dual-mode');
+      }
+
+      // Font size
+      document.getElementById('card-3d-element').style.fontSize = `${currentFontSize}px`;
+
+      // Back Details List
+      const detailsList = document.getElementById('back-details-list');
+      const detailsArr = currentLang === 'am' ? card.detailsAm : card.detailsEn;
+      detailsList.innerHTML = detailsArr.map(item => `
+        <li style="display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.925rem; line-height: 1.6; color: #cbd5e1;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-accent)" stroke-width="2.5" style="margin-top: 4px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>${applyHighlight(item)}</span>
+        </li>
       `).join('');
+
+      // Counter
+      document.getElementById('deck-counter-indicator').textContent = `Card ${currentCardIndex + 1} of ${filteredCards.length}`;
+
+      // Reset flip state
+      if (isCardFlipped) {
+        document.getElementById('card-3d-element').classList.remove('flipped');
+        isCardFlipped = false;
+      }
     }
 
-    function renderProclamation() {
-      const viewer = document.getElementById('proclamation-viewer');
-      
-      viewer.innerHTML = proclamationData.map(part => {
-        const articlesHTML = part.articles.map(art => {
-          const isBookmarked = savedBookmarks.includes(art.artNum);
+    function flipActiveCard() {
+      isCardFlipped = !isCardFlipped;
+      document.getElementById('card-3d-element').classList.toggle('flipped', isCardFlipped);
+    }
 
-          let bodyHTML = '';
-          if (art.isTable && art.tableData) {
-            bodyHTML = `
-              <div class="table-container">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Offense / የወንጀል ጥፋት</th>
-                      <th>Penalty / ቅጣት</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${art.tableData.map(row => `
-                      <tr>
-                        <td>
-                          <div style="font-weight: 700; color: #ffffff;">${applyHighlight(row.offenseAm)}</div>
-                          <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 2px;">${applyHighlight(row.offenseEn)}</div>
-                        </td>
-                        <td class="penalty-highlight">
-                          <div>${applyHighlight(row.penaltyAm)}</div>
-                          <div style="font-size: 0.8rem; opacity: 0.88; font-weight: 600;">${applyHighlight(row.penaltyEn)}</div>
-                        </td>
-                      </tr>
-                    `).join('')}
-                  </tbody>
-                </table>
-              </div>
-            `;
-          } else {
-            bodyHTML = `
-              <div class="split-grid ${currentLang === 'split' ? 'dual-mode' : ''}">
-                <div class="split-col ${currentLang === 'split' ? 'split-col-am' : ''}" style="${currentLang === 'en' ? 'display:none;' : ''}">
-                  <div class="article-body" style="font-size: ${currentFontSize}px;">${applyHighlight(art.textAm)}</div>
-                </div>
-                <div class="split-col" style="${currentLang === 'am' ? 'display:none;' : ''}">
-                  <div class="article-body" style="font-size: ${currentFontSize}px;">${applyHighlight(art.textEn)}</div>
-                </div>
-              </div>
-            `;
-          }
+    function navigateCard(direction) {
+      if (filteredCards.length === 0) return;
+      currentCardIndex = (currentCardIndex + direction + filteredCards.length) % filteredCards.length;
+      renderActiveCard();
+    }
 
-          return `
-            <div id="art-${art.artNum}" class="glass-panel article-card card-3d">
-              <div class="article-top">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                  <span class="article-number">§${art.artNum}</span>
-                  <h3 class="article-heading">
-                    ${currentLang === 'en' ? art.titleEn : art.titleAm}
-                  </h3>
-                </div>
-                <div style="display: flex; gap: 0.35rem;">
-                  <button class="btn" onclick="toggleBookmark('${art.artNum}')" style="min-height: 38px; padding: 0 0.65rem;" title="Bookmark">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'var(--gold-accent)' : 'none'}" stroke="${isBookmarked ? 'var(--gold-accent)' : 'currentColor'}" stroke-width="2"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-                  </button>
-                  <button class="btn" onclick="copyArticle('${art.artNum}')" style="min-height: 38px; padding: 0 0.65rem;" title="Copy Text">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                  </button>
-                </div>
-              </div>
-              ${bodyHTML}
-            </div>
-          `;
-        }).join('');
-
-        return `
-          <div id="${part.id}" class="part-section">
-            <div class="part-header">
-              <div class="part-title">${currentLang === 'en' ? part.titleEn : part.titleAm}</div>
-              <span class="pill" style="margin: 0;">Part ${part.num}</span>
-            </div>
-            ${articlesHTML}
-          </div>
-        `;
-      }).join('');
+    function shuffleDeck() {
+      filteredCards.sort(() => Math.random() - 0.5);
+      currentCardIndex = 0;
+      renderActiveCard();
+      showToast("Deck shuffled!");
     }
 
     function setLanguage(lang) {
@@ -2105,8 +1385,8 @@
         if (l === lang) btn.classList.add('btn-active');
         else btn.classList.remove('btn-active');
       });
-      renderTOC();
-      renderProclamation();
+      renderActiveCard();
+      if (isGridView) renderGridView();
     }
 
     function adjustFont(delta) {
@@ -2115,15 +1395,24 @@
       } else {
         currentFontSize = Math.min(Math.max(currentFontSize + delta, 13), 22);
       }
-      renderProclamation();
+      renderActiveCard();
+      if (isGridView) renderGridView();
       showToast(`Text size: ${currentFontSize}px`);
+    }
+
+    function filterCategory(cat) {
+      currentCategoryFilter = cat;
+      document.querySelectorAll('#filter-pills-container .pill').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      applySearchAndFilter();
     }
 
     function executeSearch(query) {
       activeSearchQuery = query.trim().toLowerCase();
       const clearBtn = document.getElementById('search-clear-btn');
       if (clearBtn) clearBtn.style.display = activeSearchQuery.length > 0 ? 'flex' : 'none';
-      renderProclamation();
+      applySearchAndFilter();
     }
 
     function clearSearch() {
@@ -2132,10 +1421,26 @@
       executeSearch('');
     }
 
-    function quickFilter(term) {
-      const input = document.getElementById('main-search-input');
-      input.value = term;
-      executeSearch(term);
+    function applySearchAndFilter() {
+      filteredCards = flashcardsData.filter(card => {
+        const matchesCategory = currentCategoryFilter === 'ALL' || card.cat === currentCategoryFilter;
+        if (!matchesCategory) return false;
+
+        if (!activeSearchQuery) return true;
+
+        const q = activeSearchQuery;
+        const matchTitle = card.titleAm.toLowerCase().includes(q) || card.titleEn.toLowerCase().includes(q);
+        const matchPreview = card.previewAm.toLowerCase().includes(q) || card.previewEn.toLowerCase().includes(q);
+        const matchDetails = card.detailsAm.some(d => d.toLowerCase().includes(q)) || card.detailsEn.some(d => d.toLowerCase().includes(q));
+        const matchArticles = card.articles.toLowerCase().includes(q);
+
+        return matchTitle || matchPreview || matchDetails || matchArticles;
+      });
+
+      currentCardIndex = 0;
+      document.getElementById('total-cards-indicator').textContent = `${filteredCards.length} Flashcards`;
+      renderActiveCard();
+      if (isGridView) renderGridView();
     }
 
     function applyHighlight(text) {
@@ -2148,91 +1453,93 @@
       return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
-    function toggleBookmark(artNum) {
-      const index = savedBookmarks.indexOf(artNum);
-      if (index > -1) {
-        savedBookmarks.splice(index, 1);
-        showToast(`Article §${artNum} removed from bookmarks`);
+    function toggleViewMode() {
+      isGridView = !isGridView;
+      const deckContainer = document.getElementById('deck-view-container');
+      const gridContainer = document.getElementById('grid-view-container');
+      const btn = document.getElementById('view-mode-btn');
+
+      if (isGridView) {
+        deckContainer.style.display = 'none';
+        gridContainer.style.display = 'grid';
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg><span>3D Deck View</span>`;
+        renderGridView();
       } else {
-        savedBookmarks.push(artNum);
-        showToast(`Article §${artNum} saved to bookmarks`);
+        deckContainer.style.display = 'flex';
+        gridContainer.style.display = 'none';
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg><span>Grid View</span>`;
+        renderActiveCard();
       }
-      localStorage.setItem('proc_1362_bm', JSON.stringify(savedBookmarks));
-      updateBookmarkCount();
-      renderProclamation();
     }
 
-    function updateBookmarkCount() {
-      const badge = document.getElementById('bookmark-count-badge');
-      if (savedBookmarks.length > 0) {
-        badge.textContent = savedBookmarks.length;
-        badge.style.display = 'flex';
-      } else {
-        badge.style.display = 'none';
+    function renderGridView() {
+      const gridContainer = document.getElementById('grid-view-container');
+      if (filteredCards.length === 0) {
+        gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 3rem;">No flashcards found.</div>`;
+        return;
       }
+
+      gridContainer.innerHTML = filteredCards.map((card, idx) => `
+        <div class="grid-card-item glass-panel" onclick="selectGridCard(${idx})">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="section-badge">${card.sectionEn.split(':')[0]}</span>
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-dim);">${card.articles}</span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--emerald-accent); margin-bottom: 0.4rem;">${card.titleAm}</h3>
+            <h4 style="font-size: 0.92rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">${card.titleEn}</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">${currentLang === 'am' ? card.previewAm : card.previewEn}</p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--emerald-accent);">Click to Study Card</span>
+            ${userProgress[card.id] ? `<span style="font-size: 0.75rem; font-weight: 800; color: ${userProgress[card.id] === 'mastered' ? 'var(--emerald-accent)' : 'var(--gold-accent)'};">${userProgress[card.id].toUpperCase()}</span>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function selectGridCard(idx) {
+      currentCardIndex = idx;
+      toggleViewMode();
+    }
+
+    function markCardStatus(status) {
+      const card = filteredCards[currentCardIndex];
+      userProgress[card.id] = status;
+      localStorage.setItem('proc_1362_prog', JSON.stringify(userProgress));
+      updateDashboardStats();
+      showToast(`Marked as ${status}`);
+      navigateCard(1);
+    }
+
+    function updateDashboardStats() {
+      let mastered = 0;
+      let review = 0;
+      flashcardsData.forEach(c => {
+        if (userProgress[c.id] === 'mastered') mastered++;
+        else if (userProgress[c.id] === 'review') review++;
+      });
+
+      document.getElementById('stat-mastered').textContent = mastered;
+      document.getElementById('stat-review').textContent = review;
+      const pct = Math.round((mastered / flashcardsData.length) * 100);
+      document.getElementById('stat-progress').textContent = `${pct}%`;
     }
 
     function toggleBookmarksModal() {
       const modal = document.getElementById('bookmarks-modal');
       modal.classList.toggle('open');
-      if (modal.classList.contains('open')) {
-        renderBookmarksModalList();
-      }
     }
 
-    function renderBookmarksModalList() {
-      const container = document.getElementById('bookmarks-modal-list');
-      if (savedBookmarks.length === 0) {
-        container.innerHTML = `<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No bookmarks saved yet.</div>`;
-        return;
-      }
-      
-      let html = '';
-      proclamationData.forEach(part => {
-        part.articles.forEach(art => {
-          if (savedBookmarks.includes(art.artNum)) {
-            html += `
-              <div style="padding: 0.9rem; background: rgba(22, 34, 54, 0.85); border-radius: 12px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-                <div>
-                  <span style="font-size: 0.75rem; font-weight: 800; color: var(--brand-sky);">Article §${art.artNum}</span>
-                  <div style="font-size: 0.9rem; font-weight: 700; color: #ffffff;">${art.titleAm}</div>
-                </div>
-                <a href="#art-${art.artNum}" onclick="toggleBookmarksModal()" class="btn" style="min-height: 36px; padding: 0 0.85rem;">View</a>
-              </div>
-            `;
-          }
-        });
-      });
-      container.innerHTML = html;
-    }
-
-    function copyArticle(artNum) {
-      let content = '';
-      proclamationData.forEach(part => {
-        part.articles.forEach(art => {
-          if (art.artNum === artNum) {
-            content = `Proc. 1362/2024 - Article §${art.artNum}\n\n[Amharic]\n${art.textAm}\n\n[English]\n${art.textEn}`;
-          }
-        });
-      });
-
-      const el = document.createElement('textarea');
-      el.value = content;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      showToast(`Article §${artNum} text copied to clipboard`);
-    }
-
-    function setActiveTOC(id) {
-      document.querySelectorAll('.toc-item').forEach(el => el.classList.remove('active'));
-      const active = document.getElementById(`toc-link-${id}`);
-      if (active) active.classList.add('active');
+    function updateBookmarkCount() {
+      // Can be wired to bookmarks if needed
     }
 
     function resetView() {
       document.getElementById('main-search-input').value = '';
+      currentCategoryFilter = 'ALL';
+      document.querySelectorAll('#filter-pills-container .pill').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('#filter-pills-container .pill').classList.add('active');
       executeSearch('');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
